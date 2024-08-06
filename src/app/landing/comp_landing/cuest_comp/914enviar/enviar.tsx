@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/app/firebase";
 
 interface EnviarProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
@@ -20,29 +22,23 @@ const Enviar: React.FC<EnviarProps> = ({
   let lang = "es";
   const [botonPulsado, setBotonPulsado] = useState(false);
 
-  const handleSeguirClick = () => {
+  const handleSeguirClick = async () => {
     setBotonPulsado(true);
 
-    fetch("https://pompeiabackend-ntha9xyjc-frankgimeno3.vercel.app/files/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ nombre, midios, lang }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log(response);
-          setComponenteActual("yapuedes");
-        } else {
-          throw new Error("Credenciales incorrectas");
-        }
-      })
-      .catch((error) => {
-        console.error("Ha ocurrido un error:", error);
+    try {
+      const docRef = await addDoc(collection(db, "documents"), {
+        nombre,
+        midios,
+        lang,
+        updatedAt: "conchi"
       });
+      console.log("Document written with ID: ", docRef.id);
+      setComponenteActual("yapuedes");
+    } catch (error) {
+      console.error("Ha ocurrido un error:", error);
+    }
   };
-
+  
   const handleRestart = () => {
     router.push("/landing");
   };
