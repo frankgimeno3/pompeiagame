@@ -16,10 +16,6 @@ const Home = () => {
 
   const router = useRouter();
 
-  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    router.push('/signup');
-  }
 
   return (
     <div className='relative'>
@@ -37,7 +33,7 @@ const Home = () => {
         <form className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"
         onSubmit={(e) => {
           e.preventDefault();
-          signIn('credentials', { email, password, redirect: true, callbackUrl: '/dashboard' });
+          signIn('credentials', { email, password, redirect: true, callbackUrl: '/landing' });
       }}>
           <div className="space-y-6">
             <div>
