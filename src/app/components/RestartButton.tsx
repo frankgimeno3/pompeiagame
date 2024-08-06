@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { MdRefresh } from 'react-icons/md';
 
 const RestartButton: React.FC = () => {
