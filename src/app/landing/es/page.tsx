@@ -115,18 +115,18 @@ const Cuestionario = () => {
 
   return (
     <div
-      className="h-screen transition-opacity duration-1000 opacity-100"
+      className="flex flex-col h-screen transition-opacity duration-1000 opacity-100 mx-auto"
       style={{
         backgroundImage: `url("/fondo2.png")`,
-        backgroundSize: "cover",
+        backgroundSize: "100% 100%",
         backgroundPosition: "center",
       }}
     >
       <div
         className="h-screen flex flex-col justify-center text-center relative transition-opacity duration-1000 opacity-100"
         style={{
-          backgroundImage: fondo,
-          backgroundSize: "cover",
+          backgroundImage: `url("/fondo2.png")`,
+          backgroundSize: "100% 100%",
           backgroundPosition: "center",
         }}
       >
