@@ -3,23 +3,23 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Restartbutton from "../../components/RestartButton";
-// import renderComponenteActual from "../renderComponenteActual";
+import renderComponenteActual from "../renderComponenteActual";
 
 const Cuestionario = () => {
-  // const [idioma, setIdioma] = useState("es")
+  const [idioma, setIdioma] = useState("es")
   const [componenteactual, setComponenteActual] = useState("nombre");
-  // const [nombre, setNombre] = useState("");
-  // const [conflicto, setConflicto] = useState("");
-  // const [relaciones, setRelaciones] = useState("");
-  // const [estrategia, setEstrategia] = useState("");
-  // const [resolutividad, setResolutividad] = useState("");
-  // const [trabajo, setTrabajo] = useState("");
-  // const [lugar, setLugar] = useState("");
-  // const [humor, setHumor] = useState("");
-  // const [creatividad, setCreatividad] = useState("");
-  // const [juicio, setJuicio] = useState("");
-  // const [horario, setHorario] = useState("");
-  // const [midios, setmidios] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [conflicto, setConflicto] = useState("");
+  const [relaciones, setRelaciones] = useState("");
+  const [estrategia, setEstrategia] = useState("");
+  const [resolutividad, setResolutividad] = useState("");
+  const [trabajo, setTrabajo] = useState("");
+  const [lugar, setLugar] = useState("");
+  const [humor, setHumor] = useState("");
+  const [creatividad, setCreatividad] = useState("");
+  const [juicio, setJuicio] = useState("");
+  const [horario, setHorario] = useState("");
+  const [midios, setmidios] = useState("");
   const [loadingvisible, setloadingvisible] = useState(false);
   const [fondo, setFondo] = useState(`url("/fondo2.png")`);
 
@@ -147,7 +147,7 @@ const Cuestionario = () => {
         <div className="absolute top-10 right-10 m-4">
           <Restartbutton />
         </div>
-        {/* <div>
+        <div>
           {renderComponenteActual(
             componenteactual,
             setComponenteActual,
@@ -176,7 +176,7 @@ const Cuestionario = () => {
             horario,
             midios
           )}
-        </div> */}
+        </div>
       </div>
     </div>
   );
