@@ -125,7 +125,7 @@ const Cuestionario = () => {
       <div
         className="h-screen flex flex-col justify-center text-center relative transition-opacity duration-1000 opacity-100"
         style={{
-          backgroundImage: `url("/fondo2.png")`,
+          backgroundImage: fondo,
           backgroundSize: "100% 100%",
           backgroundPosition: "center",
         }}
