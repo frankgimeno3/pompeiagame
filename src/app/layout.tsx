@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import { NextAuthProvider } from "./NextAuthProvider";
+import { NextAuthProvider } from "./NextAuthProvider";
 
 // Importing Cinzel font from Google Fonts
 const inter = Inter({ subsets: ["latin"] });
@@ -24,10 +24,10 @@ export default async function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet" />
       </head>
       <body className={`${inter.className} font-cinzel`}>
-      {/* <NextAuthProvider> */}
+      <NextAuthProvider>
 
         {children}
-        {/* </NextAuthProvider> */}
+        </NextAuthProvider>
 
       </body>
     </html>
