@@ -17,17 +17,38 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-    )
+    ),
     rgb(var(--background-start-rgb));
+  color: #b3896d;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Custom Cinzel font classes with unique identifiers and varying weights */
+.cinzel-unique-light {
+  font-family: 'Cinzel', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cinzel-unique-bold {
+  font-family: 'Cinzel', serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cinzel-unique-black {
+  font-family: 'Cinzel', serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Tailwind-specific font family class */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
 }
