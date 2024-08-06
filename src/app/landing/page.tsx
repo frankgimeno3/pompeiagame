@@ -30,23 +30,23 @@ const Landing: FC<LandingProps> = ({ }) => {
         JUGAR
       </button>
       <div className="flex justify-center items-center mt-10 mb-10">
-        <div className="flex flex-col text-black " onClick={() => redirectTo("/landing/es")}>
+        <div className="flex flex-col text-black mx-5 justify-center text-center " onClick={() => redirectTo("/landing/es")}>
           <div className="rounded-full overflow-hidden">
             <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
           </div>
-          <button className="text-3xl">EN</button>
+          <button className="text-3xl text-center ">EN</button>
         </div>
-        <div className="flex flex-col text-black ml-20 " onClick={() => redirectTo("/landing/es")}>
+        <div className="flex flex-col text-black  mx-5 justify-center text-center " onClick={() => redirectTo("/landing/es")}>
           <div className="rounded-full overflow-hidden">
             <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
           </div>
-          <button className="text-3xl">ES</button>
+          <button className="text-3xl text-center ">ES</button>
         </div>
-        <div className="flex flex-col text-black ml-20 " onClick={() => redirectTo("/landing/es")}>
+        <div className="flex flex-col text-black  mx-5 justify-center text-center " onClick={() => redirectTo("/landing/es")}>
           <div className="rounded-full overflow-hidden">
             <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
           </div>
-          <button className="text-3xl">DE</button>
+          <button className="text-3xl text-center ">DE</button>
         </div>
       </div>
     </div>);
