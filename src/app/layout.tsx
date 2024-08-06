@@ -25,7 +25,6 @@ export default async function RootLayout({
       </head>
       <body className={`${inter.className} font-cinzel`}>
       <NextAuthProvider>
-
         {children}
         </NextAuthProvider>
 
