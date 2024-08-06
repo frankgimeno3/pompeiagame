@@ -35,16 +35,14 @@ const Landing: FC<LandingProps> = ({ }) => {
             </div>
             <button className="text-3xl">EN</button>
           </div>
-        {/* </Link>
-        <Link href="/landing/es"> */}
-          <div className="flex flex-col text-black ml-20 ">
+        {/* </Link> */}
+           <div className="flex flex-col text-black ml-20 "  onClick={()=>redirectTo("/landing/es")}>
             <div className="rounded-full overflow-hidden">
               <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
             </div>
             <button className="text-3xl">ES</button>
           </div>
-        {/* </Link>
-        <Link href="/landing/es"> */}
+         {/* <Link href="/landing/de"> */}
           <div className="flex flex-col text-black ml-20 ">
             <div className="rounded-full overflow-hidden">
               <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
