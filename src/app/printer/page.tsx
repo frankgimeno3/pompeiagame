@@ -4,7 +4,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
 import { useRouter } from 'next/navigation';
-import { collection, doc, getDocs, query } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../firebase';
 
 interface PrinterProps {
@@ -48,7 +48,36 @@ const Printer: FC<PrinterProps> = ({ }) => {
         fetchData();
       }, []);
     
-      
+      const showDeleteAlert = (id: string) => {
+        setSelectedFileId(id);
+        setShowAlert(true);
+      };
+      const cancelDelete = () => {
+        setShowAlert(false);
+      };
+    
+      const confirmDelete = () => {
+        setShowAlert(false);
+        handleDelete(selectedFileId);
+      };
+
+      const handleDelete = async (id: string | null) => {
+        if (!id) return;
+    
+        try {
+          const documentRef = doc(db, 'documents', id);
+          await deleteDoc(documentRef);
+          
+          // Filtrar el archivo eliminado del estado local
+          setFiles((prevFiles) => prevFiles.filter(file => file.id !== id));
+          
+          window.location.reload();
+        } catch (error) {
+          console.error("Error eliminando el documento: ", error);
+        }
+      };
+    
+     
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar />}
@@ -128,7 +157,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                         <td className="border border-gray-300 text-center">
                                             <button
                                                 className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] my-2 hover:bg-gray-50 btn-eliminar"
-                                                // onClick={() => showDeleteAlert(file._id)}
+                                                onClick={() => showDeleteAlert(file.id)}
                                             >
                                                 Eliminar
                                             </button>
@@ -157,13 +186,13 @@ const Printer: FC<PrinterProps> = ({ }) => {
                         <div className="flex justify-end">
                             <button
                                 className="rounded bg-red-500 text-white px-4 py-2 mr-2"
-                                // onClick={confirmDelete}
+                                onClick={confirmDelete}
                             >
                                 ELIMINAR
                             </button>
                             <button
                                 className="rounded bg-gray-200 px-4 py-2"
-                                // onClick={cancelDelete}
+                                onClick={cancelDelete}
                             >
                                 CANCELAR
                             </button>
