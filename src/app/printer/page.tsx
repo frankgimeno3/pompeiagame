@@ -77,7 +77,26 @@ const Printer: FC<PrinterProps> = ({ }) => {
         }
     };
 
-
+    const handleHeaderClick = (header: string) => {
+        const newOrder = header === currentOrder ? `-${header}` : header;
+        const sortedTableData = files.slice().sort((a, b) => {
+          if (header === "updatedAt") {
+            return (
+              new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+            );
+          } else {
+            return (a as any)[header].localeCompare((b as any)[header]);
+          }
+        });
+    
+        if (newOrder.startsWith("-")) {
+          sortedTableData.reverse();
+        }
+    
+        setFiles(sortedTableData);
+        setCurrentOrder(newOrder);
+      };
+      
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar />}
@@ -86,10 +105,10 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 <div className="p-5">
                     <div className="mb-4 flex flex-row justify-between">
                         <h2 className="mb-4 ml-3 text-lg">Juego Dioses del Olimpo </h2>
-                        <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
+                        {/* <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
                             style={{ fontSize: "0.60rem" }}
-                        //   onClick={handleDeleteFiles}
-                        >Borrar contenido antiguo</button>
+                            onClick={handleDeleteFiles}
+                        >Borrar contenido antiguo</button> */}
                     </div>
                     <div className="mr-20 bg-white p-5 ">
                         <table className="text-xs border border-gray-300 bg-white w-full text-left">
@@ -97,25 +116,25 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                 <tr className="border border-gray-300">
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    // onClick={() => handleHeaderClick("updatedAt")}
+                                    onClick={() => handleHeaderClick("updatedAt")}
                                     >
                                         Hora
                                     </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    // onClick={() => handleHeaderClick("nombre")}
+                                    onClick={() => handleHeaderClick("nombre")}
                                     >
                                         Nombre
                                     </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    // onClick={() => handleHeaderClick("midios")}
+                                    onClick={() => handleHeaderClick("midios")}
                                     >
                                         Dios
                                     </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    // onClick={() => handleHeaderClick("lang")}
+                                    onClick={() => handleHeaderClick("lang")}
                                     >
                                         Idioma
                                     </th>
