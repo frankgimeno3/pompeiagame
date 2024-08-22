@@ -11,6 +11,7 @@ import { useReactToPrint } from 'react-to-print'; // Importar la librería aquí
 import slogans from "../contenido/es/printer/slogans.json"
 import sloganseng from "../contenido/en/printer/sloganseng.json"
 import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
+import VisualizarHandler from './VisualizarHandler/VisualizarHandler';
 // import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 
 interface PrinterProps {}
@@ -110,97 +111,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
         handlePrint();
     }, 500);
     
-    const handleVisualizar = (file: File) => {
-        setSelectedRowData(file);
-        switch (file.lang) {
-            case "es":
-                switch (file.midios) {
-                    case "CERES":
-                        setcontenidoprint(slogans.CERES);
-                        break;
-                    case "DIANA":
-                        setcontenidoprint(slogans.DIANA);
-                        break;
-                    case "FEBO":
-                        setcontenidoprint(slogans.FEBO);
-                        break;
-                    case "JUPITER":
-                        setcontenidoprint(slogans.JUPITER);
-                        break;
-                    case "JUNO":
-                        setcontenidoprint(slogans.JUNO);
-                        break;
-                    case "MARTE":
-                        setcontenidoprint(slogans.MARTE);
-                        break;
-                    case "MERCURIO":
-                        setcontenidoprint(slogans.MERCURIO);
-                        break;
-                    case "MINERVA":
-                        setcontenidoprint(slogans.MINERVA);
-                        break;
-                    case "NEPTUNO":
-                        setcontenidoprint(slogans.NEPTUNO);
-                        break;
-                    case "VENUS":
-                        setcontenidoprint(slogans.VENUS);
-                        break;
-                    case "VESTA":
-                        setcontenidoprint(slogans.VESTA);
-                        break;
-                    case "VULCANO":
-                        setcontenidoprint(slogans.VULCANO);
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case "en":
-                switch (file.midios) {
-                    case "CERES":
-                        setcontenidoprint(sloganseng.CERES);
-                        break;
-                    case "DIANA":
-                        setcontenidoprint(sloganseng.DIANA);
-                        break;
-                    case "PHOEBUS":
-                        setcontenidoprint(sloganseng.PHOEBUS);
-                        break;
-                    case "JUPITER":
-                        setcontenidoprint(sloganseng.JUPITER);
-                        break;
-                    case "VESTA":
-                        setcontenidoprint(sloganseng.VESTA);
-                        break;
-                    case "MARS":
-                        setcontenidoprint(sloganseng.MARS);
-                        break;
-                    case "MERCURY":
-                        setcontenidoprint(sloganseng.MERCURY);
-                        break;
-                    case "MINERVA":
-                        setcontenidoprint(sloganseng.MINERVA);
-                        break;
-                    case "NEPTUNE":
-                        setcontenidoprint(sloganseng.NEPTUNE);
-                        break;
-                    case "VENUS":
-                        setcontenidoprint(sloganseng.VENUS);
-                        break;
-                    case "JUNO":
-                        setcontenidoprint(sloganseng.JUNO);
-                        break;
-                    case "VULCAN":
-                        setcontenidoprint(sloganseng.VULCAN);
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            default:
-                break;
-        }
-    };
+ 
 
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
@@ -267,12 +178,11 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                             {singnlefile.lang}
                                         </td>
                                         <td className="border border-gray-300 text-center">
-                                            <button
-                                                className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] hover:bg-gray-50 btn-visualizar"
-                                                onClick={() => handleVisualizar(singnlefile)}
-                                            >
-                                                Visualizar
-                                            </button>
+                                        <VisualizarHandler
+                                                file={singnlefile}
+                                                setSelectedRowData={setSelectedRowData}
+                                                setcontenidoprint={setcontenidoprint}
+                                            />
                                         </td>
                                         <td className="border border-gray-300 text-center">
                                             <button
