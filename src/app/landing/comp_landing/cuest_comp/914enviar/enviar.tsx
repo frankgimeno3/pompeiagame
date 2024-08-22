@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
 
 interface EnviarProps {
@@ -24,14 +24,20 @@ const Enviar: React.FC<EnviarProps> = ({
 
   const handleSeguirClick = async () => {
     setBotonPulsado(true);
-
+  
     try {
       const docRef = await addDoc(collection(db, "documents"), {
         nombre,
         midios,
         lang,
-        updatedAt: "conchi"
+        updatedAt: new Date().toISOString(),  
+        id: ""
       });
+  
+      await updateDoc(docRef, {
+        id: docRef.id,
+      });
+  
       console.log("Document written with ID: ", docRef.id);
       setComponenteActual("yapuedes");
     } catch (error) {
@@ -39,6 +45,7 @@ const Enviar: React.FC<EnviarProps> = ({
     }
   };
   
+
   const handleRestart = () => {
     router.push("/landing");
   };
