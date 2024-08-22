@@ -36,3 +36,4 @@ export interface NombreProps {
     setNombre: React.Dispatch<React.SetStateAction<string>>;
     lang: 'es' | 'en' | 'de'; // Idioma como propiedad
 }
+

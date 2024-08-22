@@ -2,11 +2,7 @@ import Content from "../../../contenido/contenidoTotem.json"
 import React, { useState } from "react";
 import { Cuestionario, ContentType, NombreProps } from "../../../contenido/interfaces";
 
-interface NombreProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setNombre: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
+
 
 
 const Nombre: React.FC<NombreProps> = ({ setComponenteActual, setNombre, lang }) => {
