@@ -12,11 +12,11 @@ interface PrinterProps {
 }
 
 interface File {
-    id:any;
-    lang:string;
-    midios:string;
-    nombre:string;
-    updatedAt:string;
+    id: any;
+    lang: string;
+    midios: string;
+    nombre: string;
+    updatedAt: string;
 }
 
 const Printer: FC<PrinterProps> = ({ }) => {
@@ -31,53 +31,53 @@ const Printer: FC<PrinterProps> = ({ }) => {
     const [contenidoprint, setcontenidoprint] = useState("");
     const [currentOrder, setCurrentOrder] = useState<string>("");
     const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
-    
+
     useEffect(() => {
         const fetchData = async () => {
-          const documentsCollection = collection(db, 'documents');
-          const q = query(documentsCollection);
-          const querySnapshot = await getDocs(q);
-          const filesData: File[] = [];
-          querySnapshot.forEach((doc) => {
-            filesData.push(doc.data() as File);
-          });
-    
-          setFiles(filesData);
-         };
-    
+            const documentsCollection = collection(db, 'documents');
+            const q = query(documentsCollection);
+            const querySnapshot = await getDocs(q);
+            const filesData: File[] = [];
+            querySnapshot.forEach((doc) => {
+                filesData.push(doc.data() as File);
+            });
+
+            setFiles(filesData);
+        };
+
         fetchData();
-      }, []);
-    
-      const showDeleteAlert = (id: string) => {
+    }, []);
+
+    const showDeleteAlert = (id: string) => {
         setSelectedFileId(id);
         setShowAlert(true);
-      };
-      const cancelDelete = () => {
+    };
+
+    const cancelDelete = () => {
         setShowAlert(false);
-      };
-    
-      const confirmDelete = () => {
+    };
+
+    const confirmDelete = () => {
         setShowAlert(false);
         handleDelete(selectedFileId);
-      };
+        setFiles((prevFiles) => prevFiles.filter(file => file.id !== selectedFileId));
+    };
 
-      const handleDelete = async (id: string | null) => {
-        if (!id) return;
-    
-        try {
-          const documentRef = doc(db, 'documents', id);
-          await deleteDoc(documentRef);
-          
-          // Filtrar el archivo eliminado del estado local
-          setFiles((prevFiles) => prevFiles.filter(file => file.id !== id));
-          
-          window.location.reload();
-        } catch (error) {
-          console.error("Error eliminando el documento: ", error);
+    const handleDelete = async (id: string | null) => {
+        if (id != undefined) {
+            try {
+                router.push("/printer")
+                const documentRef = doc(db, 'documents', id);
+                await deleteDoc(documentRef);
+
+                console.log(`Documento con id ${id} eliminado exitosamente`);
+            } catch (error) {
+                console.error("Error eliminando el documento: ", error);
+            }
         }
-      };
-    
-     
+    };
+
+
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar />}
@@ -85,12 +85,12 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 <Whitenav setNavbarVisible={setNavbarVisible} />
                 <div className="p-5">
                     <div className="mb-4 flex flex-row justify-between">
-                    <h2 className="mb-4 ml-3 text-lg">Juego Dioses del Olimpo </h2>
-                    <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
-                      style={{ fontSize: "0.60rem" }}
-                    //   onClick={handleDeleteFiles}
-            >Borrar contenido antiguo</button>
-          </div>
+                        <h2 className="mb-4 ml-3 text-lg">Juego Dioses del Olimpo </h2>
+                        <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
+                            style={{ fontSize: "0.60rem" }}
+                        //   onClick={handleDeleteFiles}
+                        >Borrar contenido antiguo</button>
+                    </div>
                     <div className="mr-20 bg-white p-5 ">
                         <table className="text-xs border border-gray-300 bg-white w-full text-left">
                             <thead>
@@ -128,28 +128,28 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {files.map((file) => (
+                                {files.map((singnlefile, index) => (
                                     <tr
-                                        key={file.id}
+                                        key={singnlefile.id || `file-${index}`} // Usar un valor por defecto si id es undefined o null
                                         className="border border-gray-300 font-light "
                                     >
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {new Date(file.updatedAt).toLocaleDateString()} -{" "}
-                                            {new Date(file.updatedAt).toLocaleTimeString()}
+                                            {new Date(singnlefile.updatedAt).toLocaleDateString()} -{" "}
+                                            {new Date(singnlefile.updatedAt).toLocaleTimeString()}
                                         </td>
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {file.nombre}
+                                            {singnlefile.nombre}
                                         </td>
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {file.midios}
+                                            {singnlefile.midios}
                                         </td>
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {file.lang}
+                                            {singnlefile.lang}
                                         </td>
                                         <td className="border border-gray-300 text-center">
                                             <button
                                                 className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] hover:bg-gray-50 btn-visualizar"
-                                                // onClick={() => handleVisualizar(file)}
+                                            // onClick={() => handleVisualizar(singnlefile)}
                                             >
                                                 Visualizar
                                             </button>
@@ -157,25 +157,25 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                         <td className="border border-gray-300 text-center">
                                             <button
                                                 className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] my-2 hover:bg-gray-50 btn-eliminar"
-                                                onClick={() => showDeleteAlert(file.id)}
+                                                onClick={() => showDeleteAlert(singnlefile.id)}
                                             >
                                                 Eliminar
                                             </button>
                                         </td>
                                     </tr>
-                                 ))} 
+                                ))}
                             </tbody>
                         </table>
                         {files.length > maxRowsToShow && !showMoreRows && (
                             <div className="flex justify-center mt-4">
                                 <button
                                     className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
-                                    // onClick={handleShowMoreRows}
+                                // onClick={handleShowMoreRows}
                                 >
                                     Ver más filas
                                 </button>
                             </div>
-                         )} 
+                        )}
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                         </div>
                     </div>
                 </div>
-            )} 
+            )}
             <div style={{ display: "none" }}>
                 {/* {selectedRowData && (
                     <ComponentToPrint
