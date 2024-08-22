@@ -1,23 +1,40 @@
-import React, { FC } from 'react';
+"use client"
+
+import React, { FC, useRef, useState } from 'react';
+import Whitenav from './Navbar/Whitenav';
+import Navbar from './Navbar/navbar';
+import { useRouter } from 'next/navigation';
 
 interface PrinterProps {
 
 }
 
 const Printer: FC<PrinterProps> = ({ }) => {
+    const [files, setFiles] = useState<File[]>([]);
+    const [showAlert, setShowAlert] = useState(false);
+    const [selectedFileId, setSelectedFileId] = useState("");
+    const componentRef = useRef<HTMLDivElement>(null);
+    const router = useRouter();
+    const [showMoreRows, setShowMoreRows] = useState(false);
+    const maxRowsToShow = 10;
+    const [navbarVisible, setNavbarVisible] = useState(true);
+    const [contenidoprint, setcontenidoprint] = useState("");
+    const [currentOrder, setCurrentOrder] = useState<string>("");
+    const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
+    
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
-            {/* {navbarVisible && <Navbar />} */}
+            {navbarVisible && <Navbar />}
             <div className="flex flex-col w-screen  ">
-                {/* <Whitenav setNavbarVisible={setNavbarVisible} /> */}
+                <Whitenav setNavbarVisible={setNavbarVisible} />
                 <div className="p-5">
-                    {/* <div className="mb-4 flex flex-row justify-between"> */}
+                    <div className="mb-4 flex flex-row justify-between">
                     <h2 className="mb-4 ml-3 text-lg">Juego Dioses del Olimpo </h2>
-                    {/* <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
+                    <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
                       style={{ fontSize: "0.60rem" }}
-                      onClick={handleDeleteFiles}
+                    //   onClick={handleDeleteFiles}
             >Borrar contenido antiguo</button>
-          </div> */}
+          </div>
                     <div className="mr-20 bg-white p-5 ">
                         <table className="text-xs border border-gray-300 bg-white w-full text-left">
                             <thead>
@@ -106,7 +123,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                     </div>
                 </div>
             </div>
-            {/* {showAlert && ( */}
+            {showAlert && (
                 <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-500 bg-opacity-75">
                     <div className="bg-white p-5 rounded shadow">
                         <p className="text-xl mb-5">¿Estás seguro que deseas eliminar?</p>
@@ -126,7 +143,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                         </div>
                     </div>
                 </div>
-            {/* )} */}
+            )} 
             <div style={{ display: "none" }}>
                 {/* {selectedRowData && (
                     <ComponentToPrint
