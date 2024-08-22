@@ -1,12 +1,22 @@
 "use client"
 
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
 import { useRouter } from 'next/navigation';
+import { collection, doc, getDocs, query } from 'firebase/firestore';
+import { db } from '../firebase';
 
 interface PrinterProps {
 
+}
+
+interface File {
+    id:any;
+    lang:string;
+    midios:string;
+    nombre:string;
+    updatedAt:string;
 }
 
 const Printer: FC<PrinterProps> = ({ }) => {
@@ -22,6 +32,23 @@ const Printer: FC<PrinterProps> = ({ }) => {
     const [currentOrder, setCurrentOrder] = useState<string>("");
     const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
     
+    useEffect(() => {
+        const fetchData = async () => {
+          const documentsCollection = collection(db, 'documents');
+          const q = query(documentsCollection);
+          const querySnapshot = await getDocs(q);
+          const filesData: File[] = [];
+          querySnapshot.forEach((doc) => {
+            filesData.push(doc.data() as File);
+          });
+    
+          setFiles(filesData);
+         };
+    
+        fetchData();
+      }, []);
+    
+      
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar />}
@@ -72,23 +99,23 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {files.map((file) => ( */}
+                                {files.map((file) => (
                                     <tr
                                         // key={file._id}
                                         className="border border-gray-300 font-light "
                                     >
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {/* {new Date(file.updatedAt).toLocaleDateString()} -{" "}
-                                            {new Date(file.updatedAt).toLocaleTimeString()} */}
+                                            {new Date(file.updatedAt).toLocaleDateString()} -{" "}
+                                            {new Date(file.updatedAt).toLocaleTimeString()}
                                         </td>
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {/* {file.nombre} */}
+                                            {file.nombre}
                                         </td>
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {/* {file.midios} */}
+                                            {file.midios}
                                         </td>
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                            {/* {file.lang} */}
+                                            {file.lang}
                                         </td>
                                         <td className="border border-gray-300 text-center">
                                             <button
@@ -107,7 +134,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                             </button>
                                         </td>
                                     </tr>
-                                {/* ))} */}
+                                 ))} 
                             </tbody>
                         </table>
                         {/* {files.length > maxRowsToShow && !showMoreRows && ( */}
