@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface ConflictoProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setConflicto: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Conflicto: React.FC<ConflictoProps> = ({
   setComponenteActual,
   setConflicto,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

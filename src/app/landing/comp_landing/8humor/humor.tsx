@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 interface HumorProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setHumor: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
-const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor }) => {
+const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 

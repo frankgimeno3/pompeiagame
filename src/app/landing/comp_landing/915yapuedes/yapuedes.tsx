@@ -4,9 +4,10 @@ import Image from "next/image";
 
 interface YapuedesProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
-const Yapuedes: React.FC<YapuedesProps> = ({ setComponenteActual }) => {
+const Yapuedes: React.FC<YapuedesProps> = ({ setComponenteActual, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const router = useRouter();

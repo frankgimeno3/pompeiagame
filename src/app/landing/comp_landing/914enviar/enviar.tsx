@@ -15,11 +15,11 @@ const Enviar: React.FC<EnviarProps> = ({
   setComponenteActual,
   nombre,
   midios,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const router = useRouter();
-  let lang = "es";
   const [botonPulsado, setBotonPulsado] = useState(false);
 
   const handleSeguirClick = async () => {

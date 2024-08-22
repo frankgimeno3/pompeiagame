@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface ResolutividadProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setResolutividad: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Resolutividad: React.FC<ResolutividadProps> = ({
   setComponenteActual,
   setResolutividad,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

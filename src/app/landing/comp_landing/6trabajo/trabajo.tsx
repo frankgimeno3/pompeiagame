@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface TrabajoProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setTrabajo: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Trabajo: React.FC<TrabajoProps> = ({
   setComponenteActual,
   setTrabajo,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

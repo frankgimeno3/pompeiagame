@@ -18,6 +18,7 @@ import Yapuedes from "./comp_landing/915yapuedes/yapuedes";
 
 
 const renderComponenteActual = (
+  lang:string,
   componenteactual: string,
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>,
   setNombre: React.Dispatch<React.SetStateAction<string>>,
@@ -51,82 +52,82 @@ const renderComponenteActual = (
       return (
         <Nombre
           setComponenteActual={setComponenteActual}
-          setNombre={setNombre}
+          setNombre={setNombre} lang={lang}
         />
       );
     case "nombrehola":
       return (
         <Nombrehola
           setComponenteActual={setComponenteActual}
-          nombre={nombre}
+          nombre={nombre} lang={lang}
         />
       );
     case "conflicto":
       return (
         <Conflicto
           setComponenteActual={setComponenteActual}
-          setConflicto={setConflicto}
+          setConflicto={setConflicto} lang={lang}
         />
       );
     case "relaciones":
       return (
         <Relaciones
           setComponenteActual={setComponenteActual}
-          setRelaciones={setRelaciones}
+          setRelaciones={setRelaciones} lang={lang}
         />
       );
     case "estrategia":
       return (
         <Estrategia
           setComponenteActual={setComponenteActual}
-          setEstrategia={setEstrategia}
+          setEstrategia={setEstrategia} lang={lang}
         />
       );
     case "resolutividad":
       return (
         <Resolutividad
           setComponenteActual={setComponenteActual}
-          setResolutividad={setResolutividad}
+          setResolutividad={setResolutividad} lang={lang}
         />
       );
     case "trabajo":
       return (
         <Trabajo
           setComponenteActual={setComponenteActual}
-          setTrabajo={setTrabajo}
+          setTrabajo={setTrabajo} lang={lang}
         />
       );
     case "lugar":
       return (
         <Lugar
           setComponenteActual={setComponenteActual}
-          setLugar={setLugar}
+          setLugar={setLugar} lang={lang}
         />
       );
     case "humor":
       return (
-        <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} />
+        <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} lang={lang} />
       );
     case "creatividad":
       return (
         <Creatividad
           setComponenteActual={setComponenteActual}
-          setCreatividad={setCreatividad}
+          setCreatividad={setCreatividad} lang={lang}
         />
       );
     case "juicio":
       return (
-        <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} />
+        <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} lang={lang} />
       );
     case "horario":
       return (
         <Horario
           setComponenteActual={setComponenteActual}
-          setHorario={setHorario}
+          setHorario={setHorario} lang={lang}
         />
       );
     case "alea":
-      return <Alea setComponenteActual={setComponenteActual} />;
+      return <Alea setComponenteActual={setComponenteActual} lang={lang} />;
     case "resultado":
       return (
         <Resultado
@@ -142,7 +143,7 @@ const renderComponenteActual = (
           humor={humor}
           creatividad={creatividad}
           juicio={juicio}
-          horario={horario}
+          horario={horario} lang={lang}
         />
       );
     case "enviar":
@@ -151,11 +152,11 @@ const renderComponenteActual = (
           setComponenteActual={setComponenteActual}
           nombre={nombre}
           midios={midios}
-          lang={""}
+           lang={lang}
         />
       );
     case "yapuedes":
-      return <Yapuedes setComponenteActual={setComponenteActual} />;
+      return <Yapuedes setComponenteActual={setComponenteActual}  lang={lang}/>;
     default:
       return null;
   }

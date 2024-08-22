@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 interface JuicioProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setJuicio: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
-const Juicio: React.FC<JuicioProps> = ({ setComponenteActual, setJuicio }) => {
+const Juicio: React.FC<JuicioProps> = ({ setComponenteActual, setJuicio, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 

@@ -4,11 +4,13 @@ import Image from "next/image";
 interface NombreholaProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   nombre: String;
+  lang:string;
 }
 
 const Nombrehola: React.FC<NombreholaProps> = ({
   setComponenteActual,
   nombre,
+  lang
 }) => {
   const handleSeguirClick = () => {
     setComponenteActual("conflicto");

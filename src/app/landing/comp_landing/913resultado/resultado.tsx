@@ -18,10 +18,11 @@ interface ResultadoProps {
   creatividad: string;
   juicio: string;
   horario: string;
+  lang: string;
 }
 
 const Resultado: React.FC<ResultadoProps> = ({setComponenteActual, setmidios,
-  nombre, conflicto, relaciones, estrategia, resolutividad,   trabajo, lugar, humor, creatividad,   juicio, horario, }) => {
+  nombre, conflicto, relaciones, estrategia, resolutividad,   trabajo, lugar, humor, creatividad,   juicio, horario, lang}) => {
 
   const router = useRouter();
   const [jupiterPoints, setJupiterPoints] = useState(0);

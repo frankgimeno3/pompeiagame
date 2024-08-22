@@ -1,55 +1,63 @@
+import Content from "../../../contenido/contenidoTotem.json"
 import React, { useState } from "react";
- 
+import { Cuestionario, ContentType, NombreProps } from "../../../contenido/interfaces";
+
 interface NombreProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setNombre: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
-const Nombre: React.FC<NombreProps> = ({ setComponenteActual, setNombre }) => {
+
+const Nombre: React.FC<NombreProps> = ({ setComponenteActual, setNombre, lang }) => {
   const [inputValue, setInputValue] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const handleButtonClick = (character: string) => {
-    if (characterCount < 10) {
-      setInputValue(inputValue + character);
-      setCharacterCount(characterCount + 1);
-    }
+      if (characterCount < 10) {
+          setInputValue(inputValue + character);
+          setCharacterCount(characterCount + 1);
+      }
   };
 
   const handleDeleteCharacter = () => {
-    if (inputValue.length > 0) {
-      setInputValue(inputValue.slice(0, -1));
-      setCharacterCount(characterCount - 1);
-    }
+      if (inputValue.length > 0) {
+          setInputValue(inputValue.slice(0, -1));
+          setCharacterCount(characterCount - 1);
+      }
   };
 
   const handleSeguirClick = () => {
-    if (inputValue) {
-      if(inputValue != ''){
-        setComponenteActual("nombrehola");
-        setNombre(inputValue);
-        console.log(inputValue);
+      if (inputValue) {
+          setComponenteActual("nombrehola");
+          setNombre(inputValue);
+          console.log(inputValue);
       }
-    }
   };
 
   return (
-    <div className="px-10 pb-20   ">
-        <div className="border-b border-gray-400 mb-2 mx-10">
-          <input
-            type="text"
-            value={inputValue}
-            readOnly
-            className=" px-3 mt-5 text-center bg-transparent text-black text-5xl"
-          />
-        </div>
-        <h2 className="text-black text-4xl">Escribe tu nombre</h2>
-        {characterCount < 10 && (
-          <p className="text-black text-xl font-light">(10 CARACTERES MAX)</p>
-        )}
-        {characterCount === 10 && (
-          <p className="text-red-500 text-xl font-bold">(10 CARACTERES MAX)</p>
-        )}
+      <div className="px-10 pb-20">
+          <div className="border-b border-gray-400 mb-2 mx-10">
+              <input
+                  type="text"
+                  value={inputValue}
+                  readOnly
+                  className="px-3 mt-5 text-center bg-transparent text-black text-5xl"
+              />
+          </div>
+          <h2 className="text-black text-4xl">
+              {Content.cuestionario.nombre.escribetunombre[lang]}
+          </h2>
+          {characterCount < 10 && (
+              <p className="text-black text-xl font-light">
+                  {Content.cuestionario.nombre.caracteres10[lang]}
+              </p>
+          )}
+          {characterCount === 10 && (
+              <p className="text-red-500 text-xl font-bold">
+                  {Content.cuestionario.nombre.caracteres10[lang]}
+              </p>
+          )}
       <div className="mx-15 my-7 text-9xl ">
         <div>
           <button

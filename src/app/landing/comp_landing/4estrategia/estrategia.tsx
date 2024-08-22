@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface EstrategiaProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setEstrategia: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Estrategia: React.FC<EstrategiaProps> = ({
   setComponenteActual,
   setEstrategia,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

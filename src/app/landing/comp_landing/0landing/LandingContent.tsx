@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import Content from "../../contenidoTotem.json"
+import Content from "../../../contenido/contenidoTotem.json"
 
 interface LandingContentProps {
     lang: 'es' | 'en' | 'de';  

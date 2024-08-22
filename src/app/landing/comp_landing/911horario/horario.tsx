@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface HorarioProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setHorario: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Horario: React.FC<HorarioProps> = ({
   setComponenteActual,
   setHorario,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

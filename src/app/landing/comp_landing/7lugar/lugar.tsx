@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 interface LugarProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setLugar: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
-const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar }) => {
+const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 

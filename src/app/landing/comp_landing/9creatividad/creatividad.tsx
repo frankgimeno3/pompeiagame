@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface CreatividadProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setCreatividad: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Creatividad: React.FC<CreatividadProps> = ({
   setComponenteActual,
   setCreatividad,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

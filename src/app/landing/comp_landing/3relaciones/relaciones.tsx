@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 interface RelacionesProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
   setRelaciones: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
 const Relaciones: React.FC<RelacionesProps> = ({
   setComponenteActual,
   setRelaciones,
+  lang
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isVisible, setIsVisible] = useState(false);

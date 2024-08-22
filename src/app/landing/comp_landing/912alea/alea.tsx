@@ -3,9 +3,10 @@ import { useSpring, animated } from "react-spring";
 
 interface AleaProps {
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
+  lang:string;
 }
 
-const Alea: React.FC<AleaProps> = ({ setComponenteActual }) => {
+const Alea: React.FC<AleaProps> = ({ setComponenteActual, lang }) => {
   // State to manage the visibility of the component
 
   const [isVisible, setIsVisible] = useState(true);
