@@ -101,7 +101,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                             <tbody>
                                 {files.map((file) => (
                                     <tr
-                                        // key={file._id}
+                                        key={file.id}
                                         className="border border-gray-300 font-light "
                                     >
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
@@ -137,7 +137,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                  ))} 
                             </tbody>
                         </table>
-                        {/* {files.length > maxRowsToShow && !showMoreRows && ( */}
+                        {files.length > maxRowsToShow && !showMoreRows && (
                             <div className="flex justify-center mt-4">
                                 <button
                                     className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
@@ -146,7 +146,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                     Ver más filas
                                 </button>
                             </div>
-                        {/* )} */}
+                         )} 
                     </div>
                 </div>
             </div>
