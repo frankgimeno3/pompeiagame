@@ -1,0 +1,49 @@
+{
+    "dashboard":{
+        "tegustariasaber":{
+            "es":"TE GUSTARÍA SABER...",
+            "en":"WOULD YOU LIKE TO KNOW...",
+            "de":"SIE MÖCHTEN WISSEN..."
+        },
+        "quediosdelolimpo":{
+            "es":"¿QUÉ DIOS DEL OLIMPO",
+            "en":"¿WHICH ROMAN GOD MATCHES BEST",
+            "de":"WELCHER RÖMISCHE GOTT PASST AM BESTEN"
+        },
+        "terepresenta":{
+            "es":"TE REPRESENTA?",
+            "en":"WITH YOUR PERSONALITY?",
+            "de":"ZU IHRER PERSÖNLICHKEIT?"
+        },
+        "unaaventuraquenosensena":{
+            "es":"UNA AVENTURA QUE NOS ENSEÑA LAS CUALIDADES DE CADA DIOS ROMANO",
+            "en":"AN ADVENTURE THAT TEACHES US THE QUALITIES OF EACH ROMAN GOD",
+            "de":"EIN ABENTEUER, DAS UNS DIE EIGENSCHAFTEN JEDES RÖMISCHEN GOTTES LEHRT"
+        },
+        "botonjugar": {
+            "es":"JUGAR",
+            "en":"PLAY",
+            "de":"SPIELEN"
+        }
+    },
+    "cuestionario":{
+        "1nombre":{
+      
+        },
+        "1nombrehola":{},
+        "2conflicto":{},
+        "3relaciones":{},
+        "4estrategia":{},
+        "5resolutividad":{},
+        "6trabajo":{},
+        "7lugar":{},
+        "8humor":{},
+        "9creatividad":{},
+        "910juicio":{},
+        "911horario":{},
+        "912alea":{},
+        "913resultado":{},
+        "914enviar":{},
+        "915yapuedes":{}
+    }
+}
