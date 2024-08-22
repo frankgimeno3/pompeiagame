@@ -6,10 +6,14 @@ import Navbar from './Navbar/navbar';
 import { useRouter } from 'next/navigation';
 import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useReactToPrint } from 'react-to-print'; // Importar la librería aquí
 
-interface PrinterProps {
+import slogans from "../contenido/es/printer/slogans.json"
+import sloganseng from "../contenido/en/printer/sloganseng.json"
+import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
+// import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 
-}
+interface PrinterProps {}
 
 interface File {
     id: any;
@@ -80,23 +84,124 @@ const Printer: FC<PrinterProps> = ({ }) => {
     const handleHeaderClick = (header: string) => {
         const newOrder = header === currentOrder ? `-${header}` : header;
         const sortedTableData = files.slice().sort((a, b) => {
-          if (header === "updatedAt") {
-            return (
-              new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-            );
-          } else {
-            return (a as any)[header].localeCompare((b as any)[header]);
-          }
+            if (header === "updatedAt") {
+                return (
+                    new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+                );
+            } else {
+                return (a as any)[header].localeCompare((b as any)[header]);
+            }
         });
-    
+
         if (newOrder.startsWith("-")) {
-          sortedTableData.reverse();
+            sortedTableData.reverse();
         }
-    
+
         setFiles(sortedTableData);
         setCurrentOrder(newOrder);
-      };
-      
+    };
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        pageStyle: "@page { size: landscape; }",
+    });
+
+    setTimeout(function () {
+        handlePrint();
+    }, 500);
+    
+    const handleVisualizar = (file: File) => {
+        setSelectedRowData(file);
+        switch (file.lang) {
+            case "es":
+                switch (file.midios) {
+                    case "CERES":
+                        setcontenidoprint(slogans.CERES);
+                        break;
+                    case "DIANA":
+                        setcontenidoprint(slogans.DIANA);
+                        break;
+                    case "FEBO":
+                        setcontenidoprint(slogans.FEBO);
+                        break;
+                    case "JUPITER":
+                        setcontenidoprint(slogans.JUPITER);
+                        break;
+                    case "JUNO":
+                        setcontenidoprint(slogans.JUNO);
+                        break;
+                    case "MARTE":
+                        setcontenidoprint(slogans.MARTE);
+                        break;
+                    case "MERCURIO":
+                        setcontenidoprint(slogans.MERCURIO);
+                        break;
+                    case "MINERVA":
+                        setcontenidoprint(slogans.MINERVA);
+                        break;
+                    case "NEPTUNO":
+                        setcontenidoprint(slogans.NEPTUNO);
+                        break;
+                    case "VENUS":
+                        setcontenidoprint(slogans.VENUS);
+                        break;
+                    case "VESTA":
+                        setcontenidoprint(slogans.VESTA);
+                        break;
+                    case "VULCANO":
+                        setcontenidoprint(slogans.VULCANO);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "en":
+                switch (file.midios) {
+                    case "CERES":
+                        setcontenidoprint(sloganseng.CERES);
+                        break;
+                    case "DIANA":
+                        setcontenidoprint(sloganseng.DIANA);
+                        break;
+                    case "PHOEBUS":
+                        setcontenidoprint(sloganseng.PHOEBUS);
+                        break;
+                    case "JUPITER":
+                        setcontenidoprint(sloganseng.JUPITER);
+                        break;
+                    case "VESTA":
+                        setcontenidoprint(sloganseng.VESTA);
+                        break;
+                    case "MARS":
+                        setcontenidoprint(sloganseng.MARS);
+                        break;
+                    case "MERCURY":
+                        setcontenidoprint(sloganseng.MERCURY);
+                        break;
+                    case "MINERVA":
+                        setcontenidoprint(sloganseng.MINERVA);
+                        break;
+                    case "NEPTUNE":
+                        setcontenidoprint(sloganseng.NEPTUNE);
+                        break;
+                    case "VENUS":
+                        setcontenidoprint(sloganseng.VENUS);
+                        break;
+                    case "JUNO":
+                        setcontenidoprint(sloganseng.JUNO);
+                        break;
+                    case "VULCAN":
+                        setcontenidoprint(sloganseng.VULCAN);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+    };
+
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar />}
@@ -105,10 +210,6 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 <div className="p-5">
                     <div className="mb-4 flex flex-row justify-between">
                         <h2 className="mb-4 ml-3 text-lg">Juego Dioses del Olimpo </h2>
-                        {/* <button className="bg-blue-500 text-white text-sm py-1 px-3 rounded hover:bg-blue-600 mr-20"
-                            style={{ fontSize: "0.60rem" }}
-                            onClick={handleDeleteFiles}
-                        >Borrar contenido antiguo</button> */}
                     </div>
                     <div className="mr-20 bg-white p-5 ">
                         <table className="text-xs border border-gray-300 bg-white w-full text-left">
@@ -116,25 +217,25 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                 <tr className="border border-gray-300">
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    onClick={() => handleHeaderClick("updatedAt")}
+                                        onClick={() => handleHeaderClick("updatedAt")}
                                     >
                                         Hora
                                     </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    onClick={() => handleHeaderClick("nombre")}
+                                        onClick={() => handleHeaderClick("nombre")}
                                     >
                                         Nombre
                                     </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    onClick={() => handleHeaderClick("midios")}
+                                        onClick={() => handleHeaderClick("midios")}
                                     >
                                         Dios
                                     </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                    onClick={() => handleHeaderClick("lang")}
+                                        onClick={() => handleHeaderClick("lang")}
                                     >
                                         Idioma
                                     </th>
@@ -149,7 +250,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                             <tbody>
                                 {files.map((singnlefile, index) => (
                                     <tr
-                                        key={singnlefile.id || `file-${index}`} // Usar un valor por defecto si id es undefined o null
+                                        key={singnlefile.id || `file-${index}`}
                                         className="border border-gray-300 font-light "
                                     >
                                         <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
@@ -168,7 +269,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                         <td className="border border-gray-300 text-center">
                                             <button
                                                 className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] hover:bg-gray-50 btn-visualizar"
-                                            // onClick={() => handleVisualizar(singnlefile)}
+                                                onClick={() => handleVisualizar(singnlefile)}
                                             >
                                                 Visualizar
                                             </button>
@@ -189,7 +290,6 @@ const Printer: FC<PrinterProps> = ({ }) => {
                             <div className="flex justify-center mt-4">
                                 <button
                                     className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
-                                // onClick={handleShowMoreRows}
                                 >
                                     Ver más filas
                                 </button>
@@ -220,17 +320,19 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 </div>
             )}
             <div style={{ display: "none" }}>
-                {/* {selectedRowData && (
-                    <ComponentToPrint
-                        ref={componentRef}
-                        nombre={selectedRowData.nombre}
-                        tuDios={selectedRowData.midios}
-                        tulang={selectedRowData.lang}
-                        contenidoprint={contenidoprint}
-                    />
-                )} */}
+            {selectedRowData && (
+          <ComponentToPrint
+            ref={componentRef}
+            nombre={selectedRowData.nombre}
+            tuDios={selectedRowData.midios}
+            tulang={selectedRowData.lang}
+            contenidoprint={contenidoprint}
+          />
+        )}
             </div>
-        </div>);
+        </div>
+    );
 };
+
 
 export default Printer;
