@@ -104,7 +104,7 @@ const Cuestionario = () => {
         }, 600);
         break;
       default:
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/fondo2.png")`);
         break;
     }
   }, [componenteactual]);
