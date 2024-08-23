@@ -18,11 +18,11 @@ const Nombrehola: React.FC<NombreholaProps> = ({
     <div className="flex flex-col text-center justify-start align-center px-10 mb-24">
       <div className="flex flex-col text-center px-20  ">
         <div className="flex flex-row text-6xl   justify-center">
-          <h1>{Content.cuestionario.nombrehola.saludos[lang]}, {nombre}</h1>
+          <h1>{Content.cuestionario.nombrehola.saludos[lang]} {nombre}</h1>
         </div>
         <p className="text-black text-3xl ">{Content.cuestionario.nombrehola.bienvenidosalolimpo[lang]}</p>
         <div className="flex flex-col justify-center items-center text-center  ">
-          <Image src="/Stickers.png" alt="Gods" width={600} height={600} />
+          <Image src="/Stickers.png" alt="Gods" width={550} height={550} />
         </div>
       </div>
       <div>

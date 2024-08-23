@@ -36,8 +36,8 @@ const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) =>
         <div className="pr-24 flex flex-col mx-24  ">
           <div className=" ">
             <button
-              className="w-600  h-200 px-20 py-8   mr-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
               onClick={() => handleOptionClick("CIUDAD")}
             >
                       {Content.cuestionario.lugar.ciudad[lang]}
@@ -47,8 +47,8 @@ const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) =>
 
           <div className=" ">
             <button
-              className="w-600  h-200 px-24 py-8   mr-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
               onClick={() => handleOptionClick("CAMPO")}
             >
         {Content.cuestionario.lugar.campo[lang]}

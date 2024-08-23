@@ -37,7 +37,7 @@ const Relaciones: React.FC<RelacionesProps> = ({
           : "  opacity-0"
       }`}
     >
-      <div className="flex flex-col ml-24 pl-24 justify-end text-7xl">
+      <div className="flex flex-col ml-24 pl-24 justify-end text-6xl">
         <div className="pl-24 flex flex-col mx-24  ">
           <div className=" ml-24 pl-24">
             <button

@@ -40,8 +40,8 @@ const Creatividad: React.FC<CreatividadProps> = ({
         <div className="pl-24 flex flex-col mx-24 mt-24 ">
           <div className="">
             <button
-              className="w-600 text-7xl h-200 px-24 py-10   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
               onClick={() => handleOptionClick("CREATIVO")}
             >
         {Content.cuestionario.creatividad.creativo[lang]}
@@ -50,8 +50,8 @@ const Creatividad: React.FC<CreatividadProps> = ({
 
           <div className="">
             <button
-              className="w-600 text-7xl h-200 px-24 py-9   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
               onClick={() => handleOptionClick("RACIONAL")}
             >
         {Content.cuestionario.creatividad.racional[lang]}

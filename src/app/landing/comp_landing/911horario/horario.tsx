@@ -40,8 +40,8 @@ const Horario: React.FC<HorarioProps> = ({
         <div className="pl-24 flex flex-col mx-24 mt-24 ">
           <div className="">
             <button
-              className="w-600 text-7xl h-200 px-24 py-9   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
               onClick={() => handleOptionClick("DIURNO")}
             >
               {Content.cuestionario.horario.diurno[lang]}
@@ -50,8 +50,8 @@ const Horario: React.FC<HorarioProps> = ({
 
           <div className="">
             <button
-              className="w-600 text-6xl h-200 px-16 py-12 ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
               onClick={() => handleOptionClick("NOCTURNO")}
             >
               {Content.cuestionario.horario.nocturno[lang]}

@@ -8,7 +8,6 @@ export interface LanguageContent {
     es: string;
 }
 
-// Interface para el contenido total
 export interface ContentType {
     dashboard: {
         // Define las propiedades de dashboard si es necesario

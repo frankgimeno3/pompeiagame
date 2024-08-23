@@ -34,7 +34,7 @@ const Estrategia: React.FC<EstrategiaProps> = ({
       isVisible ? "transition-opacity duration-1000 opacity-100" : "  opacity-0"
     }`}
     >
-      <div className="flex flex-col mr-16 mt-24 pr-16 justify-end text-7xl">
+      <div className="flex flex-col mr-16 mt-24 pr-16 justify-end text-6xl">
         <div className="pr-24 flex flex-col mx-24  ">
           <div className=" mr-24 pr-24">
             <button
