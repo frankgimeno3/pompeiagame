@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {CreatividadProps } from "../../../contenido/interfaces";
 
-interface CreatividadProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setCreatividad: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
 
 const Creatividad: React.FC<CreatividadProps> = ({
   setComponenteActual,
@@ -47,8 +44,8 @@ const Creatividad: React.FC<CreatividadProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("CREATIVO")}
             >
-              CREATIVO
-            </button>
+        {Content.cuestionario.creatividad.creativo[lang]}
+        </button>
           </div>
 
           <div className="">
@@ -57,8 +54,8 @@ const Creatividad: React.FC<CreatividadProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("RACIONAL")}
             >
-              RACIONAL
-            </button>
+        {Content.cuestionario.creatividad.racional[lang]}
+        </button>
           </div>
         </div>
       </div>

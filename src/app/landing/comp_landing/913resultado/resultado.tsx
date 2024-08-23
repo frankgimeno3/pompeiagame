@@ -478,7 +478,7 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
             <div className="pl-24 ml-14">
               <h1 className="text-7xl mt-10 ">{nombre}</h1>
               <p className="text-black text-2xl mt-2 mb-16   text-black">
-                TU DIOS ES
+              {Content.cuestionario.resultado.tudioses[lang]}
               </p>
               <h2 className="text-black  text-7xl  mb-5   ">{tuDios}</h2>
               <div className="text-black">
@@ -506,7 +506,7 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
               className="mt-2 px-8 py-4 shadow-lg text-3xl text-black bg-cyan-700 rounded bg-opacity-40 mr-4"
               onClick={handleSeguirClick}
             >
-              IMPRIMIR
+              {Content.cuestionario.resultado.imprimir[lang]}
             </button>
           </div>
           <div className="flex-1">
@@ -514,7 +514,7 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
               className="px-8 py-4 shadow-lg py-0.5 text-3xl text-black bg-cyan-700 rounded bg-opacity-40 ml-4 mt-2"
               onClick={handleRestart}
             >
-              FINALIZAR SIN IMPRIMIR
+              {Content.cuestionario.resultado.sinimprimir[lang]}
             </button>
           </div>
         </div>

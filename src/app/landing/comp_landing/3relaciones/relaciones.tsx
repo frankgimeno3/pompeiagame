@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {RelacionesProps } from "../../../contenido/interfaces";
 
-interface RelacionesProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setRelaciones: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
+
 
 const Relaciones: React.FC<RelacionesProps> = ({
   setComponenteActual,
@@ -47,8 +45,8 @@ const Relaciones: React.FC<RelacionesProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("ENAMORADIZO")}
             >
-              ENAMORADIZO
-            </button>
+        {Content.cuestionario.relaciones.enamoradizo[lang]}
+        </button>
           </div>
 
           <div className=" ml-24 pl-24">
@@ -57,8 +55,8 @@ const Relaciones: React.FC<RelacionesProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("COMPROMETIDO")}
             >
-              COMPROMETIDO
-            </button>
+        {Content.cuestionario.relaciones.comprometido[lang]}
+        </button>
           </div>
         </div>
       </div>

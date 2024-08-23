@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {HumorProps } from "../../../contenido/interfaces";
 
-interface HumorProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setHumor: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
 
 const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -43,8 +40,8 @@ const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) =>
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("BUENHUMOR")}
             >
-              BUEN HUMOR
-            </button>
+        {Content.cuestionario.humor.buenhumor[lang]}
+        </button>
           </div>
 
           <div className=" ">
@@ -53,8 +50,8 @@ const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) =>
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("MALHUMOR")}
             >
-              MAL HUMOR
-            </button>
+        {Content.cuestionario.humor.malhumor[lang]}
+        </button>
           </div>
         </div>
       </div>

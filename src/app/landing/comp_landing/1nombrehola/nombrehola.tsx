@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Content from "../../../contenido/contenidoTotem.json";
+import {NombreholaProps } from "../../../contenido/interfaces";
 
-interface NombreholaProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  nombre: String;
-  lang:string;
-}
+
 
 const Nombrehola: React.FC<NombreholaProps> = ({
   setComponenteActual,
@@ -20,19 +18,19 @@ const Nombrehola: React.FC<NombreholaProps> = ({
     <div className="flex flex-col text-center justify-start align-center px-10 mb-24">
       <div className="flex flex-col text-center px-20  ">
         <div className="flex flex-row text-6xl   justify-center">
-          <h1>SALUDOS, {nombre}</h1>
+          <h1>{Content.cuestionario.nombrehola.saludos[lang]}, {nombre}</h1>
         </div>
-        <p className="text-black text-3xl ">BIENVENIDOS AL OLIMPO</p>
+        <p className="text-black text-3xl ">{Content.cuestionario.nombrehola.bienvenidosalolimpo[lang]}</p>
         <div className="flex flex-col justify-center items-center text-center  ">
           <Image src="/Stickers.png" alt="Gods" width={600} height={600} />
         </div>
       </div>
       <div>
         <p className="text-black text-3xl">
-          ¿CUÁL DE ELLOS TE REPRESENTA MEJOR?
+        {Content.cuestionario.nombrehola.cualdeellos[lang]}
         </p>
         <p className="text-black text-3xl">
-          ¡ATRÉVETE A SABER! O COMO DIRÍAN LOS ROMANOS... ¡SAPERE AUDE!
+        {Content.cuestionario.nombrehola.atreveteasaber[lang]}
         </p>
       </div>
       <div className="flex flex-row mt-5 justify-center text-center align-center">
@@ -40,9 +38,9 @@ const Nombrehola: React.FC<NombreholaProps> = ({
             className="mt-1 px-8 py-4    text-4xl shadow-lg text-black bg-cyan-200 rounded bg-opacity-40"
             onClick={handleSeguirClick}
           >
-            EMPEZAR
-          </button>
- 
+        {Content.cuestionario.nombrehola.empezar[lang]}
+        </button>
+
       </div>
     </div>
   );

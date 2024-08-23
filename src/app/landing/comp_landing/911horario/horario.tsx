@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {HorarioProps } from "../../../contenido/interfaces";
 
-interface HorarioProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setHorario: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
+
 
 const Horario: React.FC<HorarioProps> = ({
   setComponenteActual,
@@ -33,11 +31,10 @@ const Horario: React.FC<HorarioProps> = ({
 
   return (
     <div
-      className={`flex flex-col  justify-right ml-14 pl-14      ${
-        isVisible
+      className={`flex flex-col  justify-right ml-14 pl-14      ${isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
-      }`}
+        }`}
     >
       <div className="flex flex-col ml-24 pl-24 justify-end ">
         <div className="pl-24 flex flex-col mx-24 mt-24 ">
@@ -47,7 +44,7 @@ const Horario: React.FC<HorarioProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("DIURNO")}
             >
-              DIURNO
+              {Content.cuestionario.horario.diurno[lang]}
             </button>
           </div>
 
@@ -57,7 +54,8 @@ const Horario: React.FC<HorarioProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("NOCTURNO")}
             >
-              NOCTURNO
+              {Content.cuestionario.horario.nocturno[lang]}
+
             </button>
           </div>
         </div>

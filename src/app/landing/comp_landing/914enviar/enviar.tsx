@@ -3,13 +3,9 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
+import Content from "../../../contenido/contenidoTotem.json";
+import {EnviarProps } from "../../../contenido/interfaces";
 
-interface EnviarProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  midios: string;
-  nombre: string;
-  lang: string;
-}
 
 const Enviar: React.FC<EnviarProps> = ({
   setComponenteActual,
@@ -83,8 +79,7 @@ const Enviar: React.FC<EnviarProps> = ({
   return (
     <div className="flex flex-col text-center items-center mb-24">
       <p className="mb-7 text-black text-4xl">
-        ¿QUIERES LLEVARTE A TU DIOS DE RECUERDO?
-      </p>
+      {Content.cuestionario.enviar.quieresllevarte[lang]}      </p>
       <Image
         src="/PortfolioDiseño.png"
         alt="PortfolioDiseño"
@@ -93,8 +88,9 @@ const Enviar: React.FC<EnviarProps> = ({
         className="bg-white "
       />
 
-      <p className="mt-6 text-black text-3xl">PIDE TU COPIA EN RECEPCIÓN</p>
-      <p className="mt-2 text-black text-2xl">PRECIO DE VENTA 5€</p>
+      <p className="mt-6 text-black text-3xl">{Content.cuestionario.enviar.pidecopia[lang]}</p>
+      <p className="mt-2 text-black text-2xl"> {Content.cuestionario.enviar.precioventa[lang]}
+      </p>
 
       <div
         className="mx-24 px-24 flex flex-row"
@@ -112,7 +108,7 @@ const Enviar: React.FC<EnviarProps> = ({
         <div className="flex-1 flex flex-col ml-24  mx-24 px-10  pr-20  ">
           <div className=" text-left mx-24 px-24 ">
             <h1 className="text-md mt-10 ">{nombre}</h1>
-            <p className="text-black text-xs mt-2   text-black" style={{ fontSize: '8px' }}>TU DIOS ES</p>
+            <p className="text-black text-xs mt-2   text-black" style={{ fontSize: '8px' }}>{Content.cuestionario.resultado.tudioses[lang]}</p>
             <h2 className="text-black  text-md  mb-5   ">{midios}</h2>
             <div className="text-black">
               <div className="text-xs mb-10 pr-5" style={{ fontSize: '8px' }}>
@@ -152,13 +148,13 @@ const Enviar: React.FC<EnviarProps> = ({
           onClick={handleSeguirClick}
           disabled={botonPulsado}
         >
-          CONFIRMAR Y RECOGER
-        </button>
+          {Content.cuestionario.enviar.confirmaryrecoger[lang]}
+          </button>
         <button
           className="mt-11 px-8 py-4 text-3xl text-black bg-green-700  rounded bg-opacity-30  shadow-lg"
           onClick={handleRestart}
         >
-          COMENZAR DE NUEVO
+          {Content.cuestionario.enviar.comenzardenuevo[lang]}
         </button>
       </div>
     </div>

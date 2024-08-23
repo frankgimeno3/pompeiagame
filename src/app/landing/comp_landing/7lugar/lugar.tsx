@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {LugarProps } from "../../../contenido/interfaces";
 
-interface LugarProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setLugar: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
 
 const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -43,7 +40,8 @@ const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) =>
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("CIUDAD")}
             >
-              CIUDAD
+                      {Content.cuestionario.lugar.ciudad[lang]}
+
             </button>
           </div>
 
@@ -53,8 +51,8 @@ const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) =>
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("CAMPO")}
             >
-              CAMPO
-            </button>
+        {Content.cuestionario.lugar.campo[lang]}
+        </button>
           </div>
         </div>
       </div>

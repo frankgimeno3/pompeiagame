@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {ConflictoProps } from "../../../contenido/interfaces";
 
-interface ConflictoProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setConflicto: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
+
 
 const Conflicto: React.FC<ConflictoProps> = ({
   setComponenteActual,
@@ -47,8 +45,8 @@ const Conflicto: React.FC<ConflictoProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("PACÍFICO")}
             >
-              PACÍFICO
-            </button>
+        {Content.cuestionario.conflicto.pacifico[lang]}
+        </button>
           </div>
 
           <div className=" ml-24 pl-24">
@@ -57,8 +55,8 @@ const Conflicto: React.FC<ConflictoProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("GUERRERO")}
             >
-              GUERRERO
-            </button>
+        {Content.cuestionario.conflicto.guerrero[lang]}
+        </button>
           </div>
         </div>
       </div>

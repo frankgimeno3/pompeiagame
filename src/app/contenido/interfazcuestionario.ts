@@ -107,12 +107,12 @@ export interface Cuestionario {
         };
     };
     resolutividad: {
-        confrontación: {
+        confrontacion: {
             es: string;
             en: string;
             de: string;
         };
-        negociación: {
+        negociacion: {
             es: string;
             en: string;
             de: string;

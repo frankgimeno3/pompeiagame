@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {JuicioProps } from "../../../contenido/interfaces";
 
-interface JuicioProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setJuicio: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
 
 const Juicio: React.FC<JuicioProps> = ({ setComponenteActual, setJuicio, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -42,8 +39,8 @@ const Juicio: React.FC<JuicioProps> = ({ setComponenteActual, setJuicio, lang })
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("JUSTO")}
             >
-              ME BASO EN HECHOS
-            </button>
+        {Content.cuestionario.juicio.hechos[lang]}
+        </button>
           </div>
 
           <div className=" ">
@@ -52,8 +49,8 @@ const Juicio: React.FC<JuicioProps> = ({ setComponenteActual, setJuicio, lang })
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("INJUSTO")}
             >
-             ME BASO EN EMOCIONES
-            </button>
+        {Content.cuestionario.juicio.emociones[lang]}
+        </button>
           </div>
         </div>
       </div>

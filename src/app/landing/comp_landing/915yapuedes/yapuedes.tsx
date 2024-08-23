@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-
-interface YapuedesProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
+import Content from "../../../contenido/contenidoTotem.json";
+import {YapuedesProps } from "../../../contenido/interfaces";
 
 const Yapuedes: React.FC<YapuedesProps> = ({ setComponenteActual, lang }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -17,14 +14,14 @@ const Yapuedes: React.FC<YapuedesProps> = ({ setComponenteActual, lang }) => {
   }
   return (
     <div className="flex flex-col text-center align-center justify-center text-7xl mb-24  ">
-      <h1 className=" ">YA PUEDES RECOGERLO!</h1>
+      <h1 className=" ">{Content.cuestionario.yapuedes.yapuedes[lang]}</h1>
       <div className="mx-auto my-10">
 
       <Image src="/tick.png" alt="tick" width={400} height={400} />
       </div>
 
       <div className="mx-20 text-4xl">
-        <button className="mt-2 px-8 py-2 shadow-lg text-md text-black bg-cyan-700 rounded bg-opacity-40" onClick={handleRestart}>VUELVE A JUGAR</button>
+        <button className="mt-2 px-8 py-2 shadow-lg text-md text-black bg-cyan-700 rounded bg-opacity-40" onClick={handleRestart}>{Content.cuestionario.yapuedes.vuelveajugar[lang]}</button>
       </div> 
     </div>
   );

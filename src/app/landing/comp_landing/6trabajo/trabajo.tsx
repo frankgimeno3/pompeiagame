@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Content from "../../../contenido/contenidoTotem.json";
+import {TrabajoProps } from "../../../contenido/interfaces";
 
-interface TrabajoProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setTrabajo: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
 
 const Trabajo: React.FC<TrabajoProps> = ({
   setComponenteActual,
@@ -47,8 +44,8 @@ const Trabajo: React.FC<TrabajoProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("TRABAJADOR")}
             >
-              TRABAJADOR
-            </button>
+        {Content.cuestionario.trabajo.trabajador[lang]}
+        </button>
           </div>
 
           <div className=" ">
@@ -57,8 +54,8 @@ const Trabajo: React.FC<TrabajoProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("HOLGAZÁN")}
             >
-              HOLGAZÁN
-            </button>
+        {Content.cuestionario.trabajo.holgazan[lang]}
+        </button>
           </div>
         </div>
       </div>

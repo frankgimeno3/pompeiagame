@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-
-interface ResolutividadProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setResolutividad: React.Dispatch<React.SetStateAction<string>>;
-  lang:string;
-}
+import Content from "../../../contenido/contenidoTotem.json";
+import {ResolutividadProps } from "../../../contenido/interfaces";
 
 const Resolutividad: React.FC<ResolutividadProps> = ({
   setComponenteActual,
@@ -47,8 +43,8 @@ const Resolutividad: React.FC<ResolutividadProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("CONFRONTACIÓN")}
             >
-              CONFRONTACIÓN
-            </button>
+        {Content.cuestionario.resolutividad.confrontacion[lang]}
+        </button>
           </div>
 
           <div className=" ml-24 pl-24">
@@ -57,8 +53,8 @@ const Resolutividad: React.FC<ResolutividadProps> = ({
               style={{ backgroundImage: 'url("/buttonB.png")' }}
               onClick={() => handleOptionClick("NEGOCIACIÓN")}
             >
-              NEGOCIACIÓN
-            </button>
+        {Content.cuestionario.resolutividad.negociacion[lang]}
+        </button>
           </div>
         </div>
       </div>
