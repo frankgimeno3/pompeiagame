@@ -4,7 +4,7 @@ import Image from "next/image";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Content from "../../../contenido/contenidoTotem.json";
-import {Dioses, EnviarProps } from "../../../contenido/interfaces";
+import {EnviarProps } from "../../../contenido/interfaces";
 
 
 const Enviar: React.FC<EnviarProps> = ({

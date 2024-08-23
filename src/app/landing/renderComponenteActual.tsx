@@ -15,6 +15,7 @@ import Alea from "./comp_landing/912alea/alea";
 import Resultado from "./comp_landing/913resultado/resultado";
 import Enviar from "./comp_landing/914enviar/enviar";
 import Yapuedes from "./comp_landing/915yapuedes/yapuedes";
+import {Dioses } from "../contenido/interfaces";
 
 
 const renderComponenteActual = (
@@ -44,7 +45,7 @@ const renderComponenteActual = (
   creatividad: string,
   juicio: string,
   horario: string,
-  midios: string
+  midios: Dioses
 
 ) => {
   switch (componenteactual) {
