@@ -2,11 +2,19 @@
 
 import React, { FC, useState } from 'react';
 import LandingContent from './comp_landing/0landing/LandingContent';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 
 interface LandingProps {
 }
 
 const Landing: FC<LandingProps> = ({ }) => {
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/');
+    },
+  });
 
   const [lang, setLang] = useState<'en' | 'es' | 'de'>('en');
 
