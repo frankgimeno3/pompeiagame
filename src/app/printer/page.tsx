@@ -208,7 +208,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar printerLang={printerLang} setPrinterLang={setPrinterLang} />}
             <div className="flex flex-col w-screen  ">
-                <Whitenav setNavbarVisible={setNavbarVisible} />
+                <Whitenav setNavbarVisible={setNavbarVisible} printerLang={printerLang}/>
                 <div className="p-5">
                     <div className="mb-4 flex flex-row justify-between">
                         <h2 className="mb-4 ml-3 text-lg">{typedContent.subtitulo[printerLang]}
