@@ -15,8 +15,16 @@ import Alea from "./comp_landing/912alea/alea";
 import Resultado from "./comp_landing/913resultado/resultado";
 import Enviar from "./comp_landing/914enviar/enviar";
 import Yapuedes from "./comp_landing/915yapuedes/yapuedes";
-import {Dioses } from "../contenido/interfaces";
+import { Dioses } from "../contenido/interfaces";
 
+// Función para validar si un valor es un Dioses válido
+const isValidDios = (value: string): value is Dioses => {
+  return [
+    'CERES', 'DIANA', 'FEBO', 'JUPITER', 'JUNO', 
+    'MARTE', 'MERCURIO', 'MINERVA', 'NEPTUNO', 
+    'VENUS', 'VESTA', 'VULCANO'
+  ].includes(value);
+};
 
 const renderComponenteActual = (
   lang: "es" | "en" | "de",
@@ -34,7 +42,7 @@ const renderComponenteActual = (
   setCreatividad: React.Dispatch<React.SetStateAction<string>>,
   setJuicio: React.Dispatch<React.SetStateAction<string>>,
   setHorario: React.Dispatch<React.SetStateAction<string>>,
-  setmidios: React.Dispatch<React.SetStateAction<string>>,
+  setmidios: React.Dispatch<React.SetStateAction<Dioses>>,
   conflicto: string,
   relaciones: string,
   estrategia: string,
@@ -46,7 +54,6 @@ const renderComponenteActual = (
   juicio: string,
   horario: string,
   midios: Dioses
-
 ) => {
   switch (componenteactual) {
     case "nombre":
@@ -133,7 +140,23 @@ const renderComponenteActual = (
       return (
         <Resultado
           setComponenteActual={setComponenteActual}
-          setmidios={setmidios}
+          setmidios={(value) => {
+            if (typeof value === 'string' && isValidDios(value)) {
+              setmidios(value); // Asignar solo si es válido
+            } else if (typeof value === 'function') {
+              setmidios((prevState) => {
+                const newValue = value(prevState);
+                if (isValidDios(newValue)) {
+                  return newValue;
+                } else {
+                  console.error("Valor de 'midios' no válido");
+                  return prevState; // O algún valor por defecto si prefieres
+                }
+              });
+            } else {
+              console.error("Valor de 'midios' no válido");
+            }
+          }}
           nombre={nombre}
           conflicto={conflicto}
           relaciones={relaciones}
@@ -153,7 +176,7 @@ const renderComponenteActual = (
           setComponenteActual={setComponenteActual}
           nombre={nombre}
           midios={midios}
-           lang={lang}
+          lang={lang}
         />
       );
     case "yapuedes":
