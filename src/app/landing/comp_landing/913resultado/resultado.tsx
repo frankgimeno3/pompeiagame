@@ -449,9 +449,8 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
     }
   }
   
+  
   const tuDios: Dioses = Selectdios(diosAlgoritmo, diosPuntos);
-  const contenidoResultado = Content.cuestionario.resultado.contenidoresultado.es[tuDios];
-
 
 
   //.................................................................................................
@@ -480,10 +479,10 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
               <p className="text-black text-2xl mt-2 mb-16   text-black">
               {Content.cuestionario.resultado.tudioses[lang]}
               </p>
-              <h2 className="text-black  text-7xl  mb-5   ">{tuDios}</h2>
+              <h2 className="text-black  text-7xl  mb-5   ">{Content.cuestionario.resultado.nombresdioses[lang][tuDios]}</h2>
               <div className="text-black">
                 <div className="text-2xl mb-10 pr-5">
-                {contenidoResultado || "Información no disponible"}
+                {Content.cuestionario.resultado.contenidoresultado[lang][tuDios] || "Información no disponible"}
                 </div>
               </div>
             </div>
