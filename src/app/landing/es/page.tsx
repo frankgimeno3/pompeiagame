@@ -127,7 +127,7 @@ const Cuestionario = () => {
 
   return (
     <div
-      className="flex flex-col h-screen transition-opacity duration-1000 opacity-100 mx-auto"
+      className="flex flex-col h-screen   mx-auto"
       style={{
         backgroundImage: `url("/fondo2.png")`,
         backgroundSize: "100% 100%",

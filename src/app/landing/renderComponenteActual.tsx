@@ -27,13 +27,7 @@ const isValidDios = (value: string): value is Dioses => {
 };
 
 // Componente para envolver con transición
-const TransitionWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return (
-    <div className="transition-opacity duration-500 ease-in-out transform">
-      {children}
-    </div>
-  );
-};
+ 
 
 const renderComponenteActual = (
   lang: "es" | "en" | "de",
@@ -67,115 +61,88 @@ const renderComponenteActual = (
   switch (componenteactual) {
     case "nombre":
       return (
-        <TransitionWrapper>
-          <Nombre
+           <Nombre
             setComponenteActual={setComponenteActual}
             setNombre={setNombre} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "nombrehola":
       return (
-        <TransitionWrapper>
           <Nombrehola
             setComponenteActual={setComponenteActual}
             nombre={nombre} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "conflicto":
       return (
-        <TransitionWrapper>
           <Conflicto
             setComponenteActual={setComponenteActual}
             setConflicto={setConflicto} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "relaciones":
       return (
-        <TransitionWrapper>
           <Relaciones
             setComponenteActual={setComponenteActual}
             setRelaciones={setRelaciones} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "estrategia":
       return (
-        <TransitionWrapper>
           <Estrategia
             setComponenteActual={setComponenteActual}
             setEstrategia={setEstrategia} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "resolutividad":
       return (
-        <TransitionWrapper>
           <Resolutividad
             setComponenteActual={setComponenteActual}
             setResolutividad={setResolutividad} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "trabajo":
       return (
-        <TransitionWrapper>
           <Trabajo
             setComponenteActual={setComponenteActual}
             setTrabajo={setTrabajo} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "lugar":
       return (
-        <TransitionWrapper>
           <Lugar
             setComponenteActual={setComponenteActual}
             setLugar={setLugar} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "humor":
       return (
-        <TransitionWrapper>
           <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} lang={lang} />
-        </TransitionWrapper>
       );
     case "creatividad":
       return (
-        <TransitionWrapper>
           <Creatividad
             setComponenteActual={setComponenteActual}
             setCreatividad={setCreatividad} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "juicio":
       return (
-        <TransitionWrapper>
           <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} lang={lang} />
-        </TransitionWrapper>
       );
     case "horario":
       return (
-        <TransitionWrapper>
           <Horario
             setComponenteActual={setComponenteActual}
             setHorario={setHorario} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "alea":
       return (
-        <TransitionWrapper>
           <Alea setComponenteActual={setComponenteActual} lang={lang} />
-        </TransitionWrapper>
       );
     case "resultado":
       return (
-        <TransitionWrapper>
           <Resultado
             setComponenteActual={setComponenteActual}
             setmidios={(value) => {
@@ -207,24 +174,19 @@ const renderComponenteActual = (
             juicio={juicio}
             horario={horario} lang={lang}
           />
-        </TransitionWrapper>
       );
     case "enviar":
       return (
-        <TransitionWrapper>
           <Enviar
             setComponenteActual={setComponenteActual}
             nombre={nombre}
             midios={midios}
             lang={lang}
           />
-        </TransitionWrapper>
       );
     case "yapuedes":
       return (
-        <TransitionWrapper>
           <Yapuedes setComponenteActual={setComponenteActual}  lang={lang}/>
-        </TransitionWrapper>
       );
     default:
       return null;
