@@ -48,147 +48,147 @@
             "saludos": {
                 "es": "SALUDOS, ",
                 "en": "GREETINGS, ",
-                "de": ""
+                "de": "SEI GEGRÜßT!"
             },
             "bienvenidosalolimpo": {
                 "es": "BIENVENIDOS AL OLIMPO",
-                "en": "",
-                "de": ""
+                "en": "MEET THE ROMAN GODS",
+                "de": "WIR STELLEN DIR DIE RÖMISCHEN GÖTTER VOR"
             },
             "cualdeellos": {
                 "es": "¿CUÁL DE ELLOS TE REPRESENTA MEJOR?",
-                "en": "",
-                "de": ""
+                "en": "¿WHICH OF THEM MATCHES BEST WITH YOUR PERSONALITY?",
+                "de": "WELCHE GOTTHEIT PASST AM BESTEN ZU DEINER PERSÖNLICHKEIT?"
             },
             "atreveteasaber": {
                 "es": "¡ATRÉVETE A SABER! O COMO DIRÍAN LOS ROMANOS... ¡SAPERE AUDE!",
-                "en": "",
-                "de": ""
+                "en": "¡DARE TO KNOW! OR AS ROMANS WOULD SAY... ¡SAPERE AUDE!",
+                "de": "WAGE ZU WISSEN! ODER IN DEN WORTEN DER RÖMER: SAPERE AUDE!"
             },
             "empezar": {
                 "es": "EMPEZAR",
-                "en": "",
-                "de": ""
+                "en": "START",
+                "de": "START"
             }
         },
         "conflicto": {
             "pacifico": {
                 "es": "PACÍFICO",
-                "en": "",
-                "de": ""
+                "en": "PACIFIC",
+                "de": "FRIEDFERTIG"
             },
             "guerrero": {
                 "es": "GUERRERO",
                 "en": "WARRIOR",
-                "de": ""
+                "de": "KRIEGER"
             }
         },
         "relaciones": {
             "enamoradizo": {
                 "es": "ENAMORADIZO",
-                "en": "",
-                "de": ""
+                "en": "POLIAMOROUS",
+                "de": "POLYAMOR"
             },
             "comprometido": {
                 "es": "COMPROMETIDO",
-                "en": "",
-                "de": ""
+                "en": "MONOGAMOUS",
+                "de": "MONOGAM"
             }
         },
         "estrategia": {
             "estratega": {
                 "es": "ESTRATEGA",
-                "en": "",
-                "de": ""
+                "en": "STRATEGIST",
+                "de": "STRATEGE"
             },
             "impulsivo": {
                 "es": "IMPULSIVO",
-                "en": "",
-                "de": ""
+                "en": "IMPULSIVE",
+                "de": "IMPULSIV"
             }
         },
         "resolutividad": {
             "confrontación": {
                 "es": "CONFRONTACIÓN",
-                "en": "",
-                "de": ""
+                "en": "CONFRONT",
+                "de": "ZUR KONFRONTIEREN"
             },
             "negociación": {
                 "es": "NEGOCIACIÓN",
-                "en": "",
-                "de": ""
+                "en": "NEGOTIATE",
+                "de": "ZU VERHANDELN"
             }
         },
         "trabajo": {
             "trabajador": {
                 "es": "TRABAJADOR",
-                "en": "",
-                "de": ""
+                "en": "A HARDWORKER",
+                "de": "EINE FLEISSIGE PERSON"
             },
             "holgazán": {
                 "es": "HOLGAZÁN",
-                "en": "",
-                "de": ""
+                "en": "AN IDLER",
+                "de": "EINEN MÜSSIGGÄNGER"
             }
         },
         "lugar": {
             "ciudad": {
                 "es": "CIUDAD",
-                "en": "",
-                "de": ""
+                "en": "A CITY",
+                "de": "IN DER STADT LEBEN"
             },
             "campo": {
                 "es": "CAMPO",
-                "en": "",
-                "de": ""
+                "en": "THE FIELD",
+                "de": "AUF DEM LAND LEBEN"
             }
         },
         "humor": {
             "buenhumor": {
                 "es": "BUEN HUMOR",
-                "en": "",
-                "de": ""
+                "en": "HAPPY",
+                "de": "DER GLÜCKLICHE TYP"
             },
             "malhumor": {
                 "es": "MAL HUMOR",
-                "en": "",
-                "de": ""
+                "en": "MOODY",
+                "de": "DER LAUNISCHE TYP"
             }
         },
         "creatividad": {
             "creativo": {
                 "es": "CREATIVO",
-                "en": "",
-                "de": ""
+                "en": "CREATIVE",
+                "de": "KREATIV"
             },
             "racional": {
                 "es": "RACIONAL",
-                "en": "",
-                "de": ""
+                "en": "RATIONAL",
+                "de": "KOPFMENSCH"
             }
         },
         "juicio": {
             "hechos": {
                 "es": "ME BASO EN HECHOS",
-                "en": "",
-                "de": ""
+                "en": "EMPIRICALLY",
+                "de": "EMPIRISCH ANGEHEN"
             },
             "emociones": {
                 "es": "ME BASO EN EMOCIONES",
-                "en": "",
-                "de": ""
+                "en": "EMOTIONALLY",
+                "de": "EMOTIONAL ANGEHEN"
             }
         },
         "horario": {
             "diurno": {
                 "es": "DIURNO",
-                "en": "",
-                "de": ""
+                "en": "DAY TIME PERSON",
+                "de": "EIN MORGENMENSCH"
             },
             "nocturno": {
                 "es": "NOCTURNO",
-                "en": "",
-                "de": ""
+                "en": "NIGHT TIME PERSON",
+                "de": "EIN NACHTMENSCH"
             }
         },
         "alea": {
@@ -199,30 +199,30 @@
             },
             "lasuerteestá": {
                 "es": "¡LA SUERTE ESTÁ ECHADA!",
-                "en": "",
-                "de": ""
+                "en": "¡THE DIE IS CAST!",
+                "de": "DIE WÜRFEL SIND GEFALLEN!"
             },
             "resultados": {
                 "es": "VER RESULTADOS",
-                "en": "",
-                "de": ""
+                "en": "SEE RESULTS",
+                "de": "ZU DEINEM ERGEBNIS"
             }
         },
         "resultado": {
             "tudioses": {
                 "es": "TU DIOS ES",
-                "en": "",
-                "de": ""
+                "en": "YOUR GOD IS",
+                "de": "DEINE GOTTHEIT IST"
             },
             "imprimir": {
                 "es": "IMPRIMIR",
-                "en": "",
-                "de": ""
+                "en": "PRINT",
+                "de": "DRUCKEN"
             },
             "sinimprimir": {
                 "es": "FINALIZAR SIN IMPRIMIR",
-                "en": "",
-                "de": ""
+                "en": "END WITHOUT PRINTING",
+                "de": "BEENDEN OHNE DRUCKEN"
             },
             "contenidoresultado": {
                 "es": {
@@ -240,72 +240,72 @@
                     "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
                 },
                 "en": {
-                    "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
-                    "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
-                    "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLÁSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
-                    "JUPITER": "DIOS DE DIOSES. SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA",
-                    "JUNO": "SEÑORA DEL OLIMPO, PROTECTORA DEL MATRIMONIO, LA MATERNIDAD Y LA FAMILIA. ES CONOCIDA POR TENER UN CARACTER FUERTE Y SER INCONDICIONALMENTE FIEL",
-                    "MARTE": "DIOS DE LA GUERRA Y PATRÓN DE LA PERFECCIÓN Y LA BELLEZA. ÉS CONOCIDO POR SER VALIENTE, IMPULSIVO Y APASIONADO.",
-                    "MERCURIO": "DIOS MENSAJERO, DEL COMERCIO, LOS VIAJES Y LA ELOCUENCIA. ES CONOCIDO POR SU VERSATILIDAD Y ASTUCIA.",
-                    "MINERVA": "DIOSA DE LA ESTRATEGIA, LA JUSTICIA Y LA SABIDURÍA. ES RECONOCIDA POR SU PERSONALIDAD EQUILIBRADA Y SU PERFECCIONISMO.",
-                    "NEPTUNO": "DIOS DE LOS MARES Y PATRÓN DE LOS MARINEROS. ES CONOCIDO POR SU PODER, FUERZA Y HABILIDADES DENTRO Y FUERA DEL AGUA. ES APASIONADO Y ENAMORADIZO.",
-                    "VENUS": "DIOSA DEL AMOR, LA FERTILIDAD Y LA BELLEZA. ES CONOCIDA POR SER ENAMORADIZA, COMPETITIVA Y SEDUCTORA. ",
-                    "VESTA": "DIOSA DEL HOGAR Y LA FAMILIA. ES LA PROTECTORA DEL FUEGO DEL HOGAR Y SIMBOLIZA LA UNIÓN Y LA ESTABILIDAD EN LA VIDA FAMILIAR.",
-                    "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
+                    "CERES": "GODDESS OF AGRICULTURE, FERTILITY, AND HARVESTS, CONNECTED TO THE COUNTRYSIDE AND NATURE. SHE IS KNOWN FOR BEING AFFECTIONATE AND GENEROUS.",
+                    "DIANA": "GODDESS OF HUNTING, THE MOON, NATURE, CHASTITY, AND PROTECTOR OF CHILDREN. SHE RESIDES IN THE FOREST AND IS CAPABLE OF COMMUNICATING WITH ANIMALS.",
+                    "PHOEBUS": "GOD OF THE SUN, BEAUTY, PLASTIC ARTS, AND MUSIC. HE IS KNOWN FOR HIS WISDOM AND COMPETITIVENESS.",
+                    "JUPITER": "GOD OF GODS. LORD OF THUNDER, PROTECTOR OF LAWS AND JUSTICE.",
+                    "JUNO": "QUEEN OF OLYMPUS, PROTECTOR OF MARRIAGE, MOTHERHOOD, AND FAMILY. SHE IS KNOWN FOR HAVING A STRONG CHARACTER AND BEING UNCONDITIONALLY FAITHFUL.",
+                    "MARS": "GOD OF WAR AND PATRON OF PERFECTION AND BEAUTY. HE IS KNOWN FOR BEING BRAVE, IMPULSIVE, AND PASSIONATE.",
+                    "MERCURY": "MESSENGER GOD, GOD OF COMMERCE, TRAVEL, AND ELOQUENCE. HE IS KNOWN FOR HIS VERSATILITY AND CUNNING.",
+                    "MINERVA": "GODDESS OF STRATEGY, JUSTICE, AND WISDOM. SHE IS RECOGNIZED FOR HER BALANCED PERSONALITY AND PERFECTIONISM.",
+                    "NEPTUNE": "GOD OF THE SEAS AND PATRON OF SAILORS. HE IS KNOWN FOR HIS POWER, STRENGTH, AND SKILLS WITHIN AND OUTSIDE THE WATER. HE IS PASSIONATE AND AMOROUS.",
+                    "VENUS": "GODDESS OF LOVE, FERTILITY, AND BEAUTY. SHE IS KNOWN FOR BEING AMOROUS, COMPETITIVE, AND SEDUCTIVE.",
+                    "VESTA": "GODDESS OF HOME AND FAMILY. SHE IS THE PROTECTOR OF THE HEARTH FIRE AND SYMBOLIZES UNITY AND STABILITY IN FAMILY LIFE.",
+                    "VULCAN": "GOD OF FIRE AND FORGE, PATRON OF CRAFTSMEN AND INGENUITY. HE IS CHARACTERIZED BY BEING CALM, PEACEFUL, AND HARDWORKING."
                 },
                 "de": {
-                    "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
-                    "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
-                    "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLÁSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
-                    "JUPITER": "DIOS DE DIOSES. SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA",
-                    "JUNO": "SEÑORA DEL OLIMPO, PROTECTORA DEL MATRIMONIO, LA MATERNIDAD Y LA FAMILIA. ES CONOCIDA POR TENER UN CARACTER FUERTE Y SER INCONDICIONALMENTE FIEL",
-                    "MARTE": "DIOS DE LA GUERRA Y PATRÓN DE LA PERFECCIÓN Y LA BELLEZA. ÉS CONOCIDO POR SER VALIENTE, IMPULSIVO Y APASIONADO.",
-                    "MERCURIO": "DIOS MENSAJERO, DEL COMERCIO, LOS VIAJES Y LA ELOCUENCIA. ES CONOCIDO POR SU VERSATILIDAD Y ASTUCIA.",
-                    "MINERVA": "DIOSA DE LA ESTRATEGIA, LA JUSTICIA Y LA SABIDURÍA. ES RECONOCIDA POR SU PERSONALIDAD EQUILIBRADA Y SU PERFECCIONISMO.",
-                    "NEPTUNO": "DIOS DE LOS MARES Y PATRÓN DE LOS MARINEROS. ES CONOCIDO POR SU PODER, FUERZA Y HABILIDADES DENTRO Y FUERA DEL AGUA. ES APASIONADO Y ENAMORADIZO.",
-                    "VENUS": "DIOSA DEL AMOR, LA FERTILIDAD Y LA BELLEZA. ES CONOCIDA POR SER ENAMORADIZA, COMPETITIVA Y SEDUCTORA. ",
-                    "VESTA": "DIOSA DEL HOGAR Y LA FAMILIA. ES LA PROTECTORA DEL FUEGO DEL HOGAR Y SIMBOLIZA LA UNIÓN Y LA ESTABILIDAD EN LA VIDA FAMILIAR.",
-                    "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
+                    "CERES": "GÖTTIN DES ACKERBAUS, DER FRUCHTBARKEIT UND DER ERNTE. SIE STEHT MIT DEM LAND UND DER NATUR IN VERBINDUNG UND IST DAFÜR BEKANNT, LIEBEVOLL UND GROSSZÜGIG ZU SEIN.",
+                    "DIANA": "GÖTTIN DER JAGD, DES MONDES, DER NATUR, DER KEUSCHHEIT UND BESCHÜTZERIN DER KINDER. SIE LEBT IM WALD UND KANN MIT TIEREN KOMMUNIZIEREN.",
+                    "PHOEBUS": "GOTT DER SONNE, DER SCHÖNHEIT, DER KÜNSTE UND DER MUSIK. ER IST BEKANNT FÜR SEINE WEISHEIT UND SEINEN WETTBEWERBSGEIST.",
+                    "JUPITER": "GOTT DER GÖTTER, HERR DES DONNERS, BESCHÜTZER DER GESETZE UND DER GERECHTIGKEIT.",
+                    "JUNO": "GÖTTIN DES OLYMP, BESCHÜTZERIN DER EHE, DER MUTTERSCHAFT UND DER FAMILIE. SIE IST BEKANNT FÜR IHREN STARKEN CHARAKTER UND IHRE BEDINGUNGSLOSE TREUE.",
+                    "MARS": "GOTT DES KRIEGES UND BESCHÜTZER DER PERFEKTION UND DER SCHÖNHEIT. ER IST BEKANNT FÜR SEINEN MUT, SEIN IMPULSIVES WESEN UND SEINE LEIDENSCHAFT.",
+                    "MERKUR": "GÖTTERBOTE, GOTT DES HANDELS, DER REISEN UND DER SPRACHGEWANDTHEIT. ER IST BEKANNT FÜR SEINE WANDELBARKEIT UND SEINE KLUGHEIT.",
+                    "MINERVA": "GÖTTIN DER STRATEGIE, DER GERECHTIGKEIT UND WEISHEIT. SIE IST BEKANNT FÜR IHRE AUSGEGLICHENE PERSÖNLICHKEIT UND IHREN PERFEKTIONISMUS.",
+                    "NEPTUN": "GOTT DER MEERE UND BESCHÜTZER DER SEEFAHRER. ER IST BEKANNT FÜR SEINE MACHT, STÄRKE UND FÄHIGKEITEN INNERHALB UND AUSSERHALB DES WASSERS. ER IST LEIDENSCHAFTLICH UND LIEBESHUNGRIG.",
+                    "VENUS": "GÖTTIN DER LIEBE, DER FRUCHTBARKEIT UND SCHÖNHEIT. SIE IST BEKANNT FÜR IHREN WETTEIFER, IHRE LIEBSCHAFTEN UND IHRE VERFÜHRERISCHE ART.",
+                    "VESTA": "GÖTTIN DES HEIMS UND DER FAMILIE. BESCHÜTZERIN DES HEIMISCHEN HERDES, SIE IST EIN SYMBOL FÜR EINHEIT UND STABILITÄT IM FAMILIENLEBEN.",
+                    "VULKAN": "GOTT DES FEUERS UND DER SCHMIEDE, BESCHÜTZER DER HANDWERKER UND DES EINFALLSREICHTUMS. ER ZEICHNET SICH DURCH SEINE RUHIGE, FRIEDFERTIGE UND FLEISSIGE PERSÖNLICHKEIT AUS."
                 }
             }
         },
         "enviar": {
             "quieresllevarte": {
                 "es": "¿QUIERES LLEVARTE A TU DIOS DE RECUERDO?",
-                "en": "",
-                "de": ""
+                "en": "DO YOU WANT TO TAKE YOUR GOD AS A SOUVENIR?",
+                "de": "MÖCHTEST DU DEINE GOTTHEIT ALS SOUVENIR MITNEHMEN?"
             },
             "pidecopia": {
                 "es": "PIDE TU COPIA EN RECEPCIÓN",
-                "en": "",
-                "de": ""
+                "en": "ASK FOR YOUR COPY AT RECEPTION ",
+                "de": "FRAGE NACH DEINEM AUSDRUCK AM EMPFANG"
             },
             "precioventa": {
                 "es": "PRECIO DE VENTA 5€",
-                "en": "",
-                "de": ""
+                "en": "SELLING PRICE 5€",
+                "de": "VERKAUFSPREIS 5 €"
             },
             "confirmaryrecoger": {
-                "es": " CONFIRMAR Y RECOGER",
-                "en": "",
-                "de": ""
+                "es": "CONFIRMAR Y RECOGER",
+                "en": "CONFIRM AND PRINT",
+                "de": "BESTÄTIGEN UND DRUCKEN"
             },
             "comenzardenuevo": {
                 "es": "COMENZAR DE NUEVO",
-                "en": "",
-                "de": ""
+                "en": "START AGAIN",
+                "de": "NEUSTART"
             }
         },
         "yapuedes": {
             "yapuedes": {
                 "es": "¡YA PUEDES RECOGERLO!",
-                "en": "",
-                "de": ""
+                "en": "YOUR COPY IS READY TO BE COLLECTED!",
+                "de": "DEIN AUSDRUCK LIEGT ZUR ABHOLUNG BEREIT!"
             },
             "vuelveajugar": {
                 "es": "VUELVE A JUGAR",
-                "en": "",
-                "de": ""
+                "en": "PLAY AGAIN",
+                "de": "NOCH EINMAL SPIELEN"
             }
         }
     }
