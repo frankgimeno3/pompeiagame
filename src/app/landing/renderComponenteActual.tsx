@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Nombre from "./comp_landing/1nombre/nombre";
 import Nombrehola from "./comp_landing/1nombrehola/nombrehola";
 import Conflicto from "./comp_landing/2conflicto/conflicto";
@@ -24,6 +24,15 @@ const isValidDios = (value: string): value is Dioses => {
     'MARTE', 'MERCURIO', 'MINERVA', 'NEPTUNO', 
     'VENUS', 'VESTA', 'VULCANO'
   ].includes(value);
+};
+
+// Componente para envolver con transición
+const TransitionWrapper: React.FC<{ children: ReactNode }> = ({ children }) => {
+  return (
+    <div className="transition-opacity duration-500 ease-in-out transform">
+      {children}
+    </div>
+  );
 };
 
 const renderComponenteActual = (
@@ -58,129 +67,165 @@ const renderComponenteActual = (
   switch (componenteactual) {
     case "nombre":
       return (
-        <Nombre
-          setComponenteActual={setComponenteActual}
-          setNombre={setNombre} lang={lang}
-        />
+        <TransitionWrapper>
+          <Nombre
+            setComponenteActual={setComponenteActual}
+            setNombre={setNombre} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "nombrehola":
       return (
-        <Nombrehola
-          setComponenteActual={setComponenteActual}
-          nombre={nombre} lang={lang}
-        />
+        <TransitionWrapper>
+          <Nombrehola
+            setComponenteActual={setComponenteActual}
+            nombre={nombre} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "conflicto":
       return (
-        <Conflicto
-          setComponenteActual={setComponenteActual}
-          setConflicto={setConflicto} lang={lang}
-        />
+        <TransitionWrapper>
+          <Conflicto
+            setComponenteActual={setComponenteActual}
+            setConflicto={setConflicto} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "relaciones":
       return (
-        <Relaciones
-          setComponenteActual={setComponenteActual}
-          setRelaciones={setRelaciones} lang={lang}
-        />
+        <TransitionWrapper>
+          <Relaciones
+            setComponenteActual={setComponenteActual}
+            setRelaciones={setRelaciones} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "estrategia":
       return (
-        <Estrategia
-          setComponenteActual={setComponenteActual}
-          setEstrategia={setEstrategia} lang={lang}
-        />
+        <TransitionWrapper>
+          <Estrategia
+            setComponenteActual={setComponenteActual}
+            setEstrategia={setEstrategia} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "resolutividad":
       return (
-        <Resolutividad
-          setComponenteActual={setComponenteActual}
-          setResolutividad={setResolutividad} lang={lang}
-        />
+        <TransitionWrapper>
+          <Resolutividad
+            setComponenteActual={setComponenteActual}
+            setResolutividad={setResolutividad} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "trabajo":
       return (
-        <Trabajo
-          setComponenteActual={setComponenteActual}
-          setTrabajo={setTrabajo} lang={lang}
-        />
+        <TransitionWrapper>
+          <Trabajo
+            setComponenteActual={setComponenteActual}
+            setTrabajo={setTrabajo} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "lugar":
       return (
-        <Lugar
-          setComponenteActual={setComponenteActual}
-          setLugar={setLugar} lang={lang}
-        />
+        <TransitionWrapper>
+          <Lugar
+            setComponenteActual={setComponenteActual}
+            setLugar={setLugar} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "humor":
       return (
-        <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} lang={lang} />
+        <TransitionWrapper>
+          <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} lang={lang} />
+        </TransitionWrapper>
       );
     case "creatividad":
       return (
-        <Creatividad
-          setComponenteActual={setComponenteActual}
-          setCreatividad={setCreatividad} lang={lang}
-        />
+        <TransitionWrapper>
+          <Creatividad
+            setComponenteActual={setComponenteActual}
+            setCreatividad={setCreatividad} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "juicio":
       return (
-        <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} lang={lang} />
+        <TransitionWrapper>
+          <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} lang={lang} />
+        </TransitionWrapper>
       );
     case "horario":
       return (
-        <Horario
-          setComponenteActual={setComponenteActual}
-          setHorario={setHorario} lang={lang}
-        />
+        <TransitionWrapper>
+          <Horario
+            setComponenteActual={setComponenteActual}
+            setHorario={setHorario} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "alea":
-      return <Alea setComponenteActual={setComponenteActual} lang={lang} />;
+      return (
+        <TransitionWrapper>
+          <Alea setComponenteActual={setComponenteActual} lang={lang} />
+        </TransitionWrapper>
+      );
     case "resultado":
       return (
-        <Resultado
-          setComponenteActual={setComponenteActual}
-          setmidios={(value) => {
-            if (typeof value === 'string' && isValidDios(value)) {
-              setmidios(value); // Asignar solo si es válido
-            } else if (typeof value === 'function') {
-              setmidios((prevState) => {
-                const newValue = value(prevState);
-                if (isValidDios(newValue)) {
-                  return newValue;
-                } else {
-                  console.error("Valor de 'midios' no válido");
-                  return prevState; // O algún valor por defecto si prefieres
-                }
-              });
-            } else {
-              console.error("Valor de 'midios' no válido");
-            }
-          }}
-          nombre={nombre}
-          conflicto={conflicto}
-          relaciones={relaciones}
-          estrategia={estrategia}
-          resolutividad={resolutividad}
-          trabajo={trabajo}
-          lugar={lugar}
-          humor={humor}
-          creatividad={creatividad}
-          juicio={juicio}
-          horario={horario} lang={lang}
-        />
+        <TransitionWrapper>
+          <Resultado
+            setComponenteActual={setComponenteActual}
+            setmidios={(value) => {
+              if (typeof value === 'string' && isValidDios(value)) {
+                setmidios(value); // Asignar solo si es válido
+              } else if (typeof value === 'function') {
+                setmidios((prevState) => {
+                  const newValue = value(prevState);
+                  if (isValidDios(newValue)) {
+                    return newValue;
+                  } else {
+                    console.error("Valor de 'midios' no válido");
+                    return prevState; // O algún valor por defecto si prefieres
+                  }
+                });
+              } else {
+                console.error("Valor de 'midios' no válido");
+              }
+            }}
+            nombre={nombre}
+            conflicto={conflicto}
+            relaciones={relaciones}
+            estrategia={estrategia}
+            resolutividad={resolutividad}
+            trabajo={trabajo}
+            lugar={lugar}
+            humor={humor}
+            creatividad={creatividad}
+            juicio={juicio}
+            horario={horario} lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "enviar":
       return (
-        <Enviar
-          setComponenteActual={setComponenteActual}
-          nombre={nombre}
-          midios={midios}
-          lang={lang}
-        />
+        <TransitionWrapper>
+          <Enviar
+            setComponenteActual={setComponenteActual}
+            nombre={nombre}
+            midios={midios}
+            lang={lang}
+          />
+        </TransitionWrapper>
       );
     case "yapuedes":
-      return <Yapuedes setComponenteActual={setComponenteActual}  lang={lang}/>;
+      return (
+        <TransitionWrapper>
+          <Yapuedes setComponenteActual={setComponenteActual}  lang={lang}/>
+        </TransitionWrapper>
+      );
     default:
       return null;
   }

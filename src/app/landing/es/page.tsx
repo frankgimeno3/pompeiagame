@@ -10,7 +10,7 @@ import { Dioses, Language } from "@/app/contenido/interfaces";
 
 
 const Cuestionario = () => {
-  
+
   const session = useSession({
     required: true,
     onUnauthenticated() {
@@ -135,7 +135,7 @@ const Cuestionario = () => {
       }}
     >
       <div
-        className="h-screen flex flex-col justify-center text-center relative transition-opacity duration-1000 opacity-100"
+        className="h-screen flex flex-col justify-center text-center relative "
         style={{
           backgroundImage: fondo,
           backgroundSize: "100% 100%",
@@ -143,8 +143,8 @@ const Cuestionario = () => {
         }}
       >
         {loadingvisible && (
-          <div className="">
-            <div className="flex flex-col align-center">
+          <div className="absolute z-50 inset-0 flex items-center justify-center">
+            <div className=" p-4 rounded ">
               <Image
                 src="/gif/GIF1.gif"
                 alt="loading"
@@ -159,7 +159,7 @@ const Cuestionario = () => {
         <div className="absolute top-10 right-10 m-4">
           <Restartbutton />
         </div>
-        <div>
+        <div className="transition-opacity duration-1000 opacity-100">
           {renderComponenteActual(
             lang,
             componenteactual,
