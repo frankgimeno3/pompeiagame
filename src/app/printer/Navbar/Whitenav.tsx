@@ -1,44 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { signOut, useSession } from 'next-auth/react';
 
 interface WhitenavProps {
   setNavbarVisible: (visible: boolean) => void;
   printerLang: any;
+  session:any;
 }
 
-const Whitenav: React.FC<WhitenavProps> = ({ setNavbarVisible, printerLang }) => {
+const Whitenav: React.FC<WhitenavProps> = ({ setNavbarVisible, printerLang, session}) => {
   const router = useRouter();
   const [navbarVisible, setNavbarVisibleState] = useState(true);
 
+ 
+
   const handleToggleNavbar = () => {
-    if (navbarVisible) {
-      setNavbarVisible(false)
-      setNavbarVisibleState(false)
-    }
-    else {
-      setNavbarVisible(true)
-      setNavbarVisibleState(true)
-    }
+    setNavbarVisible(!navbarVisible);
+    setNavbarVisibleState(!navbarVisible);
   };
 
-  const handleLogout = async () => {
-    //   Cookies.remove("authvalue");
-    //   try {
-    //     const res = await fetch("http://localhost:5000/auth/logout", {
-    //       method: "POST",
-    //       credentials: "include",  
-    //     });
-    //     if (res.status === 200) {
-    //        router.push("/login"); // Redirige al usuario a la página de inicio de sesión
-    //     } else {
-    //        console.error("No se pudo cerrar sesión");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error al cerrar sesión", error);
-    //   }
-    //   router.push("/");
+  const handleCerrarSesion = async () => {
+    router.push("/")
+    setTimeout(() => {
+      signOut()
+    }, 1000);
   };
+   
+   
 
   return (
     <nav className="flex flex-row bg-white justify-between px-2 py-1 shadow">
@@ -48,32 +37,35 @@ const Whitenav: React.FC<WhitenavProps> = ({ setNavbarVisible, printerLang }) =>
         </button>
       </div>
       <div className="px-2 py-1">
-      {printerLang == "es" &&
+        {printerLang === "es" && (
           <button
             style={{ fontSize: "0.60rem" }}
-            onClick={handleLogout}
+            onClick={()=>handleCerrarSesion()}
             className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
           >
             Cerrar sesión
-          </button>}
+          </button>
+        )}
 
-          {printerLang == "en" &&
+        {printerLang === "en" && (
           <button
             style={{ fontSize: "0.60rem" }}
-            onClick={handleLogout}
+            onClick={()=>handleCerrarSesion()}
             className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
           >
-           Log out
-          </button>}
+            Log out
+          </button>
+        )}
 
-          {printerLang == "de" &&
+        {printerLang === "de" && (
           <button
             style={{ fontSize: "0.60rem" }}
-            onClick={handleLogout}
+            onClick={()=>handleCerrarSesion()}
             className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
           >
             Ausloggen
-          </button>}
+          </button>
+        )}
       </div>
     </nav>
   );

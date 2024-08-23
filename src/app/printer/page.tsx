@@ -3,7 +3,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useReactToPrint } from 'react-to-print';  
@@ -14,6 +14,7 @@ import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 
 import Content from "../contenido/contenidoPrinter.json"
 import { PrinterContent } from '../contenido/interfaces'; 
+import { useSession } from 'next-auth/react';
  
 interface PrinterProps { }
 
@@ -26,6 +27,14 @@ interface File {
 }
 
 const Printer: FC<PrinterProps> = ({ }) => {
+    
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/');
+    },
+  });
+
     const [printerLang, setPrinterLang] = useState<'en' | 'es' | 'de'>('en');
     const [files, setFiles] = useState<File[]>([]);
     const [showAlert, setShowAlert] = useState(false);
@@ -209,7 +218,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar printerLang={printerLang} setPrinterLang={setPrinterLang} />}
             <div className="flex flex-col w-screen  ">
-                <Whitenav setNavbarVisible={setNavbarVisible} printerLang={printerLang}/>
+                <Whitenav setNavbarVisible={setNavbarVisible} printerLang={printerLang} session={session}/>
                 <div className="p-5">
                     <div className="mb-4 flex flex-row justify-between">
                         <h2 className="mb-4 ml-3 text-lg">{typedContent.subtitulo[printerLang]}
