@@ -38,61 +38,61 @@ const Cuestionario = () => {
   useEffect(() => {
     switch (componenteactual) {
       case "conflicto":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/p1.png")`);
         }, 600);
         break;
       case "relaciones":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/j2.png")`);
         }, 600);
         break;
       case "estrategia":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/3.png")`);
         }, 600);
         break;
       case "resolutividad":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/4.png")`);
         }, 600);
         break;
       case "trabajo":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/5.png")`);
         }, 600);
         break;
       case "lugar":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/6.png")`);
         }, 600);
         break;
       case "humor":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/7.png")`);
         }, 600);
         break;
       case "creatividad":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/8.png")`);
         }, 600);
         break;
       case "juicio":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/9.png")`);
         }, 600);
         break;
       case "horario":
-        setFondo(`url("/fondo2.png")`);
+        setFondo(`url("/f2.png")`);
         setTimeout(() => {
           setFondo(`url("/preguntas/es/910.png")`);
         }, 600);
