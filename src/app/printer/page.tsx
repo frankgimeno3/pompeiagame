@@ -8,8 +8,8 @@ import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useReactToPrint } from 'react-to-print'; // Importar la librería aquí
 
-import slogans from "../contenido/es/printer/slogans.json"
-import sloganseng from "../contenido/en/printer/sloganseng.json"
+import slogans from "../contenido/slogans.json"
+import sloganseng from "../contenido/sloganseng.json"
 import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 // import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 
