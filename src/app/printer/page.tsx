@@ -1,4 +1,5 @@
-// Printer.tsx
+"use client"
+
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
