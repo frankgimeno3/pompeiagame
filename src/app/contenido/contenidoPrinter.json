@@ -58,6 +58,20 @@
     "en": "DELETE",
     "de": "Entfernen",
     "es": "ELIMINAR"
-   }
-    
+   },
+   "cancelar": {
+    "en": "CANCEL",
+    "de": "STORNIERENcancel",
+    "es": "CANCELAR"
+   },
+   "estasseguro": {
+    "en": "ARE YOU SURE YOU WANT TO DELETE?",
+    "de": "SIND SIE SICHER, DASS SIE LÖSCHEN MÖCHTEN?",
+    "es": "¿ESTÁS SEGURO QUE DESEAS ELIMINAR?"
+   },
+   "vermas": {
+    "en": "SHOW MORE",
+    "de": "MEHR ANZEIGEN",
+    "es": "VER MÁS FILAS"
+   }    
 }

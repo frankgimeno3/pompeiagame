@@ -1,19 +1,20 @@
-"use client"
-
+// Printer.tsx
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
 import { useRouter } from 'next/navigation';
 import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../firebase';
-import { useReactToPrint } from 'react-to-print'; // Importar la librería aquí
+import { useReactToPrint } from 'react-to-print';  
 
 import slogans from "../contenido/slogans.json"
 import sloganseng from "../contenido/sloganseng.json"
 import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
-// import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 
-interface PrinterProps {}
+import Content from "../contenido/contenidoPrinter.json"
+import { PrinterContent } from '../contenido/interfaces'; 
+ 
+interface PrinterProps { }
 
 interface File {
     id: any;
@@ -24,7 +25,7 @@ interface File {
 }
 
 const Printer: FC<PrinterProps> = ({ }) => {
-    const [printerLang, setPrinterLang] = useState("en")
+    const [printerLang, setPrinterLang] = useState<'en' | 'es' | 'de'>('en');
     const [files, setFiles] = useState<File[]>([]);
     const [showAlert, setShowAlert] = useState(false);
     const [selectedFileId, setSelectedFileId] = useState("");
@@ -36,6 +37,9 @@ const Printer: FC<PrinterProps> = ({ }) => {
     const [contenidoprint, setcontenidoprint] = useState("");
     const [currentOrder, setCurrentOrder] = useState<string>("");
     const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
+
+    // Asegúrate de que Content esté tipado correctamente
+    const typedContent: PrinterContent = Content as PrinterContent;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -102,7 +106,6 @@ const Printer: FC<PrinterProps> = ({ }) => {
         setCurrentOrder(newOrder);
     };
 
- 
     const handleVisualizar = (file: File) => {
         setSelectedRowData(file);
         switch (file.lang) {
@@ -193,14 +196,14 @@ const Printer: FC<PrinterProps> = ({ }) => {
             default:
                 break;
         }
-        if(contenidoprint != ""){handlePrint()}
+        if (contenidoprint != "") { handlePrint() }
     };
- 
+
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
         pageStyle: "@page { size: landscape; }",
     });
-    
+
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
             {navbarVisible && <Navbar printerLang={printerLang} setPrinterLang={setPrinterLang} />}
@@ -208,7 +211,8 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 <Whitenav setNavbarVisible={setNavbarVisible} />
                 <div className="p-5">
                     <div className="mb-4 flex flex-row justify-between">
-                        <h2 className="mb-4 ml-3 text-lg">Juego Dioses del Olimpo </h2>
+                        <h2 className="mb-4 ml-3 text-lg">{typedContent.subtitulo[printerLang]}
+                        </h2>
                     </div>
                     <div className="mr-20 bg-white p-5 ">
                         <table className="text-xs border border-gray-300 bg-white w-full text-left">
@@ -218,31 +222,31 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
                                         onClick={() => handleHeaderClick("updatedAt")}
                                     >
-                                        Hora
-                                    </th>
+                                                {typedContent.hora[printerLang]}
+                                                </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
                                         onClick={() => handleHeaderClick("nombre")}
                                     >
-                                        Nombre
-                                    </th>
+                                                {typedContent.nombre[printerLang]}
+                                                </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
                                         onClick={() => handleHeaderClick("midios")}
                                     >
-                                        Dios
-                                    </th>
+                                                {typedContent.dios[printerLang]}
+                                                </th>
                                     <th
                                         className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
                                         onClick={() => handleHeaderClick("lang")}
                                     >
-                                        Idioma
+                                                {typedContent.idioma[printerLang]}
+                                                </th>
+                                    <th className="py-1.5 text-center font-medium border border-gray-300">
+                                    {typedContent.archivo[printerLang]}
                                     </th>
                                     <th className="py-1.5 text-center font-medium border border-gray-300">
-                                        Archivo
-                                    </th>
-                                    <th className="py-1.5 text-center font-medium border border-gray-300">
-                                        Opciones
+                                    {typedContent.opciones[printerLang]}
                                     </th>
                                 </tr>
                             </thead>
@@ -270,15 +274,15 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                                 className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] hover:bg-gray-50 btn-visualizar"
                                                 onClick={() => handleVisualizar(singnlefile)}
                                             >
-                                                Visualizar
-                                            </button>
+                                                {typedContent.visualizar[printerLang]}
+                                                </button>
                                         </td>
                                         <td className="border border-gray-300 text-center">
                                             <button
                                                 className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] my-2 hover:bg-gray-50 btn-eliminar"
                                                 onClick={() => showDeleteAlert(singnlefile.id)}
                                             >
-                                                Eliminar
+                                                {typedContent.eliminar[printerLang]}
                                             </button>
                                         </td>
                                     </tr>
@@ -290,7 +294,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                 <button
                                     className="bg-blue-500 text-white text-sm py-2 px-4 rounded hover:bg-blue-600"
                                 >
-                                    Ver más filas
+                                    {typedContent.vermas[printerLang]}
                                 </button>
                             </div>
                         )}
@@ -300,38 +304,38 @@ const Printer: FC<PrinterProps> = ({ }) => {
             {showAlert && (
                 <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-500 bg-opacity-75">
                     <div className="bg-white p-5 rounded shadow">
-                        <p className="text-xl mb-5">¿Estás seguro que deseas eliminar?</p>
+                        <p className="text-xl mb-5">{typedContent.estasseguro[printerLang]}
+                        </p>
                         <div className="flex justify-end">
                             <button
                                 className="rounded bg-red-500 text-white px-4 py-2 mr-2"
                                 onClick={confirmDelete}
                             >
-                                ELIMINAR
+                                {typedContent.eliminar[printerLang]}
                             </button>
                             <button
                                 className="rounded bg-gray-200 px-4 py-2"
                                 onClick={cancelDelete}
                             >
-                                CANCELAR
+                                {typedContent.cancelar[printerLang]}
                             </button>
                         </div>
                     </div>
                 </div>
             )}
             <div style={{ display: "none" }}>
-            {selectedRowData && (
-          <ComponentToPrint
-            ref={componentRef}
-            nombre={selectedRowData.nombre}
-            tuDios={selectedRowData.midios}
-            tulang={selectedRowData.lang}
-            contenidoprint={contenidoprint}
-          />
-        )}
+                {selectedRowData && (
+                    <ComponentToPrint
+                        ref={componentRef}
+                        nombre={selectedRowData.nombre}
+                        tuDios={selectedRowData.midios}
+                        tulang={selectedRowData.lang}
+                        contenidoprint={contenidoprint}
+                    />
+                )}
             </div>
         </div>
     );
 };
-
 
 export default Printer;
