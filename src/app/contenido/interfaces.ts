@@ -8,8 +8,9 @@ export interface LanguageContent {
     es: string;
 }
 
-export type Dioses = 'CERES' | 'DIANA' | 'FEBO' | 'JUPITER' | 'JUNO' | 'MARTE' | 'MERCURIO' | 'MINERVA' | 'NEPTUNO' | 'VENUS' | 'VESTA' | 'VULCANO';
+export type Language = "es" | "en" | "de";
 
+export type Dioses = "" | 'CERES' | 'DIANA' | 'FEBO' | 'JUPITER' | 'JUNO' | 'MARTE' | 'MERCURIO' | 'MINERVA' | 'NEPTUNO' | 'VENUS' | 'VESTA' | 'VULCANO';
 
 export interface ContentType {
     dashboard: {

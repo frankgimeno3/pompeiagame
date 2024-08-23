@@ -226,6 +226,7 @@
             },
             "contenidoresultado": {
                 "es": {
+                    "": "",
                     "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
                     "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
                     "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLaSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
@@ -240,6 +241,7 @@
                     "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
                 },
                 "en": {
+                    "": "",
                     "CERES": "GODDESS OF AGRICULTURE, FERTILITY, AND HARVESTS, CONNECTED TO THE COUNTRYSIDE AND NATURE. SHE IS KNOWN FOR BEING AFFECTIONATE AND GENEROUS.",
                     "DIANA": "GODDESS OF HUNTING, THE MOON, NATURE, CHASTITY, AND PROTECTOR OF CHILDREN. SHE RESIDES IN THE FOREST AND IS CAPABLE OF COMMUNICATING WITH ANIMALS.",
                     "FEBO": "GOD OF THE SUN, BEAUTY, PLASTIC ARTS, AND MUSIC. HE IS KNOWN FOR HIS WISDOM AND COMPETITIVENESS.",
@@ -254,6 +256,7 @@
                     "VULCANO": "GOD OF FIRE AND FORGE, PATRON OF CRAFTSMEN AND INGENUITY. HE IS CHARACTERIZED BY BEING CALM, PEACEFUL, AND HARDWORKING."
                 },
                 "de": {
+                    "": "",
                     "CERES": "GÖTTIN DES ACKERBAUS, DER FRUCHTBARKEIT UND DER ERNTE. SIE STEHT MIT DEM LAND UND DER NATUR IN VERBINDUNG UND IST DAFÜR BEKANNT, LIEBEVOLL UND GROSSZÜGIG ZU SEIN.",
                     "DIANA": "GÖTTIN DER JAGD, DES MONDES, DER NATUR, DER KEUSCHHEIT UND BESCHÜTZERIN DER KINDER. SIE LEBT IM WALD UND KANN MIT TIEREN KOMMUNIZIEREN.",
                     "FEBO": "GOTT DER SONNE, DER SCHÖNHEIT, DER KÜNSTE UND DER MUSIK. ER IST BEKANNT FÜR SEINE WEISHEIT UND SEINEN WETTBEWERBSGEIST.",
@@ -270,6 +273,7 @@
             },
             "nombresdioses": {
                 "es": {
+                    "": "",
                     "CERES": "CERES",
                     "DIANA": "DIANA",
                     "FEBO": "FEBO",
@@ -284,6 +288,7 @@
                     "VULCANO": "VULCANO"
                 },
                 "en": {
+                    "": "",
                     "CERES": "CERES",
                     "DIANA": "DIANA",
                     "FEBO": "PHOEBUS",
@@ -298,6 +303,7 @@
                     "VULCANO": "VULCAN"
                 },
                 "de": {
+                    "": "",
                     "CERES": "CERES",
                     "DIANA": "DIANA",
                     "FEBO": "PHOEBUS",

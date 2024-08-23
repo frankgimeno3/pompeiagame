@@ -6,8 +6,8 @@ import Restartbutton from "../../components/RestartButton";
 import renderComponenteActual from "../renderComponenteActual";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import { Dioses, Language } from "@/app/contenido/interfaces";
 
-type Language = "es" | "en" | "de";
 
 
 const Cuestionario = () => {
@@ -31,7 +31,7 @@ const Cuestionario = () => {
   const [creatividad, setCreatividad] = useState("");
   const [juicio, setJuicio] = useState("");
   const [horario, setHorario] = useState("");
-  const [midios, setmidios] = useState("");
+  const [midios, setmidios] = useState<Dioses>("");
   const [loadingvisible, setloadingvisible] = useState(false);
   const [fondo, setFondo] = useState(`url("/fondo2.png")`);
 
