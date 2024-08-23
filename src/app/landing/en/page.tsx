@@ -4,11 +4,21 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Restartbutton from "../../components/RestartButton";
 import renderComponenteActual from "../renderComponenteActual";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 type Language = "es" | "en" | "de";
 
 
 const Cuestionario = () => {
+  
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect('/');
+    },
+  });
+
   const [lang, setLang] = useState<Language>("en");
   const [componenteactual, setComponenteActual] = useState("nombre");
   const [nombre, setNombre] = useState("");
