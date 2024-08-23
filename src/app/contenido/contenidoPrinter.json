@@ -1,0 +1,63 @@
+{
+   "title": {
+    "en": "TOTEM GAME PRINTER",
+    "de": "TOTEM SPIELDRUCKER",
+    "es": "IMPRESOR JUEGO TÓTEM"
+   },
+   "languageselection": {
+    "en": "LANGUAGE SELECTION",
+    "de": "SPRACHAUSWAHL",
+    "es": "SELECCIÓN DE IDIOMA"
+   },
+   "cerrarsesion": {
+    "en": "LOG OUT",
+    "de": "Ausloggen",
+    "es": "CERRAR SESIÓN"
+   },
+   "subtitulo": {
+    "en": "GODS OF OLIMPUS GAME",
+    "de": "Olympische-Götter-Spiel",
+    "es": "JUEGO DIOSES DEL OLIMPO"
+   },
+   "hora": {
+    "en": "HOUR",
+    "de": "Uhrzeit",
+    "es": "HORA"
+   },
+   "nombre": {
+    "en": "NAME",
+    "de": "NAME",
+    "es": "NOMBRE"
+   },
+   "dios": {
+    "en": "GOD",
+    "de": "Gottheit",
+    "es": "DIOS"
+   },
+   "idioma": {
+    "en": "LANGUAGE",
+    "de": "Sprache",
+    "es": "IDIOMA"
+   },
+   "archivo": {
+    "en": "FILE",
+    "de": "Datei",
+    "es": "ARCHIVO"
+   },
+   "opciones": {
+    "en": "OPTIONS",
+    "de": "Optionen",
+    "es": "OPCIONES"
+   },
+   "visualizar": {
+    "en": "DISPLAY",
+    "de": "Vorschau",
+    "es": "VISUALIZAR"
+   },
+   "eliminar": {
+    "en": "DELETE",
+    "de": "Entfernen",
+    "es": "ELIMINAR"
+   }
+    
+}
