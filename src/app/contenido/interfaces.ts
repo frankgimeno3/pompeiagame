@@ -1,26 +1,6 @@
-// Define las interfaces para el contenido
+import { Cuestionario } from "./interfazcuestionario";
 
-// Interface para las propiedades del cuestionario
-export interface Cuestionario {
-    nombre: {
-        escribetunombre: {
-            es: string;
-            en: string;
-            de: string;
-        };
-        caracteres10: {
-            es: string;
-            en: string;
-            de: string;
-        };
-        seguir: {
-            es: string;
-            en: string;
-            de: string;
-        };
-    };
-    // Puedes agregar otras propiedades si es necesario
-}
+
 
 // Interface para el contenido total
 export interface ContentType {
@@ -30,10 +10,25 @@ export interface ContentType {
     cuestionario: Cuestionario;
 }
 
-// Props del componente Nombre
-export interface NombreProps {
+ export interface NombreProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setNombre: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de'; // Idioma como propiedad
+    lang: 'es' | 'en' | 'de';  
 }
 
+export interface ResultadoProps {
+    setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
+    setmidios: React.Dispatch<React.SetStateAction<string>>;
+    nombre: string;
+    conflicto: string;
+    relaciones: string;
+    estrategia: string;
+    resolutividad: string;
+    trabajo: string;
+    lugar: string;
+    humor: string;
+    creatividad: string;
+    juicio: string;
+    horario: string;
+    lang: 'es' | 'en' | 'de';  
+}

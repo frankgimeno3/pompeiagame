@@ -5,8 +5,11 @@ import Image from "next/image";
 import Restartbutton from "../../components/RestartButton";
 import renderComponenteActual from "../renderComponenteActual";
 
+type Language = "es" | "en" | "de";
+
+
 const Cuestionario = () => {
-  const [idioma, setIdioma] = useState("de")
+  const [lang, setLang] = useState<Language>("de");
   const [componenteactual, setComponenteActual] = useState("nombre");
   const [nombre, setNombre] = useState("");
   const [conflicto, setConflicto] = useState("");
@@ -149,6 +152,7 @@ const Cuestionario = () => {
         </div>
         <div>
           {renderComponenteActual(
+            lang,
             componenteactual,
             setComponenteActual,
             setNombre,

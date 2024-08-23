@@ -18,7 +18,7 @@ import Yapuedes from "./comp_landing/915yapuedes/yapuedes";
 
 
 const renderComponenteActual = (
-  lang:string,
+  lang: "es" | "en" | "de",
   componenteactual: string,
   setComponenteActual: React.Dispatch<React.SetStateAction<string>>,
   setNombre: React.Dispatch<React.SetStateAction<string>>,

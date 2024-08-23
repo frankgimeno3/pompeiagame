@@ -44,20 +44,269 @@
                 "de": "WEITER"
             }
         },
-        "nombrehola": {},
-        "conflicto": {},
-        "relaciones": {},
-        "estrategia": {},
-        "resolutividad": {},
-        "trabajo": {},
-        "lugar": {},
-        "humor": {},
-        "creatividad": {},
-        "juicio": {},
-        "horario": {},
-        "alea": {},
-        "resultado": {},
-        "enviar": {},
-        "yapuedes": {}
+        "nombrehola": {
+            "saludos": {
+                "es": "SALUDOS, ",
+                "en": "GREETINGS, ",
+                "de": ""
+            },
+            "bienvenidosalolimpo": {
+                "es": "BIENVENIDOS AL OLIMPO",
+                "en": "",
+                "de": ""
+            },
+            "cualdeellos": {
+                "es": "¿CUÁL DE ELLOS TE REPRESENTA MEJOR?",
+                "en": "",
+                "de": ""
+            },
+            "atreveteasaber": {
+                "es": "¡ATRÉVETE A SABER! O COMO DIRÍAN LOS ROMANOS... ¡SAPERE AUDE!",
+                "en": "",
+                "de": ""
+            },
+            "empezar": {
+                "es": "EMPEZAR",
+                "en": "",
+                "de": ""
+            }
+        },
+        "conflicto": {
+            "pacifico": {
+                "es": "PACÍFICO",
+                "en": "",
+                "de": ""
+            },
+            "guerrero": {
+                "es": "GUERRERO",
+                "en": "WARRIOR",
+                "de": ""
+            }
+        },
+        "relaciones": {
+            "enamoradizo": {
+                "es": "ENAMORADIZO",
+                "en": "",
+                "de": ""
+            },
+            "comprometido": {
+                "es": "COMPROMETIDO",
+                "en": "",
+                "de": ""
+            }
+        },
+        "estrategia": {
+            "estratega": {
+                "es": "ESTRATEGA",
+                "en": "",
+                "de": ""
+            },
+            "impulsivo": {
+                "es": "IMPULSIVO",
+                "en": "",
+                "de": ""
+            }
+        },
+        "resolutividad": {
+            "confrontación": {
+                "es": "CONFRONTACIÓN",
+                "en": "",
+                "de": ""
+            },
+            "negociación": {
+                "es": "NEGOCIACIÓN",
+                "en": "",
+                "de": ""
+            }
+        },
+        "trabajo": {
+            "trabajador": {
+                "es": "TRABAJADOR",
+                "en": "",
+                "de": ""
+            },
+            "holgazán": {
+                "es": "HOLGAZÁN",
+                "en": "",
+                "de": ""
+            }
+        },
+        "lugar": {
+            "ciudad": {
+                "es": "CIUDAD",
+                "en": "",
+                "de": ""
+            },
+            "campo": {
+                "es": "CAMPO",
+                "en": "",
+                "de": ""
+            }
+        },
+        "humor": {
+            "buenhumor": {
+                "es": "BUEN HUMOR",
+                "en": "",
+                "de": ""
+            },
+            "malhumor": {
+                "es": "MAL HUMOR",
+                "en": "",
+                "de": ""
+            }
+        },
+        "creatividad": {
+            "creativo": {
+                "es": "CREATIVO",
+                "en": "",
+                "de": ""
+            },
+            "racional": {
+                "es": "RACIONAL",
+                "en": "",
+                "de": ""
+            }
+        },
+        "juicio": {
+            "hechos": {
+                "es": "ME BASO EN HECHOS",
+                "en": "",
+                "de": ""
+            },
+            "emociones": {
+                "es": "ME BASO EN EMOCIONES",
+                "en": "",
+                "de": ""
+            }
+        },
+        "horario": {
+            "diurno": {
+                "es": "DIURNO",
+                "en": "",
+                "de": ""
+            },
+            "nocturno": {
+                "es": "NOCTURNO",
+                "en": "",
+                "de": ""
+            }
+        },
+        "alea": {
+            "aleaiactaest": {
+                "es": "¡ALEA IACTA EST!",
+                "en": "¡ALEA IACTA EST!",
+                "de": "¡ALEA IACTA EST!"
+            },
+            "lasuerteestá": {
+                "es": "¡LA SUERTE ESTÁ ECHADA!",
+                "en": "",
+                "de": ""
+            },
+            "resultados": {
+                "es": "VER RESULTADOS",
+                "en": "",
+                "de": ""
+            }
+        },
+        "resultado": {
+            "tudioses": {
+                "es": "TU DIOS ES",
+                "en": "",
+                "de": ""
+            },
+            "imprimir": {
+                "es": "IMPRIMIR",
+                "en": "",
+                "de": ""
+            },
+            "sinimprimir": {
+                "es": "FINALIZAR SIN IMPRIMIR",
+                "en": "",
+                "de": ""
+            },
+            "contenidoresultado": {
+                "es": {
+                    "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
+                    "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
+                    "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLÁSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
+                    "JUPITER": "DIOS DE DIOSES. SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA",
+                    "JUNO": "SEÑORA DEL OLIMPO, PROTECTORA DEL MATRIMONIO, LA MATERNIDAD Y LA FAMILIA. ES CONOCIDA POR TENER UN CARACTER FUERTE Y SER INCONDICIONALMENTE FIEL",
+                    "MARTE": "DIOS DE LA GUERRA Y PATRÓN DE LA PERFECCIÓN Y LA BELLEZA. ÉS CONOCIDO POR SER VALIENTE, IMPULSIVO Y APASIONADO.",
+                    "MERCURIO": "DIOS MENSAJERO, DEL COMERCIO, LOS VIAJES Y LA ELOCUENCIA. ES CONOCIDO POR SU VERSATILIDAD Y ASTUCIA.",
+                    "MINERVA": "DIOSA DE LA ESTRATEGIA, LA JUSTICIA Y LA SABIDURÍA. ES RECONOCIDA POR SU PERSONALIDAD EQUILIBRADA Y SU PERFECCIONISMO.",
+                    "NEPTUNO": "DIOS DE LOS MARES Y PATRÓN DE LOS MARINEROS. ES CONOCIDO POR SU PODER, FUERZA Y HABILIDADES DENTRO Y FUERA DEL AGUA. ES APASIONADO Y ENAMORADIZO.",
+                    "VENUS": "DIOSA DEL AMOR, LA FERTILIDAD Y LA BELLEZA. ES CONOCIDA POR SER ENAMORADIZA, COMPETITIVA Y SEDUCTORA. ",
+                    "VESTA": "DIOSA DEL HOGAR Y LA FAMILIA. ES LA PROTECTORA DEL FUEGO DEL HOGAR Y SIMBOLIZA LA UNIÓN Y LA ESTABILIDAD EN LA VIDA FAMILIAR.",
+                    "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
+                },
+                "en": {
+                    "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
+                    "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
+                    "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLÁSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
+                    "JUPITER": "DIOS DE DIOSES. SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA",
+                    "JUNO": "SEÑORA DEL OLIMPO, PROTECTORA DEL MATRIMONIO, LA MATERNIDAD Y LA FAMILIA. ES CONOCIDA POR TENER UN CARACTER FUERTE Y SER INCONDICIONALMENTE FIEL",
+                    "MARTE": "DIOS DE LA GUERRA Y PATRÓN DE LA PERFECCIÓN Y LA BELLEZA. ÉS CONOCIDO POR SER VALIENTE, IMPULSIVO Y APASIONADO.",
+                    "MERCURIO": "DIOS MENSAJERO, DEL COMERCIO, LOS VIAJES Y LA ELOCUENCIA. ES CONOCIDO POR SU VERSATILIDAD Y ASTUCIA.",
+                    "MINERVA": "DIOSA DE LA ESTRATEGIA, LA JUSTICIA Y LA SABIDURÍA. ES RECONOCIDA POR SU PERSONALIDAD EQUILIBRADA Y SU PERFECCIONISMO.",
+                    "NEPTUNO": "DIOS DE LOS MARES Y PATRÓN DE LOS MARINEROS. ES CONOCIDO POR SU PODER, FUERZA Y HABILIDADES DENTRO Y FUERA DEL AGUA. ES APASIONADO Y ENAMORADIZO.",
+                    "VENUS": "DIOSA DEL AMOR, LA FERTILIDAD Y LA BELLEZA. ES CONOCIDA POR SER ENAMORADIZA, COMPETITIVA Y SEDUCTORA. ",
+                    "VESTA": "DIOSA DEL HOGAR Y LA FAMILIA. ES LA PROTECTORA DEL FUEGO DEL HOGAR Y SIMBOLIZA LA UNIÓN Y LA ESTABILIDAD EN LA VIDA FAMILIAR.",
+                    "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
+                },
+                "de": {
+                    "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
+                    "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
+                    "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLÁSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
+                    "JUPITER": "DIOS DE DIOSES. SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA",
+                    "JUNO": "SEÑORA DEL OLIMPO, PROTECTORA DEL MATRIMONIO, LA MATERNIDAD Y LA FAMILIA. ES CONOCIDA POR TENER UN CARACTER FUERTE Y SER INCONDICIONALMENTE FIEL",
+                    "MARTE": "DIOS DE LA GUERRA Y PATRÓN DE LA PERFECCIÓN Y LA BELLEZA. ÉS CONOCIDO POR SER VALIENTE, IMPULSIVO Y APASIONADO.",
+                    "MERCURIO": "DIOS MENSAJERO, DEL COMERCIO, LOS VIAJES Y LA ELOCUENCIA. ES CONOCIDO POR SU VERSATILIDAD Y ASTUCIA.",
+                    "MINERVA": "DIOSA DE LA ESTRATEGIA, LA JUSTICIA Y LA SABIDURÍA. ES RECONOCIDA POR SU PERSONALIDAD EQUILIBRADA Y SU PERFECCIONISMO.",
+                    "NEPTUNO": "DIOS DE LOS MARES Y PATRÓN DE LOS MARINEROS. ES CONOCIDO POR SU PODER, FUERZA Y HABILIDADES DENTRO Y FUERA DEL AGUA. ES APASIONADO Y ENAMORADIZO.",
+                    "VENUS": "DIOSA DEL AMOR, LA FERTILIDAD Y LA BELLEZA. ES CONOCIDA POR SER ENAMORADIZA, COMPETITIVA Y SEDUCTORA. ",
+                    "VESTA": "DIOSA DEL HOGAR Y LA FAMILIA. ES LA PROTECTORA DEL FUEGO DEL HOGAR Y SIMBOLIZA LA UNIÓN Y LA ESTABILIDAD EN LA VIDA FAMILIAR.",
+                    "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
+                }
+            }
+        },
+        "enviar": {
+            "quieresllevarte": {
+                "es": "¿QUIERES LLEVARTE A TU DIOS DE RECUERDO?",
+                "en": "",
+                "de": ""
+            },
+            "pidecopia": {
+                "es": "PIDE TU COPIA EN RECEPCIÓN",
+                "en": "",
+                "de": ""
+            },
+            "precioventa": {
+                "es": "PRECIO DE VENTA 5€",
+                "en": "",
+                "de": ""
+            },
+            "confirmaryrecoger": {
+                "es": " CONFIRMAR Y RECOGER",
+                "en": "",
+                "de": ""
+            },
+            "comenzardenuevo": {
+                "es": "COMENZAR DE NUEVO",
+                "en": "",
+                "de": ""
+            }
+        },
+        "yapuedes": {
+            "yapuedes": {
+                "es": "¡YA PUEDES RECOGERLO!",
+                "en": "",
+                "de": ""
+            },
+            "vuelveajugar": {
+                "es": "VUELVE A JUGAR",
+                "en": "",
+                "de": ""
+            }
+        }
     }
 }

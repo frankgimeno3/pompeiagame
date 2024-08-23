@@ -1,6 +1,6 @@
 import Content from "../../../contenido/contenidoTotem.json"
 import React, { useState } from "react";
-import { Cuestionario, ContentType, NombreProps } from "../../../contenido/interfaces";
+import {ContentType, NombreProps } from "../../../contenido/interfaces";
 
 
 
@@ -235,8 +235,8 @@ const Nombre: React.FC<NombreProps> = ({ setComponenteActual, setNombre, lang })
             className="mt-2 px-8 py-4    text-4xl shadow-lg text-black bg-cyan-200 rounded bg-opacity-40"
             onClick={handleSeguirClick}
           >
-            SEGUIR
-          </button>
+                  {Content.cuestionario.nombre.seguir[lang]}
+                  </button>
  
       </div>
     </div>

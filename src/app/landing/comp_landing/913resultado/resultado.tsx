@@ -2,27 +2,27 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useSpring, animated } from "react-spring";
- 
- 
-interface ResultadoProps {
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-  setmidios: React.Dispatch<React.SetStateAction<string>>;
-  nombre: string;
-  conflicto: string;
-  relaciones: string;
-  estrategia: string;
-  resolutividad: string;
-  trabajo: string;
-  lugar: string;
-  humor: string;
-  creatividad: string;
-  juicio: string;
-  horario: string;
-  lang: string;
-}
+import Content from "../../../contenido/contenidoTotem.json";
+import { ResultadoProps } from "../../../contenido/interfaces";
 
-const Resultado: React.FC<ResultadoProps> = ({setComponenteActual, setmidios,
-  nombre, conflicto, relaciones, estrategia, resolutividad,   trabajo, lugar, humor, creatividad,   juicio, horario, lang}) => {
+export interface ContentType {
+  dashboard: {
+      // Define las propiedades de dashboard si es necesario
+  };
+  cuestionario: {
+      resultado: {
+          contenidoresultado: {
+              es: Record<string, string>;
+              en: Record<string, string>;
+              de: Record<string, string>;
+          };
+      };
+  };
+}
+type Dioses = 'CERES' | 'DIANA' | 'FEBO' | 'JUPITER' | 'JUNO' | 'MARTE' | 'MERCURIO' | 'MINERVA' | 'NEPTUNO' | 'VENUS' | 'VESTA' | 'VULCANO';
+
+const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
+  nombre, conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, lang }) => {
 
   const router = useRouter();
   const [jupiterPoints, setJupiterPoints] = useState(0);
@@ -38,7 +38,7 @@ const Resultado: React.FC<ResultadoProps> = ({setComponenteActual, setmidios,
   const [mercurioPoints, setMercurioPoints] = useState(0);
   const [vestaPoints, setVestaPoints] = useState(0);
 
- 
+
   const pointsObject: Record<string, number> = {
     JUPITER: jupiterPoints,
     JUNO: junoPoints,
@@ -64,417 +64,400 @@ const Resultado: React.FC<ResultadoProps> = ({setComponenteActual, setmidios,
       }
     },
   });
-  
 
 
-  const Contenido =     {
-      "CERES": "DIOSA DE LA AGRICULTURA, LA FERTILIDAD Y LAS COSECHAS, VINCULADA AL CAMPO Y LA NATURALEZA. ES CONOCIDA POR SER CARIÑOSA Y GENEROSA.",
-      "DIANA": "DIOSA DE LA CAZA, LA LUNA, LA NATURALEZA, LA CASTIDAD, Y PROTECTORA DE LOS NIÑOS. ES HABITANTE DEL BOSQUE Y CAPAZ DE HABLAR CON LOS ANIMALES.",
-      "FEBO": "DIOS DEL SOL,  LA BELLEZA, LAS ARTES PLÁSTICAS Y LA MÚSICA. ES CONOCIDO POR SU SABIDURÍA Y COMPETITIVIDAD.",
-      "JUPITER": "DIOS DE DIOSES. SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA",
-      "JUNO": "SEÑORA DEL OLIMPO, PROTECTORA DEL MATRIMONIO, LA MATERNIDAD Y LA FAMILIA. ES CONOCIDA POR TENER UN CARACTER FUERTE Y SER INCONDICIONALMENTE FIEL",
-      "MARTE": "DIOS DE LA GUERRA Y PATRÓN DE LA PERFECCIÓN Y LA BELLEZA. ÉS CONOCIDO POR SER VALIENTE, IMPULSIVO Y APASIONADO.",
-      "MERCURIO": "DIOS MENSAJERO, DEL COMERCIO, LOS VIAJES Y LA ELOCUENCIA. ES CONOCIDO POR SU VERSATILIDAD Y ASTUCIA.",
-      "MINERVA": "DIOSA DE LA ESTRATEGIA, LA JUSTICIA Y LA SABIDURÍA. ES RECONOCIDA POR SU PERSONALIDAD EQUILIBRADA Y SU PERFECCIONISMO.",
-      "NEPTUNO": "DIOS DE LOS MARES Y PATRÓN DE LOS MARINEROS. ES CONOCIDO POR SU PODER, FUERZA Y HABILIDADES DENTRO Y FUERA DEL AGUA. ES APASIONADO Y ENAMORADIZO.",
-      "VENUS": "DIOSA DEL AMOR, LA FERTILIDAD Y LA BELLEZA. ES CONOCIDA POR SER ENAMORADIZA, COMPETITIVA Y SEDUCTORA. ",
-      "VESTA": "DIOSA DEL HOGAR Y LA FAMILIA. ES LA PROTECTORA DEL FUEGO DEL HOGAR Y SIMBOLIZA LA UNIÓN Y LA ESTABILIDAD EN LA VIDA FAMILIAR.",
-      "VULCANO": "DIOS DEL FUEGO Y DE LA FORJA, DE LOS ARTESANOS Y EL INGENIO. SE CARACTERIZA POR SER TRANQUILO, PACÍFICO Y TRABAJADOR."
-        
-  };
-  
-  
-let criterios: string[]= [conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, ]
- 
+  let criterios: string[] = [conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario,]
+
   //.................................................................................................
-//aqui he d'insertar cada una de les funcionalitats
+  //aqui he d'insertar cada una de les funcionalitats
 
-useEffect(() => {
-  setIsVisible(true);
-  actualizarPuntos(criterios)
+  useEffect(() => {
+    setIsVisible(true);
+    actualizarPuntos(criterios)
 
- 
-}, []);
 
-//primer hauria de crear i implementar criterioalgoritmo. TÉ COM A INPUT CRITERIOS. Dona diosAlgoritmo com a valor. 
-    //ens dona resultat amb que treballar a selectdios
- 
-    function criterioAlgoritmo(criterios: string[] ) {
-      switch (true) {
-         case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "ENAMORADIZO" &&
-          criterios[2] == "ESTRATEGA" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "HOLGAZÁN" &&
-          criterios[5] == "CIUDAD" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "JUPITER";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "IMPULSIVO" &&
-          criterios[3] == "CONFRONTACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CIUDAD" &&
-          criterios[6] == "MALHUMOR" &&
-          criterios[7] == "CREATIVO" &&
-          criterios[8] == "INJUSTO" &&
-          criterios[9] == "DIURNO":
-          return "JUNO";
-        case criterios[0] == "GUERRERO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "ESTRATEGA" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CIUDAD" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "MINERVA";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "ESTRATEGA" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CAMPO" &&
-          criterios[6] == "MALHUMOR" &&
-          criterios[7] == "CREATIVO" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "VULCANO";
-        case criterios[0] == "GUERRERO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "IMPULSIVO" &&
-          criterios[3] == "CONFRONTACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CAMPO" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "INJUSTO" &&
-          criterios[9] == "NOCTURNO":
-          return "DIANA";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "ENAMORADIZO" &&
-          criterios[2] == "IMPULSIVO" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "HOLGAZÁN" &&
-          criterios[5] == "CAMPO" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "CREATIVO" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "FEBO";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "ENAMORADIZO" &&
-          criterios[2] == "IMPULSIVO" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "HOLGAZÁN" &&
-          criterios[5] == "CAMPO" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "CREATIVO" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "NOCTURNO":
-          return "VENUS";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "IMPULSIVO" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CAMPO" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "CERES";
-        case criterios[0] == "GUERRERO" &&
-          criterios[1] == "ENAMORADIZO" &&
-          criterios[2] == "ESTRATEGA" &&
-          criterios[3] == "CONFRONTACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CAMPO" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "NEPTUNO";
-        case criterios[0] == "GUERRERO" &&
-          criterios[1] == "ENAMORADIZO" &&
-          criterios[2] == "IMPULSIVO" &&
-          criterios[3] == "CONFRONTACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CIUDAD" &&
-          criterios[6] == "MALHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "INJUSTO" &&
-          criterios[9] == "DIURNO":
-          return "MARTE";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "ESTRATEGA" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CIUDAD" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "INJUSTO" &&
-          criterios[9] == "DIURNO":
-          return "MERCURIO";
-        case criterios[0] == "PACÍFICO" &&
-          criterios[1] == "FIEL" &&
-          criterios[2] == "ESTRATEGA" &&
-          criterios[3] == "NEGOCIACIÓN" &&
-          criterios[4] == "TRABAJADOR" &&
-          criterios[5] == "CIUDAD" &&
-          criterios[6] == "BUENHUMOR" &&
-          criterios[7] == "RACIONAL" &&
-          criterios[8] == "JUSTO" &&
-          criterios[9] == "DIURNO":
-          return "VESTA";
-        default:
-          return " ";
-      }
+  }, []);
+
+  //primer hauria de crear i implementar criterioalgoritmo. TÉ COM A INPUT CRITERIOS. Dona diosAlgoritmo com a valor. 
+  //ens dona resultat amb que treballar a selectdios
+
+  function criterioAlgoritmo(criterios: string[]) {
+    switch (true) {
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "ENAMORADIZO" &&
+        criterios[2] == "ESTRATEGA" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "HOLGAZÁN" &&
+        criterios[5] == "CIUDAD" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "JUPITER";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "IMPULSIVO" &&
+        criterios[3] == "CONFRONTACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CIUDAD" &&
+        criterios[6] == "MALHUMOR" &&
+        criterios[7] == "CREATIVO" &&
+        criterios[8] == "INJUSTO" &&
+        criterios[9] == "DIURNO":
+        return "JUNO";
+      case criterios[0] == "GUERRERO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "ESTRATEGA" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CIUDAD" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "MINERVA";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "ESTRATEGA" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CAMPO" &&
+        criterios[6] == "MALHUMOR" &&
+        criterios[7] == "CREATIVO" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "VULCANO";
+      case criterios[0] == "GUERRERO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "IMPULSIVO" &&
+        criterios[3] == "CONFRONTACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CAMPO" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "INJUSTO" &&
+        criterios[9] == "NOCTURNO":
+        return "DIANA";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "ENAMORADIZO" &&
+        criterios[2] == "IMPULSIVO" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "HOLGAZÁN" &&
+        criterios[5] == "CAMPO" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "CREATIVO" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "FEBO";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "ENAMORADIZO" &&
+        criterios[2] == "IMPULSIVO" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "HOLGAZÁN" &&
+        criterios[5] == "CAMPO" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "CREATIVO" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "NOCTURNO":
+        return "VENUS";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "IMPULSIVO" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CAMPO" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "CERES";
+      case criterios[0] == "GUERRERO" &&
+        criterios[1] == "ENAMORADIZO" &&
+        criterios[2] == "ESTRATEGA" &&
+        criterios[3] == "CONFRONTACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CAMPO" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "NEPTUNO";
+      case criterios[0] == "GUERRERO" &&
+        criterios[1] == "ENAMORADIZO" &&
+        criterios[2] == "IMPULSIVO" &&
+        criterios[3] == "CONFRONTACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CIUDAD" &&
+        criterios[6] == "MALHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "INJUSTO" &&
+        criterios[9] == "DIURNO":
+        return "MARTE";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "ESTRATEGA" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CIUDAD" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "INJUSTO" &&
+        criterios[9] == "DIURNO":
+        return "MERCURIO";
+      case criterios[0] == "PACÍFICO" &&
+        criterios[1] == "FIEL" &&
+        criterios[2] == "ESTRATEGA" &&
+        criterios[3] == "NEGOCIACIÓN" &&
+        criterios[4] == "TRABAJADOR" &&
+        criterios[5] == "CIUDAD" &&
+        criterios[6] == "BUENHUMOR" &&
+        criterios[7] == "RACIONAL" &&
+        criterios[8] == "JUSTO" &&
+        criterios[9] == "DIURNO":
+        return "VESTA";
+      default:
+        return " ";
     }
-    let diosAlgoritmo = criterioAlgoritmo(criterios)  
-
-//2, crear i implementar actualizar puntos, per modificar pointsObject en base a criterios.
-    //ens serveix pel punt següent
-
-    function actualizarPuntos(criterios: string[] ) {
-      for (let i = 0; i < criterios.length; i++) {
-        const criterio = criterios[i];
-        switch (criterio) {
-          case "PACÍFICO":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            break;
-          case "GUERRERO":
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-          case "FIEL":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            break;
-          case "ENAMORADIZO":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-          case "ESTRATEGA":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "IMPULSIVO":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "NEGOCIACIÓN":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "CONFRONTACIÓN":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "TRABAJADOR":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "HOLGAZÁN":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "CIUDAD":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "CAMPO":
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "BUENHUMOR":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "MALHUMOR":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "RACIONAL":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "CREATIVO":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "JUSTO":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "INJUSTO":
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            break;
-  
-          case "DIURNO":
-            setJupiterPoints((prevPoints) => prevPoints + 1);
-            setJunoPoints((prevPoints) => prevPoints + 1);
-            setVulcanoPoints((prevPoints) => prevPoints + 1);
-            setFeboPoints((prevPoints) => prevPoints + 1);
-            setCeresPoints((prevPoints) => prevPoints + 1);
-            setMercurioPoints((prevPoints) => prevPoints + 1);
-            setVestaPoints((prevPoints) => prevPoints + 1);
-            setMinervaPoints((prevPoints) => prevPoints + 1);
-            setNeptunoPoints((prevPoints) => prevPoints + 1);
-            setMartePoints((prevPoints) => prevPoints + 1);
-          break;
-  
-          case "NOCTURNO":
-            setVenusPoints((prevPoints) => prevPoints + 1);
-            setDianaPoints((prevPoints) => prevPoints + 1);
-            break;
-        }
-      }
-    }
-
-    
-      //recordatori: això d adalt servia per modificar estats. NO DONA UN RESULTAT.
-
-    //3, crear i implementar maxGodPoints, que pren com a imput pointsObject, actualitzat al punt 2
-        //ens dona com a resultat el guanyador per punts, diosPuntos
-            //si és un sol, el retorna
-            //si no, retorna un d'aleatori
-            function maxGodPoints(pointsObject: Record<string, number>) {
-              const maxScore = Math.max(...Object.values(pointsObject));
-              const maxScoreKeys = Object.keys(pointsObject).filter((key) => pointsObject[key] == maxScore);
-            
-              if (maxScoreKeys.length == 1) {
-                return maxScoreKeys[0];
-              } else {
-                const randomIndex = Math.floor(Math.random() * maxScoreKeys.length);
-                return maxScoreKeys[randomIndex];
-              }
-            }
-
-            let diosPuntos = maxGodPoints(pointsObject)  
-
-//4, AQUÍ COMENÇA Selectdios, que té com a input diosAlgoritmo i diosPuntos. Fa l'equivalent a checkCriterio.
-// comproba si diosAlgoritmo és ''. 
-        //Si ho és, return diosPuntos.
-        //Si no, return diosAlgoritmo
-
-//---
- 
-function Selectdios(diosAlgoritmo: any, diosPuntos: any) {
-  switch (diosAlgoritmo) {
-    case " ":
-      console.log("NO  fue por criterios")
-      console.log(criterios)
-      console.log(pointsObject)
-      return(diosPuntos);
-    default:
-      console.log("SÍ  fue por criterios")
-      console.log(criterios)
-      console.log(pointsObject)
-
-      return(diosAlgoritmo);
   }
-}
-let tuDios = Selectdios(diosAlgoritmo, diosPuntos);
+  let diosAlgoritmo = criterioAlgoritmo(criterios)
+
+  //2, crear i implementar actualizar puntos, per modificar pointsObject en base a criterios.
+  //ens serveix pel punt següent
+
+  function actualizarPuntos(criterios: string[]) {
+    for (let i = 0; i < criterios.length; i++) {
+      const criterio = criterios[i];
+      switch (criterio) {
+        case "PACÍFICO":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          break;
+        case "GUERRERO":
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+        case "FIEL":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          break;
+        case "ENAMORADIZO":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+        case "ESTRATEGA":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "IMPULSIVO":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "NEGOCIACIÓN":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "CONFRONTACIÓN":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "TRABAJADOR":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "HOLGAZÁN":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "CIUDAD":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "CAMPO":
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "BUENHUMOR":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "MALHUMOR":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "RACIONAL":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "CREATIVO":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "JUSTO":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "INJUSTO":
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "DIURNO":
+          setJupiterPoints((prevPoints) => prevPoints + 1);
+          setJunoPoints((prevPoints) => prevPoints + 1);
+          setVulcanoPoints((prevPoints) => prevPoints + 1);
+          setFeboPoints((prevPoints) => prevPoints + 1);
+          setCeresPoints((prevPoints) => prevPoints + 1);
+          setMercurioPoints((prevPoints) => prevPoints + 1);
+          setVestaPoints((prevPoints) => prevPoints + 1);
+          setMinervaPoints((prevPoints) => prevPoints + 1);
+          setNeptunoPoints((prevPoints) => prevPoints + 1);
+          setMartePoints((prevPoints) => prevPoints + 1);
+          break;
+
+        case "NOCTURNO":
+          setVenusPoints((prevPoints) => prevPoints + 1);
+          setDianaPoints((prevPoints) => prevPoints + 1);
+          break;
+      }
+    }
+  }
+
+
+  //recordatori: això d adalt servia per modificar estats. NO DONA UN RESULTAT.
+
+  //3, crear i implementar maxGodPoints, que pren com a imput pointsObject, actualitzat al punt 2
+  //ens dona com a resultat el guanyador per punts, diosPuntos
+  //si és un sol, el retorna
+  //si no, retorna un d'aleatori
+  function maxGodPoints(pointsObject: Record<string, number>) {
+    const maxScore = Math.max(...Object.values(pointsObject));
+    const maxScoreKeys = Object.keys(pointsObject).filter((key) => pointsObject[key] == maxScore);
+
+    if (maxScoreKeys.length == 1) {
+      return maxScoreKeys[0];
+    } else {
+      const randomIndex = Math.floor(Math.random() * maxScoreKeys.length);
+      return maxScoreKeys[randomIndex];
+    }
+  }
+
+  let diosPuntos = maxGodPoints(pointsObject)
+
+  //4, AQUÍ COMENÇA Selectdios, que té com a input diosAlgoritmo i diosPuntos. Fa l'equivalent a checkCriterio.
+  // comproba si diosAlgoritmo és ''. 
+  //Si ho és, return diosPuntos.
+  //Si no, return diosAlgoritmo
+
+  //---
+
+  function Selectdios(diosAlgoritmo: any, diosPuntos: any): Dioses {
+    switch (diosAlgoritmo) {
+      case " ":
+        console.log("NO fue por criterios");
+        console.log(criterios);
+        console.log(pointsObject);
+        return diosPuntos as Dioses;
+      default:
+        console.log("SÍ fue por criterios");
+        console.log(criterios);
+        console.log(pointsObject);
+        return diosAlgoritmo as Dioses;
+    }
+  }
+  
+  const tuDios: Dioses = Selectdios(diosAlgoritmo, diosPuntos);
+  const contenidoResultado = Content.cuestionario.resultado.contenidoresultado.es[tuDios];
 
 
 
   //.................................................................................................
   const handleSeguirClick = () => {
     setmidios(tuDios);
-     setComponenteActual("enviar");
+    setComponenteActual("enviar");
   };
 
   const handleRestart = () => {
@@ -499,7 +482,9 @@ let tuDios = Selectdios(diosAlgoritmo, diosPuntos);
               </p>
               <h2 className="text-black  text-7xl  mb-5   ">{tuDios}</h2>
               <div className="text-black">
-              <div className="text-2xl mb-10 pr-5">{(Contenido as any)[tuDios]}</div>
+                <div className="text-2xl mb-10 pr-5">
+                {contenidoResultado || "Información no disponible"}
+                </div>
               </div>
             </div>
           </div>
