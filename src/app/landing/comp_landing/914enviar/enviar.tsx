@@ -4,7 +4,7 @@ import Image from "next/image";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import Content from "../../../contenido/contenidoTotem.json";
-import {EnviarProps } from "../../../contenido/interfaces";
+import {Dioses, EnviarProps } from "../../../contenido/interfaces";
 
 
 const Enviar: React.FC<EnviarProps> = ({
@@ -109,10 +109,10 @@ const Enviar: React.FC<EnviarProps> = ({
           <div className=" text-left mx-24 px-24 ">
             <h1 className="text-md mt-10 ">{nombre}</h1>
             <p className="text-black text-xs mt-2   text-black" style={{ fontSize: '8px' }}>{Content.cuestionario.resultado.tudioses[lang]}</p>
-            <h2 className="text-black  text-md  mb-5   ">{midios}</h2>
+            <h2 className="text-black  text-md  mb-5   ">{Content.cuestionario.resultado.nombresdioses[lang][midios]}</h2>
             <div className="text-black">
               <div className="text-xs mb-10 pr-5" style={{ fontSize: '8px' }}>
-                {(Contenido as any)[midios]}
+                {Content.cuestionario.resultado.contenidoresultado[lang][midios]}
               </div>
             </div>
           </div>

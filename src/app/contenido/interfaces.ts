@@ -8,6 +8,9 @@ export interface LanguageContent {
     es: string;
 }
 
+export type Dioses = 'CERES' | 'DIANA' | 'FEBO' | 'JUPITER' | 'JUNO' | 'MARTE' | 'MERCURIO' | 'MINERVA' | 'NEPTUNO' | 'VENUS' | 'VESTA' | 'VULCANO';
+
+
 export interface ContentType {
     dashboard: {
         // Define las propiedades de dashboard si es necesario
@@ -123,7 +126,7 @@ export interface ResultadoProps {
 
 export interface EnviarProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-    midios: string;
+    midios: Dioses;
     nombre: string;
     lang: 'es' | 'en' | 'de';
 

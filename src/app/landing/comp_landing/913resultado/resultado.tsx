@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useSpring, animated } from "react-spring";
 import Content from "../../../contenido/contenidoTotem.json";
-import { ResultadoProps } from "../../../contenido/interfaces";
+import { Dioses, ResultadoProps } from "../../../contenido/interfaces";
 
 export interface ContentType {
   dashboard: {
@@ -19,7 +19,6 @@ export interface ContentType {
       };
   };
 }
-type Dioses = 'CERES' | 'DIANA' | 'FEBO' | 'JUPITER' | 'JUNO' | 'MARTE' | 'MERCURIO' | 'MINERVA' | 'NEPTUNO' | 'VENUS' | 'VESTA' | 'VULCANO';
 
 const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
   nombre, conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, lang }) => {
@@ -450,10 +449,10 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
   }
   
   
+  //.................................................................................................
   const tuDios: Dioses = Selectdios(diosAlgoritmo, diosPuntos);
 
 
-  //.................................................................................................
   const handleSeguirClick = () => {
     setmidios(tuDios);
     setComponenteActual("enviar");
