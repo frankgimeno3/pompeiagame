@@ -24,6 +24,7 @@ interface File {
 }
 
 const Printer: FC<PrinterProps> = ({ }) => {
+    const [printerLang, setPrinterLang] = useState("en")
     const [files, setFiles] = useState<File[]>([]);
     const [showAlert, setShowAlert] = useState(false);
     const [selectedFileId, setSelectedFileId] = useState("");
@@ -202,7 +203,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
     
     return (
         <div className="flex min-h-screen w-screen bg-gray-100 ">
-            {navbarVisible && <Navbar />}
+            {navbarVisible && <Navbar printerLang={printerLang} setPrinterLang={setPrinterLang} />}
             <div className="flex flex-col w-screen  ">
                 <Whitenav setNavbarVisible={setNavbarVisible} />
                 <div className="p-5">
