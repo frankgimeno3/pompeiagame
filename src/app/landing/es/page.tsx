@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -8,9 +8,30 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { Dioses, Language } from "@/app/contenido/interfaces";
 
+// Componente para manejar la transición de opacidad
+const FadeInOut = ({ children, visible }: { children: React.ReactNode, visible: boolean }) => {
+  return (
+    <div
+      className={`transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'} pointer-events-${visible ? 'auto' : 'none'}`}
+      style={{ zIndex: visible ? 50 : -1 }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const FadeInOut2 = ({ children, visible }: { children: React.ReactNode, visible: boolean }) => {
+  return (
+    <div
+      className={`transition-opacity duration-9000 ${visible ? 'opacity-100' : 'opacity-0'} pointer-events-${visible ? 'auto' : 'none'}`}
+      style={{ zIndex: visible ? 50 : -1 }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Cuestionario = () => {
-
   const session = useSession({
     required: true,
     onUnauthenticated() {
@@ -34,6 +55,16 @@ const Cuestionario = () => {
   const [midios, setmidios] = useState<Dioses>("");
   const [loadingvisible, setloadingvisible] = useState(false);
   const [fondo, setFondo] = useState(`url("/fondo2.png")`);
+  const [fadeVisible, setFadeVisible] = useState(true);
+
+  useEffect(() => {
+    setFadeVisible(false);
+    const fadeTimeout = setTimeout(() => {
+      setFadeVisible(true);
+    }, 100); // Temporizador para asegurar que la transición ocurra después del cambio de fondo
+
+    return () => clearTimeout(fadeTimeout);
+  }, [fondo]);
 
   useEffect(() => {
     switch (componenteactual) {
@@ -109,87 +140,85 @@ const Cuestionario = () => {
     }
   }, [componenteactual]);
 
-  const loadingHandler = () => {
-    if (!loadingvisible || componenteactual === "resultado") {
-      return "hidden";
-    } else {
-      return "text-center mx-auto";
-    }
-  };
-
   useEffect(() => {
     setloadingvisible(true);
     setTimeout(() => {
       setloadingvisible(false);
-      loadingHandler();
     }, 600);
   }, [componenteactual]);
 
   return (
     <div
-      className="flex flex-col h-screen   mx-auto"
+      className="flex flex-col h-screen mx-auto"
       style={{
-        backgroundImage: `url("/fondo2.png")`,
+        backgroundImage: `url("/f2.png")`,
         backgroundSize: "100% 100%",
         backgroundPosition: "center",
       }}
     >
       <div
-        className="h-screen flex flex-col justify-center text-center relative "
-        style={{
-          backgroundImage: fondo,
-          backgroundSize: "100% 100%",
-          backgroundPosition: "center",
-        }}
+        className="relative h-screen flex flex-col justify-center text-center"
       >
-        {loadingvisible && (
-          <div className="absolute z-50 inset-0 flex items-center justify-center">
-            <div className=" p-4 rounded ">
-              <Image
-                src="/gif/GIF1.gif"
-                alt="loading"
-                width={200}
-                height={50}
-                className={loadingHandler()}
-              />
-            </div>
-          </div>
-        )}
+        <FadeInOut2 visible={fadeVisible}>
+          <div
+            className="relative h-screen flex flex-col justify-center text-center transition-opacity duration-2000"
+            style={{
+              backgroundImage: fondo,
+              backgroundSize: "100% 100%",
+              backgroundPosition: "center",
+            }}
+          >
+            <FadeInOut2 visible={loadingvisible}>
+              <div className="absolute z-50 inset-0 flex items-center justify-center">
+                <div className="p-4 rounded opacity-90">
+                  <Image
+                    src="/gif/GIF1.gif"
+                    alt="loading"
+                    width={200}
+                    height={50}
+                    className="w-auto h-auto"
+                  />
+                </div>
+              </div>
+            </FadeInOut2>
 
-        <div className="absolute top-10 right-10 m-4">
-          <Restartbutton />
-        </div>
-        <div className="transition-opacity duration-1000 opacity-100">
-          {renderComponenteActual(
-            lang,
-            componenteactual,
-            setComponenteActual,
-            setNombre,
-            nombre,
-            setConflicto,
-            setRelaciones,
-            setEstrategia,
-            setResolutividad,
-            setTrabajo,
-            setLugar,
-            setHumor,
-            setCreatividad,
-            setJuicio,
-            setHorario,
-            setmidios,
-            conflicto,
-            relaciones,
-            estrategia,
-            resolutividad,
-            trabajo,
-            lugar,
-            humor,
-            creatividad,
-            juicio,
-            horario,
-            midios
-          )}
-        </div>
+            <div className="absolute top-10 right-10 m-4">
+              <Restartbutton />
+            </div>
+
+            <FadeInOut2 visible={!loadingvisible}>
+              {renderComponenteActual(
+                lang,
+                componenteactual,
+                setComponenteActual,
+                setNombre,
+                nombre,
+                setConflicto,
+                setRelaciones,
+                setEstrategia,
+                setResolutividad,
+                setTrabajo,
+                setLugar,
+                setHumor,
+                setCreatividad,
+                setJuicio,
+                setHorario,
+                setmidios,
+                conflicto,
+                relaciones,
+                estrategia,
+                resolutividad,
+                trabajo,
+                lugar,
+                humor,
+                creatividad,
+                juicio,
+                horario,
+                midios,
+              )}
+            </FadeInOut2>
+            </div>
+        </FadeInOut2>
       </div>
     </div>
   );

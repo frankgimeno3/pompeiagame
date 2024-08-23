@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import Nombre from "./comp_landing/1nombre/nombre";
 import Nombrehola from "./comp_landing/1nombrehola/nombrehola";
 import Conflicto from "./comp_landing/2conflicto/conflicto";
@@ -16,7 +16,7 @@ import Resultado from "./comp_landing/913resultado/resultado";
 import Enviar from "./comp_landing/914enviar/enviar";
 import Yapuedes from "./comp_landing/915yapuedes/yapuedes";
 import { Dioses } from "../contenido/interfaces";
-
+ 
 // Función para validar si un valor es un Dioses válido
 const isValidDios = (value: string): value is Dioses => {
   return [
@@ -27,7 +27,19 @@ const isValidDios = (value: string): value is Dioses => {
 };
 
 // Componente para envolver con transición
- 
+const FadeInOut = ({ children }: { children: ReactNode }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+  }, [children]);
+
+  return (
+    <div className={`transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      {children}
+    </div>
+  );
+};
 
 const renderComponenteActual = (
   lang: "es" | "en" | "de",
@@ -56,93 +68,111 @@ const renderComponenteActual = (
   creatividad: string,
   juicio: string,
   horario: string,
-  midios: Dioses
-) => {
-  switch (componenteactual) {
-    case "nombre":
-      return (
-           <Nombre
+  midios: Dioses,
+ ) => {
+  const [component, setComponent] = useState<ReactNode>(null);
+
+  useEffect(() => {
+    let newComponent: ReactNode = null;
+
+    switch (componenteactual) {
+      case "nombre":
+        newComponent = (
+          <Nombre
             setComponenteActual={setComponenteActual}
             setNombre={setNombre} lang={lang}
           />
-      );
-    case "nombrehola":
-      return (
+        );
+        break;
+      case "nombrehola":
+        newComponent = (
           <Nombrehola
             setComponenteActual={setComponenteActual}
             nombre={nombre} lang={lang}
           />
-      );
-    case "conflicto":
-      return (
+        );
+        break;
+      case "conflicto":
+        newComponent = (
           <Conflicto
             setComponenteActual={setComponenteActual}
             setConflicto={setConflicto} lang={lang}
           />
-      );
-    case "relaciones":
-      return (
+        );
+        break;
+      case "relaciones":
+        newComponent = (
           <Relaciones
             setComponenteActual={setComponenteActual}
             setRelaciones={setRelaciones} lang={lang}
           />
-      );
-    case "estrategia":
-      return (
+        );
+        break;
+      case "estrategia":
+        newComponent = (
           <Estrategia
             setComponenteActual={setComponenteActual}
             setEstrategia={setEstrategia} lang={lang}
           />
-      );
-    case "resolutividad":
-      return (
+        );
+        break;
+      case "resolutividad":
+        newComponent = (
           <Resolutividad
             setComponenteActual={setComponenteActual}
             setResolutividad={setResolutividad} lang={lang}
           />
-      );
-    case "trabajo":
-      return (
+        );
+        break;
+      case "trabajo":
+        newComponent = (
           <Trabajo
             setComponenteActual={setComponenteActual}
             setTrabajo={setTrabajo} lang={lang}
           />
-      );
-    case "lugar":
-      return (
+        );
+        break;
+      case "lugar":
+        newComponent = (
           <Lugar
             setComponenteActual={setComponenteActual}
             setLugar={setLugar} lang={lang}
           />
-      );
-    case "humor":
-      return (
+        );
+        break;
+      case "humor":
+        newComponent = (
           <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} lang={lang} />
-      );
-    case "creatividad":
-      return (
+        );
+        break;
+      case "creatividad":
+        newComponent = (
           <Creatividad
             setComponenteActual={setComponenteActual}
             setCreatividad={setCreatividad} lang={lang}
           />
-      );
-    case "juicio":
-      return (
+        );
+        break;
+      case "juicio":
+        newComponent = (
           <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} lang={lang} />
-      );
-    case "horario":
-      return (
+        );
+        break;
+      case "horario":
+        newComponent = (
           <Horario
             setComponenteActual={setComponenteActual}
             setHorario={setHorario} lang={lang}
           />
-      );
-    case "alea":
-      return (
+        );
+        break;
+      case "alea":
+        newComponent = (
           <Alea setComponenteActual={setComponenteActual} lang={lang} />
-      );
-    case "resultado":
-      return (
+        );
+        break;
+      case "resultado":
+        newComponent = (
           <Resultado
             setComponenteActual={setComponenteActual}
             setmidios={(value) => {
@@ -174,23 +204,31 @@ const renderComponenteActual = (
             juicio={juicio}
             horario={horario} lang={lang}
           />
-      );
-    case "enviar":
-      return (
+        );
+        break;
+      case "enviar":
+        newComponent = (
           <Enviar
             setComponenteActual={setComponenteActual}
             nombre={nombre}
             midios={midios}
             lang={lang}
           />
-      );
-    case "yapuedes":
-      return (
-          <Yapuedes setComponenteActual={setComponenteActual}  lang={lang}/>
-      );
-    default:
-      return null;
-  }
+        );
+        break;
+      case "yapuedes":
+        newComponent = (
+          <Yapuedes setComponenteActual={setComponenteActual} lang={lang}/>
+        );
+        break;
+      default:
+        newComponent = null;
+    }
+
+    setComponent(newComponent);
+  }, [componenteactual, lang, nombre, setComponenteActual, setNombre, setConflicto, setRelaciones, setEstrategia, setResolutividad, setTrabajo, setLugar, setHumor, setCreatividad, setJuicio, setHorario, setmidios, conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, midios]);
+
+  return <FadeInOut>{component}</FadeInOut>;
 };
 
 export default renderComponenteActual;
