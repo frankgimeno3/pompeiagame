@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -7,22 +8,35 @@ import { Dioses, ResultadoProps } from "../../../contenido/interfaces";
 
 export interface ContentType {
   dashboard: {
-      // Define las propiedades de dashboard si es necesario
+    // Define las propiedades de dashboard si es necesario
   };
   cuestionario: {
-      resultado: {
-          contenidoresultado: {
-              es: Record<string, string>;
-              en: Record<string, string>;
-              de: Record<string, string>;
-          };
+    resultado: {
+      contenidoresultado: {
+        es: Record<string, string>;
+        en: Record<string, string>;
+        de: Record<string, string>;
       };
+    };
   };
 }
 
-const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
-  nombre, conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, lang }) => {
-
+const Resultado: React.FC<ResultadoProps> = ({
+  setComponenteActual,
+  setmidios,
+  nombre,
+  conflicto,
+  relaciones,
+  estrategia,
+  resolutividad,
+  trabajo,
+  lugar,
+  humor,
+  creatividad,
+  juicio,
+  horario,
+  lang,
+}) => {
   const router = useRouter();
   const [jupiterPoints, setJupiterPoints] = useState(0);
   const [junoPoints, setJunoPoints] = useState(0);
@@ -36,7 +50,6 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
   const [martePoints, setMartePoints] = useState(0);
   const [mercurioPoints, setMercurioPoints] = useState(0);
   const [vestaPoints, setVestaPoints] = useState(0);
-
 
   const pointsObject: Record<string, number> = {
     JUPITER: jupiterPoints,
@@ -64,22 +77,20 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
     },
   });
 
-
-  let criterios: string[] = [conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario,]
+  let criterios: string[] = [
+    conflicto,
+    relaciones,
+    estrategia,
+    resolutividad,
+    trabajo,
+    lugar,
+    humor,
+    creatividad,
+    juicio,
+    horario,
+  ];
 
   //.................................................................................................
-  //aqui he d'insertar cada una de les funcionalitats
-
-  useEffect(() => {
-    setIsVisible(true);
-    actualizarPuntos(criterios)
-
-
-  }, []);
-
-  //primer hauria de crear i implementar criterioalgoritmo. TÉ COM A INPUT CRITERIOS. Dona diosAlgoritmo com a valor. 
-  //ens dona resultat amb que treballar a selectdios
-
   function criterioAlgoritmo(criterios: string[]) {
     switch (true) {
       case criterios[0] == "PACÍFICO" &&
@@ -218,10 +229,11 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
         return " ";
     }
   }
-  let diosAlgoritmo = criterioAlgoritmo(criterios)
 
-  //2, crear i implementar actualizar puntos, per modificar pointsObject en base a criterios.
-  //ens serveix pel punt següent
+  let diosAlgoritmo = criterioAlgoritmo(criterios);
+
+  // 2, Crear y implementar actualizarPuntos, para modificar pointsObject en base a criterios.
+  // Nos sirve para el punto siguiente
 
   function actualizarPuntos(criterios: string[]) {
     for (let i = 0; i < criterios.length; i++) {
@@ -404,34 +416,36 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
       }
     }
   }
+  useEffect(() => {
+    setIsVisible(true);
+    // actualizarPuntos(criterios);
+  }, []);
 
+  // 3, Crear e implementar maxGodPoints, que toma como input pointsObject, actualizado en el punto 2
+  // Nos da como resultado el ganador por puntos, diosPuntos
+  // Si es uno solo, lo retorna
+  // Si no, retorna uno aleatorio
 
-  //recordatori: això d adalt servia per modificar estats. NO DONA UN RESULTAT.
-
-  //3, crear i implementar maxGodPoints, que pren com a imput pointsObject, actualitzat al punt 2
-  //ens dona com a resultat el guanyador per punts, diosPuntos
-  //si és un sol, el retorna
-  //si no, retorna un d'aleatori
-  function maxGodPoints(pointsObject: Record<string, number>) {
+  function maxGodPoints(pointsObject: Record<string, number>): Dioses {
     const maxScore = Math.max(...Object.values(pointsObject));
-    const maxScoreKeys = Object.keys(pointsObject).filter((key) => pointsObject[key] == maxScore);
+    const maxScoreKeys = Object.keys(pointsObject).filter(
+      (key) => pointsObject[key] === maxScore
+    );
 
-    if (maxScoreKeys.length == 1) {
-      return maxScoreKeys[0];
+    if (maxScoreKeys.length === 1) {
+      return maxScoreKeys[0] as Dioses;
     } else {
       const randomIndex = Math.floor(Math.random() * maxScoreKeys.length);
-      return maxScoreKeys[randomIndex];
+      return maxScoreKeys[randomIndex] as Dioses;
     }
   }
 
-  let diosPuntos = maxGodPoints(pointsObject)
+  let diosPuntos = maxGodPoints(pointsObject);
 
-  //4, AQUÍ COMENÇA Selectdios, que té com a input diosAlgoritmo i diosPuntos. Fa l'equivalent a checkCriterio.
-  // comproba si diosAlgoritmo és ''. 
-  //Si ho és, return diosPuntos.
-  //Si no, return diosAlgoritmo
-
-  //---
+  // 4, Aquí comienza Selectdios, que tiene como input diosAlgoritmo y diosPuntos. Hace lo equivalente a checkCriterio.
+  // Comprueba si diosAlgoritmo es ''. 
+  // Si lo es, return diosPuntos.
+  // Si no, return diosAlgoritmo
 
   function Selectdios(diosAlgoritmo: any, diosPuntos: any): Dioses {
     switch (diosAlgoritmo) {
@@ -447,11 +461,9 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
         return diosAlgoritmo as Dioses;
     }
   }
-  
-  
+
   //.................................................................................................
   const tuDios: Dioses = Selectdios(diosAlgoritmo, diosPuntos);
-
 
   const handleSeguirClick = () => {
     setmidios(tuDios);
@@ -462,32 +474,33 @@ const Resultado: React.FC<ResultadoProps> = ({ setComponenteActual, setmidios,
     router.push("/landing");
   };
 
-
   const imagendios = `/DEUSPOMPEIA/${tuDios}.png`;
 
   return (
     <animated.div
-      className="flex flex-col mb-10 text-center justify-center p-24  w-screen"
+      className="flex flex-col mb-10 text-center justify-center p-24 w-screen"
       style={springAnimation}
     >
       <div className="mt-14 pt-8 px-20">
-        <div className="flex flex-row text-left justify-center align-center  px-20 pr-24 mx-14 ">
+        <div className="flex flex-row text-left justify-center align-center px-20 pr-24 mx-14">
           <div className="flex-1 flex flex-col ml-16 pt-10">
             <div className="pl-24 ml-14">
-              <h1 className="text-7xl mt-10 ">{nombre}</h1>
-              <p className="text-black text-2xl mt-2 mb-16   text-black">
-              {Content.cuestionario.resultado.tudioses[lang]}
+              <h1 className="text-7xl mt-10">{nombre}</h1>
+              <p className="text-black text-2xl mt-2 mb-16 text-black">
+                {Content.cuestionario.resultado.tudioses[lang]}
               </p>
-              <h2 className="text-black  text-7xl  mb-5   ">{Content.cuestionario.resultado.nombresdioses[lang][tuDios]}</h2>
+              <h2 className="text-black text-7xl mb-5">
+                {Content.cuestionario.resultado.nombresdioses[lang][tuDios]}
+              </h2>
               <div className="text-black">
                 <div className="text-2xl mb-10 pr-5">
-                {Content.cuestionario.resultado.contenidoresultado[lang][tuDios] || "Información no disponible"}
+                  {Content.cuestionario.resultado.contenidoresultado[lang][tuDios] || "Información no disponible"}
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex-1 flex items-center justify-center ">
+          <div className="flex-1 flex items-center justify-center">
             <Image
               src={imagendios}
               alt={tuDios}
