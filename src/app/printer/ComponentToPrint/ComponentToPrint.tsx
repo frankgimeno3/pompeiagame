@@ -2,21 +2,12 @@
 
 import React from 'react';
 
-const ComponentToPrint = React.forwardRef(function ComponentToPrint(
-  {
-    nombre,
-    tuDios,
-    tulang,
-    contenidoprint,
-  }: {
-    nombre: string;
-    tuDios: string;
-    tulang: string;
-    contenidoprint: string;
-  },
+const ComponentToPrint = React.forwardRef(function ComponentToPrint( 
+  { nombre, tuDios, tulang, contenidoprint, }: { nombre: string; tuDios: string; tulang: string; contenidoprint: string; },
   ref: React.Ref<HTMLDivElement>
 ) {
-  const imagendios = `/${tuDios}.png`;
+ 
+  const imagendios = `./DEUSPOMPEIA/${tuDios}.png`;
 
 
   return (
@@ -51,10 +42,10 @@ const ComponentToPrint = React.forwardRef(function ComponentToPrint(
             />
           </div>
         </div>
-
+            <p>TU LANG!!!!!!!!!! {tulang}</p>
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <img
-            src="/f3.png"
+            src="/f2.png"
             alt="f3"
             style={{
               width: "100%",
