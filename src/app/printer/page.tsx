@@ -10,11 +10,13 @@ import { useReactToPrint } from 'react-to-print';
 
 import slogans from "../contenido/slogans.json"
 import sloganseng from "../contenido/sloganseng.json"
+import slogansde from "../contenido/slogansde.json"
 import ComponentToPrint from './ComponentToPrint/ComponentToPrint';
 
 import Content from "../contenido/contenidoPrinter.json"
 import { PrinterContent } from '../contenido/interfaces'; 
 import { useSession } from 'next-auth/react';
+import AlertComponent from './alertComponent/AlertComponent';
  
 interface PrinterProps { }
 
@@ -161,48 +163,90 @@ const Printer: FC<PrinterProps> = ({ }) => {
                         break;
                 }
                 break;
-            case "en":
-                switch (file.midios) {
-                    case "CERES":
-                        setcontenidoprint(sloganseng.CERES);
+                case "en":
+                    switch (file.midios) {
+                        case "CERES":
+                            setcontenidoprint(sloganseng.CERES);
+                            break;
+                        case "DIANA":
+                            setcontenidoprint(sloganseng.DIANA);
+                            break;
+                        case "PHOEBUS":
+                            setcontenidoprint(sloganseng.FEBO);
+                            break;
+                        case "JUPITER":
+                            setcontenidoprint(sloganseng.JUPITER);
+                            break;
+                        case "VESTA":
+                            setcontenidoprint(sloganseng.JUNO);
+                            break;
+                        case "MARS":
+                            setcontenidoprint(sloganseng.MARTE);
+                            break;
+                        case "MERCURY":
+                            setcontenidoprint(sloganseng.MERCURIO);
+                            break;
+                        case "MINERVA":
+                            setcontenidoprint(sloganseng.MINERVA);
+                            break;
+                        case "NEPTUNE":
+                            setcontenidoprint(sloganseng.NEPTUNO);
+                            break;
+                        case "VENUS":
+                            setcontenidoprint(sloganseng.VENUS);
+                            break;
+                        case "JUNO":
+                            setcontenidoprint(sloganseng.VESTA);
+                            break;
+                        case "VULCAN":
+                            setcontenidoprint(sloganseng.VULCANO);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                    case "de":
+                        switch (file.midios) {
+                            case "CERES":
+                                setcontenidoprint(slogansde.CERES);
+                                break;
+                            case "DIANA":
+                                setcontenidoprint(slogansde.DIANA);
+                                break;
+                            case "PHOEBUS":
+                                setcontenidoprint(slogansde.FEBO);
+                                break;
+                            case "JUPITER":
+                                setcontenidoprint(slogansde.JUPITER);
+                                break;
+                            case "VESTA":
+                                setcontenidoprint(slogansde.JUNO);
+                                break;
+                            case "MARS":
+                                setcontenidoprint(slogansde.MARTE);
+                                break;
+                            case "MERCURY":
+                                setcontenidoprint(slogansde.MERCURIO);
+                                break;
+                            case "MINERVA":
+                                setcontenidoprint(slogansde.MINERVA);
+                                break;
+                            case "NEPTUNE":
+                                setcontenidoprint(slogansde.NEPTUNO);
+                                break;
+                            case "VENUS":
+                                setcontenidoprint(slogansde.VENUS);
+                                break;
+                            case "JUNO":
+                                setcontenidoprint(slogansde.VESTA);
+                                break;
+                            case "VULCAN":
+                                setcontenidoprint(slogansde.VULCANO);
+                                break;
+                            default:
+                                break;
+                        }
                         break;
-                    case "DIANA":
-                        setcontenidoprint(sloganseng.DIANA);
-                        break;
-                    case "PHOEBUS":
-                        setcontenidoprint(sloganseng.PHOEBUS);
-                        break;
-                    case "JUPITER":
-                        setcontenidoprint(sloganseng.JUPITER);
-                        break;
-                    case "VESTA":
-                        setcontenidoprint(sloganseng.VESTA);
-                        break;
-                    case "MARS":
-                        setcontenidoprint(sloganseng.MARS);
-                        break;
-                    case "MERCURY":
-                        setcontenidoprint(sloganseng.MERCURY);
-                        break;
-                    case "MINERVA":
-                        setcontenidoprint(sloganseng.MINERVA);
-                        break;
-                    case "NEPTUNE":
-                        setcontenidoprint(sloganseng.NEPTUNE);
-                        break;
-                    case "VENUS":
-                        setcontenidoprint(sloganseng.VENUS);
-                        break;
-                    case "JUNO":
-                        setcontenidoprint(sloganseng.JUNO);
-                        break;
-                    case "VULCAN":
-                        setcontenidoprint(sloganseng.VULCAN);
-                        break;
-                    default:
-                        break;
-                }
-                break;
             default:
                 break;
         }
@@ -312,26 +356,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 </div>
             </div>
             {showAlert && (
-                <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-500 bg-opacity-75">
-                    <div className="bg-white p-5 rounded shadow">
-                        <p className="text-xl mb-5">{typedContent.estasseguro[printerLang]}
-                        </p>
-                        <div className="flex justify-end">
-                            <button
-                                className="rounded bg-red-500 text-white px-4 py-2 mr-2"
-                                onClick={confirmDelete}
-                            >
-                                {typedContent.eliminar[printerLang]}
-                            </button>
-                            <button
-                                className="rounded bg-gray-200 px-4 py-2"
-                                onClick={cancelDelete}
-                            >
-                                {typedContent.cancelar[printerLang]}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <AlertComponent typedContent={typedContent} printerLang={printerLang} confirmDelete={confirmDelete}cancelDelete={cancelDelete}/>
             )}
             <div style={{ display: "none" }}>
                 {selectedRowData && (

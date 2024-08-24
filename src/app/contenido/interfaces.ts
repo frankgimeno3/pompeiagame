@@ -1,7 +1,7 @@
 import { Cuestionario } from "./interfazcuestionario";
 import { PrinterInterface } from "./interfazprinter";
 
-
+// Define el tipo de contenido para las claves del idioma
 export interface LanguageContent {
     en: string;
     de: string;
@@ -12,6 +12,13 @@ export type Language = "es" | "en" | "de";
 
 export type Dioses = "" | 'CERES' | 'DIANA' | 'FEBO' | 'JUPITER' | 'JUNO' | 'MARTE' | 'MERCURIO' | 'MINERVA' | 'NEPTUNO' | 'VENUS' | 'VESTA' | 'VULCANO';
 
+// Define el tipo de contenido del cuestionario
+export interface ContenidoResultado {
+    [key: string]: {
+        [key: string]: string;
+    };
+}
+
 export interface ContentType {
     dashboard: {
         // Define las propiedades de dashboard si es necesario
@@ -20,92 +27,82 @@ export interface ContentType {
     printer: PrinterInterface;
 }
 
+// Define las propiedades de los componentes para varios aspectos
 export interface NombreProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setNombre: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
+    lang: Language;
 }
 
 export interface NombreholaProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-    nombre: String;
-    lang: 'es' | 'en' | 'de';
+    nombre: string;
+    lang: Language;
 }
 
 export interface ConflictoProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setConflicto: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface RelacionesProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setRelaciones: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface EstrategiaProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setEstrategia: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface ResolutividadProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setResolutividad: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface TrabajoProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setTrabajo: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface LugarProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setLugar: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface HumorProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setHumor: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface CreatividadProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setCreatividad: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface JuicioProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setJuicio: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface HorarioProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     setHorario: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface AleaProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface ResultadoProps {
@@ -122,23 +119,20 @@ export interface ResultadoProps {
     creatividad: string;
     juicio: string;
     horario: string;
-    lang: 'es' | 'en' | 'de';
+    lang: Language;
 }
 
 export interface EnviarProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
     midios: Dioses;
     nombre: string;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
 
 export interface YapuedesProps {
     setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
-    lang: 'es' | 'en' | 'de';
-
+    lang: Language;
 }
-
 
 export interface PrinterContent {
     title: LanguageContent;
@@ -157,3 +151,5 @@ export interface PrinterContent {
     estasseguro: LanguageContent;
     vermas: LanguageContent;
 }
+
+export interface PrinterProps { }
