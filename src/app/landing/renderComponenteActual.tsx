@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode, useState, useEffect, FC } from "react";
 import Nombre from "./comp_landing/1nombre/nombre";
 import Nombrehola from "./comp_landing/1nombrehola/nombrehola";
 import Conflicto from "./comp_landing/2conflicto/conflicto";
@@ -16,60 +16,66 @@ import Resultado from "./comp_landing/913resultado/resultado";
 import Enviar from "./comp_landing/914enviar/enviar";
 import Yapuedes from "./comp_landing/915yapuedes/yapuedes";
 import { Dioses } from "../contenido/interfaces";
- 
-// Función para validar si un valor es un Dioses válido
-const isValidDios = (value: string): value is Dioses => {
-  return [
-    'CERES', 'DIANA', 'FEBO', 'JUPITER', 'JUNO', 
-    'MARTE', 'MERCURIO', 'MINERVA', 'NEPTUNO', 
-    'VENUS', 'VESTA', 'VULCANO'
-  ].includes(value);
-};
 
-// Componente para envolver con transición
-const FadeInOut = ({ children }: { children: ReactNode }) => {
-  const [visible, setVisible] = useState(false);
+interface RenderComponenteActualProps {
+  lang: "es" | "en" | "de";
+  componenteactual: string;
+  setComponenteActual: React.Dispatch<React.SetStateAction<string>>;
+  setNombre: React.Dispatch<React.SetStateAction<string>>;
+  nombre: string;
+  setConflicto: React.Dispatch<React.SetStateAction<string>>;
+  setRelaciones: React.Dispatch<React.SetStateAction<string>>;
+  setEstrategia: React.Dispatch<React.SetStateAction<string>>;
+  setResolutividad: React.Dispatch<React.SetStateAction<string>>;
+  setTrabajo: React.Dispatch<React.SetStateAction<string>>;
+  setLugar: React.Dispatch<React.SetStateAction<string>>;
+  setHumor: React.Dispatch<React.SetStateAction<string>>;
+  setCreatividad: React.Dispatch<React.SetStateAction<string>>;
+  setJuicio: React.Dispatch<React.SetStateAction<string>>;
+  setHorario: React.Dispatch<React.SetStateAction<string>>;
+  setmidios: React.Dispatch<React.SetStateAction<Dioses>>;
+  conflicto: string;
+  relaciones: string;
+  estrategia: string;
+  resolutividad: string;
+  trabajo: string;
+  lugar: string;
+  humor: string;
+  creatividad: string;
+  juicio: string;
+  horario: string;
+  midios: Dioses;
+}
 
-  useEffect(() => {
-    setVisible(true);
-  }, [children]);
-
-  return (
-    <div className={`transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-      {children}
-    </div>
-  );
-};
-
-const renderComponenteActual = (
-  lang: "es" | "en" | "de",
-  componenteactual: string,
-  setComponenteActual: React.Dispatch<React.SetStateAction<string>>,
-  setNombre: React.Dispatch<React.SetStateAction<string>>,
-  nombre: string,
-  setConflicto: React.Dispatch<React.SetStateAction<string>>,
-  setRelaciones: React.Dispatch<React.SetStateAction<string>>,
-  setEstrategia: React.Dispatch<React.SetStateAction<string>>,
-  setResolutividad: React.Dispatch<React.SetStateAction<string>>,
-  setTrabajo: React.Dispatch<React.SetStateAction<string>>,
-  setLugar: React.Dispatch<React.SetStateAction<string>>,
-  setHumor: React.Dispatch<React.SetStateAction<string>>,
-  setCreatividad: React.Dispatch<React.SetStateAction<string>>,
-  setJuicio: React.Dispatch<React.SetStateAction<string>>,
-  setHorario: React.Dispatch<React.SetStateAction<string>>,
-  setmidios: React.Dispatch<React.SetStateAction<Dioses>>,
-  conflicto: string,
-  relaciones: string,
-  estrategia: string,
-  resolutividad: string,
-  trabajo: string,
-  lugar: string,
-  humor: string,
-  creatividad: string,
-  juicio: string,
-  horario: string,
-  midios: Dioses,
- ) => {
+const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
+  lang,
+  componenteactual,
+  setComponenteActual,
+  setNombre,
+  nombre,
+  setConflicto,
+  setRelaciones,
+  setEstrategia,
+  setResolutividad,
+  setTrabajo,
+  setLugar,
+  setHumor,
+  setCreatividad,
+  setJuicio,
+  setHorario,
+  setmidios,
+  conflicto,
+  relaciones,
+  estrategia,
+  resolutividad,
+  trabajo,
+  lugar,
+  humor,
+  creatividad,
+  juicio,
+  horario,
+  midios,
+}) => {
   const [component, setComponent] = useState<ReactNode>(null);
 
   useEffect(() => {
@@ -80,7 +86,8 @@ const renderComponenteActual = (
         newComponent = (
           <Nombre
             setComponenteActual={setComponenteActual}
-            setNombre={setNombre} lang={lang}
+            setNombre={setNombre}
+            lang={lang}
           />
         );
         break;
@@ -88,7 +95,8 @@ const renderComponenteActual = (
         newComponent = (
           <Nombrehola
             setComponenteActual={setComponenteActual}
-            nombre={nombre} lang={lang}
+            nombre={nombre}
+            lang={lang}
           />
         );
         break;
@@ -96,7 +104,8 @@ const renderComponenteActual = (
         newComponent = (
           <Conflicto
             setComponenteActual={setComponenteActual}
-            setConflicto={setConflicto} lang={lang}
+            setConflicto={setConflicto}
+            lang={lang}
           />
         );
         break;
@@ -104,7 +113,8 @@ const renderComponenteActual = (
         newComponent = (
           <Relaciones
             setComponenteActual={setComponenteActual}
-            setRelaciones={setRelaciones} lang={lang}
+            setRelaciones={setRelaciones}
+            lang={lang}
           />
         );
         break;
@@ -112,7 +122,8 @@ const renderComponenteActual = (
         newComponent = (
           <Estrategia
             setComponenteActual={setComponenteActual}
-            setEstrategia={setEstrategia} lang={lang}
+            setEstrategia={setEstrategia}
+            lang={lang}
           />
         );
         break;
@@ -120,7 +131,8 @@ const renderComponenteActual = (
         newComponent = (
           <Resolutividad
             setComponenteActual={setComponenteActual}
-            setResolutividad={setResolutividad} lang={lang}
+            setResolutividad={setResolutividad}
+            lang={lang}
           />
         );
         break;
@@ -128,7 +140,8 @@ const renderComponenteActual = (
         newComponent = (
           <Trabajo
             setComponenteActual={setComponenteActual}
-            setTrabajo={setTrabajo} lang={lang}
+            setTrabajo={setTrabajo}
+            lang={lang}
           />
         );
         break;
@@ -136,39 +149,53 @@ const renderComponenteActual = (
         newComponent = (
           <Lugar
             setComponenteActual={setComponenteActual}
-            setLugar={setLugar} lang={lang}
+            setLugar={setLugar}
+            lang={lang}
           />
         );
         break;
       case "humor":
         newComponent = (
-          <Humor setComponenteActual={setComponenteActual} setHumor={setHumor} lang={lang} />
+          <Humor
+            setComponenteActual={setComponenteActual}
+            setHumor={setHumor}
+            lang={lang}
+          />
         );
         break;
       case "creatividad":
         newComponent = (
           <Creatividad
             setComponenteActual={setComponenteActual}
-            setCreatividad={setCreatividad} lang={lang}
+            setCreatividad={setCreatividad}
+            lang={lang}
           />
         );
         break;
       case "juicio":
         newComponent = (
-          <Juicio setComponenteActual={setComponenteActual} setJuicio={setJuicio} lang={lang} />
+          <Juicio
+            setComponenteActual={setComponenteActual}
+            setJuicio={setJuicio}
+            lang={lang}
+          />
         );
         break;
       case "horario":
         newComponent = (
           <Horario
             setComponenteActual={setComponenteActual}
-            setHorario={setHorario} lang={lang}
+            setHorario={setHorario}
+            lang={lang}
           />
         );
         break;
       case "alea":
         newComponent = (
-          <Alea setComponenteActual={setComponenteActual} lang={lang} />
+          <Alea
+            setComponenteActual={setComponenteActual}
+            lang={lang}
+          />
         );
         break;
       case "resultado":
@@ -202,7 +229,8 @@ const renderComponenteActual = (
             humor={humor}
             creatividad={creatividad}
             juicio={juicio}
-            horario={horario} lang={lang}
+            horario={horario}
+            lang={lang}
           />
         );
         break;
@@ -218,7 +246,10 @@ const renderComponenteActual = (
         break;
       case "yapuedes":
         newComponent = (
-          <Yapuedes setComponenteActual={setComponenteActual} lang={lang}/>
+          <Yapuedes
+            setComponenteActual={setComponenteActual}
+            lang={lang}
+          />
         );
         break;
       default:
@@ -228,7 +259,29 @@ const renderComponenteActual = (
     setComponent(newComponent);
   }, [componenteactual, lang, nombre, setComponenteActual, setNombre, setConflicto, setRelaciones, setEstrategia, setResolutividad, setTrabajo, setLugar, setHumor, setCreatividad, setJuicio, setHorario, setmidios, conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, midios]);
 
+  const isValidDios = (value: string): value is Dioses => {
+    return [
+      'CERES', 'DIANA', 'FEBO', 'JUPITER', 'JUNO',
+      'MARTE', 'MERCURIO', 'MINERVA', 'NEPTUNO',
+      'VENUS', 'VESTA', 'VULCANO'
+    ].includes(value);
+  };
+
+  const FadeInOut = ({ children }: { children: ReactNode }) => {
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+      setVisible(true);
+    }, [children]);
+
+    return (
+      <div className={`transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+        {children}
+      </div>
+    );
+  };
+
   return <FadeInOut>{component}</FadeInOut>;
 };
 
-export default renderComponenteActual;
+export default RenderComponenteActual;

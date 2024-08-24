@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Restartbutton from "../../components/RestartButton";
-import renderComponenteActual from "../renderComponenteActual";
+import RenderComponenteActual from "../renderComponenteActual"; // Asegúrate de que la ruta sea correcta
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { Dioses, Language } from "@/app/contenido/interfaces";
@@ -187,37 +187,37 @@ const Cuestionario = () => {
             </div>
 
             <FadeInOut2 visible={!loadingvisible}>
-              {renderComponenteActual(
-                lang,
-                componenteactual,
-                setComponenteActual,
-                setNombre,
-                nombre,
-                setConflicto,
-                setRelaciones,
-                setEstrategia,
-                setResolutividad,
-                setTrabajo,
-                setLugar,
-                setHumor,
-                setCreatividad,
-                setJuicio,
-                setHorario,
-                setmidios,
-                conflicto,
-                relaciones,
-                estrategia,
-                resolutividad,
-                trabajo,
-                lugar,
-                humor,
-                creatividad,
-                juicio,
-                horario,
-                midios,
-              )}
+              <RenderComponenteActual
+                lang={lang}
+                componenteactual={componenteactual}
+                setComponenteActual={setComponenteActual}
+                setNombre={setNombre}
+                nombre={nombre}
+                setConflicto={setConflicto}
+                setRelaciones={setRelaciones}
+                setEstrategia={setEstrategia}
+                setResolutividad={setResolutividad}
+                setTrabajo={setTrabajo}
+                setLugar={setLugar}
+                setHumor={setHumor}
+                setCreatividad={setCreatividad}
+                setJuicio={setJuicio}
+                setHorario={setHorario}
+                setmidios={setmidios}
+                conflicto={conflicto}
+                relaciones={relaciones}
+                estrategia={estrategia}
+                resolutividad={resolutividad}
+                trabajo={trabajo}
+                lugar={lugar}
+                humor={humor}
+                creatividad={creatividad}
+                juicio={juicio}
+                horario={horario}
+                midios={midios}
+              />
             </FadeInOut2>
-            </div>
+          </div>
         </FadeInOut2>
       </div>
     </div>
