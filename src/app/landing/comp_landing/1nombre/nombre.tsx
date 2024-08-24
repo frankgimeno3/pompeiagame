@@ -27,7 +27,6 @@ const Nombre: React.FC<NombreProps> = ({ setComponenteActual, setNombre, lang })
       if (inputValue) {
           setComponenteActual("nombrehola");
           setNombre(inputValue);
-          console.log(inputValue);
       }
   };
 

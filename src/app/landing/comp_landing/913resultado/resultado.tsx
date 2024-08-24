@@ -450,14 +450,8 @@ const Resultado: React.FC<ResultadoProps> = ({
   function Selectdios(diosAlgoritmo: any, diosPuntos: any): Dioses {
     switch (diosAlgoritmo) {
       case " ":
-        console.log("NO fue por criterios");
-        console.log(criterios);
-        console.log(pointsObject);
         return diosPuntos as Dioses;
       default:
-        console.log("SÍ fue por criterios");
-        console.log(criterios);
-        console.log(pointsObject);
         return diosAlgoritmo as Dioses;
     }
   }

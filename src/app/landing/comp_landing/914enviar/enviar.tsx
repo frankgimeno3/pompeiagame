@@ -33,9 +33,7 @@ const Enviar: React.FC<EnviarProps> = ({
       await updateDoc(docRef, {
         id: docRef.id,
       });
-  
-      console.log("Document written with ID: ", docRef.id);
-      setComponenteActual("yapuedes");
+        setComponenteActual("yapuedes");
     } catch (error) {
       console.error("Ha ocurrido un error:", error);
     }
@@ -93,7 +91,7 @@ const Enviar: React.FC<EnviarProps> = ({
       </p>
 
       <div
-        className="mx-24 px-24 flex flex-row"
+        className="mx-24 ml-28 px-24 flex flex-row"
         style={{
           position: "fixed",
           top: "40%",
@@ -106,11 +104,11 @@ const Enviar: React.FC<EnviarProps> = ({
         }}
       >
         <div className="flex-1 flex flex-col ml-24  mx-24 px-10  pr-20  ">
-          <div className=" text-left mx-24 px-24 ">
-            <h1 className="text-md mt-10 ">{nombre}</h1>
+        <div className=" text-left mx-24 px-24 ">
+        <h1 className="text-md mt-10 ">{nombre}</h1>
             <p className="text-black text-xs mt-2   text-black" style={{ fontSize: '8px' }}>{Content.cuestionario.resultado.tudioses[lang]}</p>
             <h2 className="text-black  text-md  mb-5   ">{Content.cuestionario.resultado.nombresdioses[lang][midios]}</h2>
-            <div className="text-black">
+            <div className="text-black w-44">
               <div className="text-xs mb-10 pr-5" style={{ fontSize: '8px' }}>
                 {Content.cuestionario.resultado.contenidoresultado[lang][midios]}
               </div>
@@ -131,12 +129,12 @@ const Enviar: React.FC<EnviarProps> = ({
           borderRadius: "10px",
         }}
       >
-        <div className="flex-1 flex items-center justify-center mr-10 mt-10 ">
+        <div className="flex-1 flex items-center justify-center mr-10 ml-12 mt-10 ">
           <Image
             src={imagendios}
             alt={midios}
-            width={120}
-            height={120}
+            width={130}
+            height={130}
             style={{ width: "auto", height: "auto" }}
             className="px-20"
           />

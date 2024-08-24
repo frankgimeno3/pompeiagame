@@ -90,8 +90,6 @@ const Printer: FC<PrinterProps> = ({ }) => {
                 router.push("/printer")
                 const documentRef = doc(db, 'documents', id);
                 await deleteDoc(documentRef);
-
-                console.log(`Documento con id ${id} eliminado exitosamente`);
             } catch (error) {
                 console.error("Error eliminando el documento: ", error);
             }
