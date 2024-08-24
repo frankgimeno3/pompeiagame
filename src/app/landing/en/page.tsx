@@ -71,61 +71,61 @@ const Cuestionario = () => {
       case "conflicto":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/p1.png")`);
+          setFondo(`url("/preguntas/en/p1.png")`);
         }, 600);
         break;
       case "relaciones":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/j2.png")`);
+          setFondo(`url("/preguntas/en/2.png")`);
         }, 600);
         break;
       case "estrategia":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/3.png")`);
+          setFondo(`url("/preguntas/en/3.png")`);
         }, 600);
         break;
       case "resolutividad":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/4.png")`);
+          setFondo(`url("/preguntas/en/4.png")`);
         }, 600);
         break;
       case "trabajo":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/5.png")`);
+          setFondo(`url("/preguntas/en/5.png")`);
         }, 600);
         break;
       case "lugar":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/6.png")`);
+          setFondo(`url("/preguntas/en/6.png")`);
         }, 600);
         break;
       case "humor":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/7.png")`);
+          setFondo(`url("/preguntas/en/7.png")`);
         }, 600);
         break;
       case "creatividad":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/8.png")`);
+          setFondo(`url("/preguntas/en/8.png")`);
         }, 600);
         break;
       case "juicio":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/9.png")`);
+          setFondo(`url("/preguntas/en/9.png")`);
         }, 600);
         break;
       case "horario":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/es/910.png")`);
+          setFondo(`url("/preguntas/en/910.png")`);
         }, 600);
         break;
       case "resultado":
