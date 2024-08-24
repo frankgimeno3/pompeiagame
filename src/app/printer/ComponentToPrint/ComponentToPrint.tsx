@@ -16,7 +16,7 @@ const ComponentToPrint = React.forwardRef(function ComponentToPrint(
   },
   ref: React.Ref<HTMLDivElement>
 ) {
-  const imagendios = `/${tulang}s/${tuDios}.png`;
+  const imagendios = `/${tuDios}.png`;
 
 
   return (
