@@ -71,7 +71,7 @@ const Cuestionario = () => {
       case "conflicto":
         setFondo(`url("/f2.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/de/p1.png")`);
+          setFondo(`url("/preguntas/de/1.png")`);
         }, 600);
         break;
       case "relaciones":
