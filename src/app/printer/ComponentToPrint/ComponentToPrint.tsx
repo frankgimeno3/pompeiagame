@@ -1,14 +1,54 @@
 "use client"; // Asegúrate de que este archivo se ejecute en el cliente
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ComponentToPrint = React.forwardRef(function ComponentToPrint( 
-  { nombre, tuDios, tulang, contenidoprint, }: { nombre: string; tuDios: string; tulang: string; contenidoprint: string; },
+const ComponentToPrint = React.forwardRef(function ComponentToPrint(
+  { nombre, tuDios, tulang, contenidoprint }: { nombre: string; tuDios: string; tulang: string; contenidoprint: string; },
   ref: React.Ref<HTMLDivElement>
 ) {
- 
   const imagendios = `./DEUSPOMPEIA/${tuDios}.png`;
+  const [godToShow, setGodToShow] = useState<any>();
 
+  const godsTranslation: any = {
+    "en": {
+      "": "",
+      "CERES": "CERES",
+      "DIANA": "DIANA",
+      "FEBO": "PHOEBUS",
+      "JUPITER": "JUPITER",
+      "JUNO": "JUNO",
+      "MARTE": "MARS",
+      "MERCURIO": "MERCURY",
+      "MINERVA": "MINERVA",
+      "NEPTUNO": "NEPTUNE",
+      "VENUS": "VENUS",
+      "VESTA": "VESTA",
+      "VULCANO": "VULCAN"
+    },
+    "de": {
+      "": "",
+      "CERES": "CERES",
+      "DIANA": "DIANA",
+      "FEBO": "PHOEBUS",
+      "JUPITER": "JUPITER",
+      "JUNO": "JUNO",
+      "MARTE": "MARS",
+      "MERCURIO": "MERKUR",
+      "MINERVA": "MINERVA",
+      "NEPTUNO": "NEPTUN",
+      "VENUS": "VENUS",
+      "VESTA": "VESTA",
+      "VULCANO": "VULKAN"
+    }
+  };
+
+  useEffect(() => {
+    if (tulang === "es") {
+      setGodToShow(tuDios);
+    } else {
+      setGodToShow(godsTranslation[tulang][tuDios]);
+    }
+  }, [tulang, tuDios]);
 
   return (
     <div>
@@ -27,7 +67,7 @@ const ComponentToPrint = React.forwardRef(function ComponentToPrint(
             {tulang == "de" && <p className="text-black text-2xl mt-2 mb-8">DEIN GOTT IST</p>}
             {tulang == "es" && <p className="text-black text-2xl mt-2 mb-8">TU DIOS ES</p>}
             {tulang == "en" && <p className="text-black text-2xl mt-2 mb-8">YOUR GOD IS</p>}
-            <h2 className="text-black text-5xl mb-4">{tuDios}</h2>
+            <h2 className="text-black text-5xl mb-4">{godToShow}</h2>
             <div className="text-black">
               <div className="text-lg mb-10 pr-5">{contenidoprint}</div>
             </div>
@@ -42,7 +82,7 @@ const ComponentToPrint = React.forwardRef(function ComponentToPrint(
             />
           </div>
         </div>
-            <p>TU LANG!!!!!!!!!! {tulang}</p>
+        <p>TU LANG!!!!!!!!!! {tulang}</p>
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <img
             src="/f2.png"
