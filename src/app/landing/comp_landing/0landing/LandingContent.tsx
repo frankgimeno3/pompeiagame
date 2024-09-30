@@ -31,19 +31,19 @@ const LandingContent: FC<LandingContentProps> = ({ lang, setLang }) => {
       </button>
       <div className="flex justify-center items-center mt-10 mb-10">
         <div className="flex flex-col text-black mx-5 justify-center text-center ">
-          <div className="rounded-full overflow-hidden">
+          <div className="rounded-full overflow-hidden" onClick={()=> changeLang("en")}>
             <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
           </div>
           <button className="text-3xl text-center " onClick={()=> changeLang("en")}>EN</button>
         </div>
         <div className="flex flex-col text-black  mx-5 justify-center text-center ">
-          <div className="rounded-full overflow-hidden">
+          <div className="rounded-full overflow-hidden" onClick={()=> changeLang("es")}>
             <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
           </div>
           <button className="text-3xl text-center " onClick={()=> changeLang("es")}>ES</button>
         </div>
         <div className="flex flex-col text-black  mx-5 justify-center text-center ">
-          <div className="rounded-full overflow-hidden">
+          <div className="rounded-full overflow-hidden" onClick={()=> changeLang("de")}>
             <Image src="/icon/flor.png" alt="flor" width={50} height={50} />
           </div>
           <button className="text-3xl text-center " onClick={()=> changeLang("de")}>DE</button>
