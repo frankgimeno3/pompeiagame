@@ -89,7 +89,7 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                     setcontenidoprint(sloganseng.VENUS);
                     break;
                 case "JUNO":
-                    setcontenidoprint(sloganseng.VESTA);
+                    setcontenidoprint(sloganseng.JUNO);
                     break;
                 case "VULCAN":
                     setcontenidoprint(sloganseng.VULCANO);
@@ -131,7 +131,7 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                     setcontenidoprint(slogansde.VENUS);
                     break;
                 case "JUNO":
-                    setcontenidoprint(slogansde.VESTA);
+                    setcontenidoprint(slogansde.JUNO);
                     break;
                 case "VULCAN":
                     setcontenidoprint(slogansde.VULCANO);
