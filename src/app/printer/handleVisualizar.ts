@@ -64,7 +64,7 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                 case "DIANA":
                     setcontenidoprint(sloganseng.DIANA);
                     break;
-                case "PHOEBUS":
+                case "FEBO":
                     setcontenidoprint(sloganseng.FEBO);
                     break;
                 case "JUPITER":
@@ -73,16 +73,16 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                 case "VESTA":
                     setcontenidoprint(sloganseng.VESTA);
                     break;
-                case "MARS":
+                case "MARTE":
                     setcontenidoprint(sloganseng.MARTE);
                     break;
-                case "MERCURY":
+                case "MERCURIO":
                     setcontenidoprint(sloganseng.MERCURIO);
                     break;
                 case "MINERVA":
                     setcontenidoprint(sloganseng.MINERVA);
                     break;
-                case "NEPTUNE":
+                case "NEPTUNO":
                     setcontenidoprint(sloganseng.NEPTUNO);
                     break;
                 case "VENUS":
@@ -91,7 +91,7 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                 case "JUNO":
                     setcontenidoprint(sloganseng.JUNO);
                     break;
-                case "VULCAN":
+                case "VULCANO":
                     setcontenidoprint(sloganseng.VULCANO);
                     break;
                 default:
@@ -106,7 +106,7 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                 case "DIANA":
                     setcontenidoprint(slogansde.DIANA);
                     break;
-                case "PHOEBUS":
+                case "FEBO":
                     setcontenidoprint(slogansde.FEBO);
                     break;
                 case "JUPITER":
@@ -115,16 +115,16 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                 case "VESTA":
                     setcontenidoprint(slogansde.VESTA);
                     break;
-                case "MARS":
+                case "MARTE":
                     setcontenidoprint(slogansde.MARTE);
                     break;
-                case "MERCURY":
+                case "MERCURIO":
                     setcontenidoprint(slogansde.MERCURIO);
                     break;
                 case "MINERVA":
                     setcontenidoprint(slogansde.MINERVA);
                     break;
-                case "NEPTUNE":
+                case "NEPTUNO":
                     setcontenidoprint(slogansde.NEPTUNO);
                     break;
                 case "VENUS":
@@ -133,7 +133,7 @@ export const handleVisualizar = ({ file, setcontenidoprint, handlePrint,  }: Han
                 case "JUNO":
                     setcontenidoprint(slogansde.JUNO);
                     break;
-                case "VULCAN":
+                case "VULCANO":
                     setcontenidoprint(slogansde.VULCANO);
                     break;
                 default:
