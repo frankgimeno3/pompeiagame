@@ -86,7 +86,7 @@
         "relaciones": {
             "enamoradizo": {
                 "es": "ENAMORADIZO",
-                "en": "POLIAMOROUS",
+                "en": "POLYAMOROUS",
                 "de": "POLYAMOR"
             },
             "comprometido": {
@@ -98,7 +98,7 @@
         "estrategia": {
             "estratega": {
                 "es": "ESTRATEGA",
-                "en": "STRATEGIST",
+                "en": "STRATEGIC",
                 "de": "STRATEGISCH"
             },
             "impulsivo": {
@@ -122,12 +122,12 @@
         "trabajo": {
             "trabajador": {
                 "es": "TRABAJADOR",
-                "en": "A HARDWORKER",
+                "en": "HARD WORKING",
                 "de": "FLEISSIG"
             },
             "holgazan": {
                 "es": "HOLGAZaN",
-                "en": "AN IDLER",
+                "en": "IDLE",
                 "de": "GLÜCKLICH"
             }
         },
@@ -139,7 +139,7 @@
             },
             "campo": {
                 "es": "CAMPO",
-                "en": "THE FIELD",
+                "en": "THE COUNTRYSIDE",
                 "de": "AUF DEM LAND LEBEN"
             }
         },
@@ -244,7 +244,7 @@
                     "": "",
                     "CERES": "GODDESS OF AGRICULTURE, FERTILITY, AND HARVESTS, CONNECTED TO THE COUNTRYSIDE AND NATURE. SHE IS KNOWN FOR BEING AFFECTIONATE AND GENEROUS.",
                     "DIANA": "GODDESS OF HUNTING, THE MOON, NATURE, CHASTITY, AND PROTECTOR OF CHILDREN. SHE RESIDES IN THE FOREST AND IS CAPABLE OF COMMUNICATING WITH ANIMALS.",
-                    "FEBO": "GOD OF THE SUN, BEAUTY, PLASTIC ARTS, AND MUSIC. HE IS KNOWN FOR HIS WISDOM AND COMPETITIVENESS.",
+                    "FEBO": "GOD OF THE SUN, BEAUTY, ART, AND MUSIC. HE IS KNOWN FOR HIS WISDOM AND COMPETITIVENESS.",
                     "JUPITER": "GOD OF GODS. LORD OF THUNDER, PROTECTOR OF LAWS AND JUSTICE.",
                     "JUNO": "QUEEN OF OLYMPUS, PROTECTOR OF MARRIAGE, MOTHERHOOD, AND FAMILY. SHE IS KNOWN FOR HAVING A STRONG CHARACTER AND BEING UNCONDITIONALLY FAITHFUL.",
                     "MARTE": "GOD OF WAR AND PATRON OF PERFECTION AND BEAUTY. HE IS KNOWN FOR BEING BRAVE, IMPULSIVE, AND PASSIONATE.",
@@ -342,7 +342,7 @@
             },
             "comenzardenuevo": {
                 "es": "COMENZAR DE NUEVO",
-                "en": "START AGAIN",
+                "en": "RESTART",
                 "de": "NEUSTART"
             }
         },
