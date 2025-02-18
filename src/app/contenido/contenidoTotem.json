@@ -8,12 +8,12 @@
         "quediosdelolimpo": {
             "es": "¿QUÉ DIOS DEL OLIMPO",
             "en": "¿WHICH ROMAN GOD MATCHES BEST",
-            "de": "WELCHER RÖMISCHE GOTT PASST AM BESTEN"
+            "de": "WELCHE GOTTHEIT PASST AM BESTEN"
         },
         "terepresenta": {
             "es": "TE REPRESENTA?",
             "en": "WITH YOUR PERSONALITY?",
-            "de": "ZU IHRER PERSÖNLICHKEIT?"
+            "de": "ZU DEINER PERSÖNLICHKEIT?"
         },
         "unaaventuraquenosensena": {
             "es": "UNA AVENTURA QUE NOS ENSEÑA LAS CUALIDADES DE CADA DIOS ROMANO",
@@ -48,7 +48,7 @@
             "saludos": {
                 "es": "SALUDOS, ",
                 "en": "GREETINGS, ",
-                "de": "SEI GEGRÜBT!"
+                "de": "SEI GEGRÜSST!"
             },
             "bienvenidosalolimpo": {
                 "es": "BIENVENIDOS AL OLIMPO",
@@ -99,7 +99,7 @@
             "estratega": {
                 "es": "ESTRATEGA",
                 "en": "STRATEGIST",
-                "de": "STRATEGE"
+                "de": "STRATEGISCH"
             },
             "impulsivo": {
                 "es": "IMPULSIVO",
@@ -123,12 +123,12 @@
             "trabajador": {
                 "es": "TRABAJADOR",
                 "en": "A HARDWORKER",
-                "de": "EINE FLEISSIGE PERSON"
+                "de": "FLEISSIG"
             },
             "holgazan": {
                 "es": "HOLGAZaN",
                 "en": "AN IDLER",
-                "de": "EINEN MÜSSIGGÄNGER"
+                "de": "GLÜCKLICH"
             }
         },
         "lugar": {
@@ -147,12 +147,12 @@
             "buenhumor": {
                 "es": "BUEN HUMOR",
                 "en": "HAPPY",
-                "de": "DER GLÜCKLICHE TYP"
+                "de": "GLÜCKLICH"
             },
             "malhumor": {
                 "es": "MAL HUMOR",
                 "en": "MOODY",
-                "de": "DER LAUNISCHE TYP"
+                "de": "LAUNISCH"
             }
         },
         "creatividad": {
@@ -164,7 +164,7 @@
             "racional": {
                 "es": "RACIONAL",
                 "en": "RATIONAL",
-                "de": "KOPFMENSCH"
+                "de": "RATIONAL"
             }
         },
         "juicio": {
@@ -328,12 +328,12 @@
             "pidecopia": {
                 "es": "PIDE TU COPIA EN RECEPCIÓN",
                 "en": "ASK FOR YOUR COPY AT RECEPTION ",
-                "de": "FRAGE NACH DEINEM AUSDRUCK AM EMPFANG"
+                "de": "FRAGE NACH DEINEM AUSDRUCK AM EMPFANG. NEUSTART."
             },
             "precioventa": {
-                "es": "PRECIO DE VENTA 5€",
-                "en": "SELLING PRICE 5€",
-                "de": "VERKAUFSPREIS 5 €"
+                "es": "PRECIO DE VENTA 4€",
+                "en": "SELLING PRICE 4€",
+                "de": "VERKAUFSPREIS 4 €"
             },
             "confirmaryrecoger": {
                 "es": "CONFIRMAR Y RECOGER",
@@ -350,7 +350,7 @@
             "yapuedes": {
                 "es": "¡YA PUEDES RECOGERLO!",
                 "en": "YOUR COPY IS READY TO BE COLLECTED!",
-                "de": "DEIN AUSDRUCK LIEGT ZUR ABHOLUNG BEREIT!"
+                "de": "DEIN AUSDRUCK LIEGT ZUR ABHOLUNG BEREIT!!"
             },
             "vuelveajugar": {
                 "es": "VUELVE A JUGAR",
